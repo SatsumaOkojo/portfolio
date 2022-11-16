@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+
 import NavMenu from './components/NavMenu.vue';
 import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <header>
-       <NavMenu />
-       <RouterView />
- </header>
+      <div class="common-layout">
+        <el-container>
+               <el-header>
+                  <NavMenu />
+               </el-header>
 
+               <el-main>
 
-  
-  <footer>
-       <Footer />
-  </footer>
-</template>
+               </el-main>
+
+               <el-footer>
+                 <Footer />
+               </el-footer>
+        </el-container>
+      </div>
+    </template>
 
 
 
