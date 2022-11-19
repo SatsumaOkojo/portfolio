@@ -9,28 +9,63 @@
 </template>
 
 <style>
+ .color {
+    background-color: rgba(255, 235, 205, 0.783);
+  }
+
+  .logout {
+  margin: 0 4em;
+ }
+
+ .logout h1 {
+    font-size: 1em;
+    margin-left: 2em;
+    padding-top: 2em;
+    border-bottom: dashed 3px #2ba43b;
+  }
+
+  .bye {
+    width:30%;
+    height:30%;
+  }
+
+  .msg {
+    position: absolute;
+    margin: 1em 0 2em 7em;
+    top: 3em;
+    width:40%;
+    height:17%;
+  }
+
 @media (min-width: 1024px) {
   .color {
     background-color: rgba(255, 235, 205, 0.783);
   }
   
+ .logout {
+  margin: 0 4em;
+  padding: 0 2em
+ }
+
+
   .logout h1 {
-    margin-left: 50px;
-    margin-top: 80px;
+    font-size: 2.6em;
+    padding-top: 2em;
+    margin: 0 2em;
     border-bottom: dashed 3px #2ba43b;
   }
 
   .bye {
-    left: 40px;
-    width:400px;
-    height:400px;
+    width:30%;
+    height:30%;
   }
 
   .msg {
-    right: 100px;
-    top: 80px;
-    width:450px;
-    height:300px;
+    position: absolute;
+    margin: 2em 0 4em 19em;
+    top: 3em;
+    width:40%;
+    height:30%;
   }
 
 }

@@ -1,3 +1,6 @@
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 
 <template>
   <main>
@@ -12,21 +15,21 @@
 
    <div class="wrap">
       <div class="item">
-         <h3>困ったこと１</h3>
+         <h3>情報共有がうまくいかない</h3>
            <img alt="problem1" src="@/assets/problem1.png" width=300px height=200px />
-             <p>しょうさいしょうさいしょうさい</p>
+             <p>伝達ミスや認識の違いによって<br>トラブルが起きてしまう</p>
       </div>
 
       <div class="item">
-          <h3>困ったこと２</h3>
+          <h3>会議等が入り仕事が終わらない</h3>
             <img alt="problem2" src="@/assets/problem2.png" width=300px height=200px />
-              <p>しょうさいしょうさいしょうさい</p>
+              <p>時間に余裕がなくなり<br>保育の質が下がってしまう</p>
        </div>
 
       <div class="item">
-          <h3>困ったこと3</h3>
+          <h3>欲しい資料をいつでも確認できない</h3>
             <img alt="problem3" src="@/assets/problem3.png" width=300px height=200px />
-               <p>しょうさいしょうさいしょうさい</p>
+               <p>ファイルが1つしかない為<br>他の人が持って行ってしまうと<br>見ることができない</p>
         </div>
     </div>
 
@@ -59,19 +62,24 @@
                作成した企画書は随時まとめられるのでいつでも見られますよ</h2>
        </div>
           <img alt="proposal" class="sample_page"  src="@/assets/proposal.png" width="87%" />
-
-          <h3>他にも園での決まり事まとめたページや献立表等も載せられます！<br>
+         
+          <div class="box3">
+          <h3>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
              これだけでも、園の情報がよくわかるのではないでしょうか<br>
-             これらを活用して園のことをもっと知り、ー－－しませんか？<br><br>
+             これらを活用して園のことをもっと知り、簡単に情報が共有できるようにしませんか？<br><br>
              お気軽にお問い合わせください</h3>
+            </div>   
     </div>
-    <el-row class="mb-4">
-    <el-button plain>新規登録</el-button>
-    <el-button plain>お問い合わせ</el-button>
-    </el-row>
 
+    <el-row class="mb-4">
+      <RouterLink to="/signup"><el-button class="button">新規登録</el-button></RouterLink>
+      <el-button class="button">お問い合わせ</el-button>
+    </el-row>
   </main>
 </template>
+
+
+
 
 <style>
 /* 木の画像 */
@@ -152,6 +160,8 @@
 
 @media (min-width: 1024px) {
 
+
+
   #top {
   position: absolute;
   font-size: 2.6em;
@@ -225,6 +235,7 @@
   padding: 0 30px;
 }
 
+/* 見出し枠 */
 .box2 {
     padding: 0.6em 1.9em;
     margin: 2em 30%;
@@ -234,6 +245,7 @@
     border: 2px dashed #ffffff;/*線*/
 }
 
+/* 見出し中身 */
 .box2 h1 {
     font-size: 1.8em;
     color: #fff;
@@ -241,6 +253,7 @@
     padding: 0 ;
 }
 
+/* ページ紹介枠 */
 .box3 {
   border: 3.8px solid #894b4bd8;
   padding: 0.8em;
@@ -248,18 +261,38 @@
   border-radius: 50px; 
 }
 
+/* ページ紹介 */
 .box3 h2 {
   font-size: 0.9em;
 }
 
+
+/* メインページと企画書のページ */
 .sample_page {
   margin: 0 0 60px 0;
   border: 1px solid #919191d8;
 }
 
+
+/* 新規登録とお問い合わせのボタン */
 .mb-4 {
+  margin:10px;
   text-align: center;
+  padding: 10px;
 }
+
+/* ボタンのデザイン */
+.button {
+  font-size: 2em;
+  padding: 0.3em 1.5em;
+  margin:0 4em;
+  background-color: #04ce44;
+  color: #fff;
+  border-radius: 30px; 
+  box-shadow: 6px 7px 0 0 rgba(109, 103, 103, 0.5);
+}
+
+
 
 @media not all and (min-width: 768px) {
   .item {

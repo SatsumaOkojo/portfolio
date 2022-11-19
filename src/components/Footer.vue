@@ -14,9 +14,7 @@
   height: 50px;
   background-color: #ffd900d0;
   margin-bottom: 0;
-}
-
-.footer p {
   text-align: center;
 }
+
 </style>
