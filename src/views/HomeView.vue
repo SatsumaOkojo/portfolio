@@ -255,7 +255,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 /* ページ紹介枠 */
 .box3 {
-  border: 3.8px solid #894b4bd8;
+  border: 3px solid #c46a03d8;
   padding: 0.8em;
   margin: 0 15%;
   border-radius: 50px; 
