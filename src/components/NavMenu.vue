@@ -22,9 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 header {
-  width: 100%;
   height: 50px;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -32,20 +30,17 @@ header {
   margin: 0px;
   background: #ffffff;
   position: fixed;
-  box-shadow: 0px 10px 10px -6px rgba(135, 131, 131, 0.3);
+  box-shadow: 0px 3px 5px rgba(106, 103, 103, 0.537);
 }
 
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  position:fixed;
-  padding: 10px;
+  margin: 0.8em 0;
+  float: right;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 2rem;
+  padding: 1em 2rem;
   border-left: 1px solid var(--color-border);
 }
 
@@ -54,29 +49,24 @@ nav a:first-of-type {
 }
 
 
-
-
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    width: 100%;
     height: 50px;
     position: fixed;
-    box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(106, 103, 103, 0.537);
   }
 
   .logo {
     margin-left: 15px;
-    display: inline;
   }
 
  
 
   nav {
-    position:fixed;
+    margin: 0.8em 0;
+    float: right;
     font-size: 1rem;
-    display: flex;
-    justify-content: flex-end;
   }
+
 }
 </style>

@@ -1,4 +1,3 @@
-
 <template>
 <div id =skyblue>
 <div id="facility">
@@ -36,6 +35,23 @@
     <div class="says">
         <p>法人より行動規制の変更がありました。</p>
       <!-- <p>文章を入れる</p> -->
+      <!-- 文字制限も？ -->
+    </div>
+  </div>
+  </div>
+
+  <div class="balloon5">
+  <div class="faceicon">
+    <img alt="Character2" src="@/assets/Character2.png" />
+    <!-- ここに画像を入れる <img -->
+    <h3>主任<br>
+        佐藤花子</h3>
+  </div>
+  <div class="chatting">
+    <div class="says">
+        <p>23日の内科健診はつぼみ組から順に行います。13:30～です。</p>
+      <!-- <p>文章を入れる</p> -->
+      <!-- 文字制限も？ -->
     </div>
   </div>
 </div>

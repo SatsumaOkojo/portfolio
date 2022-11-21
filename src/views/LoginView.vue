@@ -36,6 +36,21 @@ const formLabelAlign = reactive({
 </template>
 
 <style>
+ .yellow {
+    min-height: 100vh;
+    display: flex;
+    background-color: rgb(252, 255, 212);
+  }
+
+  .login {
+    text-align: center;
+    margin: auto;
+    width: 45%;
+    border: 2px solid #bc9244d8;
+    background-color: #ffffff;
+    box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
+    padding: 3em;
+  }
 @media (min-width: 1024px) {
   .yellow {
     min-height: 100vh;
