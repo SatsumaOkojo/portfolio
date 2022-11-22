@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+
+
 </script>
 
 <template>
@@ -7,13 +9,15 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <img alt="logo" class="logo" src="@/assets/icon.logo.png" width="170" height="50" />
       
+   
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/login">ログイン</RouterLink>
           <RouterLink to="/signup">新規登録</RouterLink>
+          <RouterLink to="/logout">ログアウト</RouterLink>
+          <!-- v-if = "author == 1" -->
+          
         </nav>
-     
-
     </header>
  
   
@@ -35,12 +39,12 @@ header {
 
 
 nav {
-  margin: 0.8em 0;
+  margin: 0.3em 0;
   float: right;
 }
 
 nav a {
-  padding: 1em 2rem;
+  padding: 1em 2em;
   border-left: 1px solid var(--color-border);
 }
 
@@ -60,13 +64,10 @@ nav a:first-of-type {
     margin-left: 15px;
   }
 
- 
-
-  nav {
-    margin: 0.8em 0;
+   nav {
+    margin: 1em;
     float: right;
     font-size: 1rem;
   }
-
 }
 </style>

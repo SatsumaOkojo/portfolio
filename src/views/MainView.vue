@@ -7,7 +7,7 @@
     <div class="wrap2">
       <div class="item2">
         <h1>今月の予定</h1>
-        <!-- 変数必要？ -->
+        <!-- 変数 -->
         <p>9日  身体測定<br>
            16日  消火避難訓練<br>
            25日  誕生会<br>
@@ -16,7 +16,7 @@
 
       <div class="item2">
         <h1>更新情報</h1>
-        <!-- 変数必要？ -->
+        <!-- 変数 -->
         <p>2022.11.19  11月誕生会企画書<br>
            2022.11.15  11月消火避難訓練<br>
            2022.11.1  園長より<br>
@@ -28,31 +28,46 @@
   <div class="faceicon">
     <img alt="Character2" src="@/assets/Character2.png" />
     <!-- ここに画像を入れる <img -->
+    <!-- 変数 -->
     <h3>園長<br>
         田中太郎</h3>
   </div>
   <div class="chatting">
     <div class="says">
-        <p>法人より行動規制の変更がありました。</p>
-      <!-- <p>文章を入れる</p> -->
+        <p>法人より行動規制の変更がありました。<br>
+          ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－<br>
+         ー－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－<br>
+         ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
+      <!-- <p>文章を入れる</p> 横幅の指定もできるか、文字が多いとレイアウト崩れる-->
       <!-- 文字制限も？ -->
+      <!-- ポップアップ＋変数 -->
     </div>
+
+    <!-- これは役職あるひとだけ -->
+    <div class="sub">
+    <h6>更新日 2022.11.14 17:00{{}}</h6>
+   <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
   </div>
   </div>
+  </div>
+ 
 
   <div class="balloon5">
   <div class="faceicon">
     <img alt="Character2" src="@/assets/Character2.png" />
-    <!-- ここに画像を入れる <img -->
     <h3>主任<br>
         佐藤花子</h3>
   </div>
+
   <div class="chatting">
     <div class="says">
         <p>23日の内科健診はつぼみ組から順に行います。13:30～です。</p>
-      <!-- <p>文章を入れる</p> -->
-      <!-- 文字制限も？ -->
     </div>
+
+    <div class="sub">
+    <h6>更新日 2022.11.14 17:00{{}}</h6>
+   <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
+  </div>
   </div>
 </div>
 
@@ -62,7 +77,7 @@
 <style>
 
 #skyblue {
-    background-color: rgb(228, 244, 255);
+    background-color: rgb(148, 223, 255);
 }
 
  #facility {
@@ -73,13 +88,15 @@
 
  #facility h1 {
     color: #ffffff;
+    margin:5px;
+    font-size: 2.3em;
  }
 
  .wrap2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 10%;
+    margin: 1% 10%;
  }
 
  .item2 {
@@ -140,6 +157,34 @@
 .says p {
   margin: 0;
   padding: 0;
+}
+
+.sub {
+ float: right;
+ padding: 0 20%;
+ display: inline;
+}
+
+a.btn--red {
+  color: #fff;
+  background-color: #e70000;
+  border-bottom: 5px solid #b80000;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 3em;
+  font-size: 1.2em;
+}
+
+a.btn--red:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #e70000;
+  border-bottom: 2px solid #b80000;
+}
+
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 </style>
 

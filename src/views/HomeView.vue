@@ -69,12 +69,13 @@ import { RouterLink, RouterView } from 'vue-router'
              これらを活用して園のことをもっと知り、簡単に情報が共有できるようにしませんか？<br><br>
              お気軽にお問い合わせください</h3>
             </div>   
-    </div>
+    
 
-    <el-row class="mb-4">
-      <RouterLink to="/signup"><el-button class="button">新規登録</el-button></RouterLink>
-      <el-button class="button">お問い合わせ</el-button>
-    </el-row>
+
+    <RouterLink to="/signup"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
+    <a href="" class="btn btn--orange btn--cubic btn--shadow">お問い合わせ</a>
+
+  </div>
   </main>
 </template>
 
@@ -257,7 +258,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .box3 {
   border: 3px solid #c46a03d8;
   padding: 0.8em;
-  margin: 0 15%;
+  margin: 0 15% 2em 15%;
   border-radius: 50px; 
 }
 
@@ -274,22 +275,25 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 
-/* 新規登録とお問い合わせのボタン */
-.mb-4 {
-  margin:10px;
-  text-align: center;
-  padding: 10px;
-}
-
-/* ボタンのデザイン */
-.button {
-  font-size: 2em;
-  padding: 0.3em 1.5em;
-  margin:0 4em;
-  background-color: #04ce44;
+a.btn--orange {
   color: #fff;
-  border-radius: 30px; 
-  box-shadow: 6px 7px 0 0 rgba(109, 103, 103, 0.5);
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 3em;
+  font-size: 1.6em;
+  
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
 

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { RouterLink, RouterView } from 'vue-router'
+
 import { reactive, ref } from 'vue'
 
 const labelPosition = ref('right')
@@ -13,7 +15,6 @@ const formLabelAlign = reactive({
 <template>
   <div class="yellow">
     <div class="login">
-    <h1>ログイン</h1>
 
      
     <div style="margin: 20px" />
@@ -30,6 +31,12 @@ const formLabelAlign = reactive({
       <el-input v-model="formLabelAlign.region" />
     </el-form-item>
   </el-form>
+  
+
+    <RouterLink to="/main"><a href="" class="btn btn--orange btn--cubic btn--shadow">ログイン</a></RouterLink>
+ 
+
+    <p><RouterLink to="/main">パスワードをお忘れの方</RouterLink></p>
 
   </div>
   </div>
@@ -50,7 +57,9 @@ const formLabelAlign = reactive({
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
     padding: 3em;
+    border-radius: 10px;
   }
+  
 @media (min-width: 1024px) {
   .yellow {
     min-height: 100vh;
@@ -64,8 +73,9 @@ const formLabelAlign = reactive({
     width: 45%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
-    box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
+    box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);
     padding: 3em;
+    border-radius: 10px;
   }
 }
 </style>
