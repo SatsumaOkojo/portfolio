@@ -9,8 +9,10 @@ const labelPosition = ref('right')
 
 const formLabelAlign = reactive({
   name: '',
-  region: '',
-  type: '',
+  mail: '',
+  password: '',
+  corporation: '',
+  facility: '',
 })
 
 
@@ -29,23 +31,23 @@ const formLabelAlign = reactive({
     style="max-width: 460px"
   >
     <el-form-item label="法人名">
-      <el-input v-model="formLabelAlign.name" />
+      <el-input v-model="formLabelAlign.corporation" />
     </el-form-item>
 
     <el-form-item label="園名">
-      <el-input v-model="formLabelAlign.region" />
+      <el-input v-model="formLabelAlign.facility" />
     </el-form-item>
 
     <el-form-item label="ユーザー名">
-      <el-input v-model="formLabelAlign.type" />
+      <el-input v-model="formLabelAlign.name" />
     </el-form-item>
 
     <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.type" />
+      <el-input v-model="formLabelAlign.mail" />
     </el-form-item>
 
     <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.type" />
+      <el-input v-model="formLabelAlign.password" />
     </el-form-item>
 
     <p><input type="checkbox" id="consent-chk" name="consent-chk">

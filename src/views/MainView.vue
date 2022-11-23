@@ -35,9 +35,8 @@
   <div class="chatting">
     <div class="says">
         <p>法人より行動規制の変更がありました。<br>
-          ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－<br>
-         ー－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－<br>
-         ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
+          ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
+         ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
       <!-- <p>文章を入れる</p> 横幅の指定もできるか、文字が多いとレイアウト崩れる-->
       <!-- 文字制限も？ -->
       <!-- ポップアップ＋変数 -->
@@ -122,6 +121,12 @@
   text-align: center;
 }
 
+.balloon5 .faceicon h3 {
+ background-color: #fff;
+ border-radius: 30px;
+ margin: 1em;
+}
+
 .balloon5 .faceicon img{
   width: 70%;
   height: auto;
@@ -142,6 +147,8 @@
   border-radius: 12px;
   background: #ffffff;
   box-shadow:9px 8px 0 0 rgba(109, 103, 103, 0.5);;
+  max-width: 60%;
+  min-width: 60%;
 }
 
 .says:after {

@@ -6,8 +6,8 @@ import { reactive, ref } from 'vue'
 const labelPosition = ref('right')
 
 const formLabelAlign = reactive({
-  name: '',
-  region: '',
+  mail: '',
+  password: '',
 })
 </script>
 
@@ -25,10 +25,10 @@ const formLabelAlign = reactive({
     style="max-width: 460px"
   >
     <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.name" />
+      <el-input v-model="formLabelAlign.mail" />
     </el-form-item>
     <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.region" />
+      <el-input v-model="formLabelAlign.password" />
     </el-form-item>
   </el-form>
   

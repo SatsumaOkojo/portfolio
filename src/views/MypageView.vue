@@ -32,7 +32,10 @@ const labelPosition = ref('right')
 
 const formLabelAlign = reactive({
   name: '',
-  region: '',
+  mail: '',
+  password: '',
+  corporation: '',
+  facility: '',
 })
 </script>
 
@@ -51,11 +54,11 @@ const formLabelAlign = reactive({
 
     <!-- v-if ="authr ==1" 園長だけ -->
     <!-- <el-form-item  label="法人名"> 
-      <el-input v-model="formLabelAlign.name" /> 
+      <el-input v-model="formLabelAlign.corporation" /> 
     </el-form-item>
 
     <el-form-item label="園名"> 
-      <el-input v-model="formLabelAlign.name" /> 
+      <el-input v-model="formLabelAlign.facility" /> 
     </el-form-item> -->
     <!-- 　ここまで園長だけ -->
 
@@ -65,11 +68,11 @@ const formLabelAlign = reactive({
     </el-form-item>
 
     <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.region" />
+      <el-input v-model="formLabelAlign.mail" />
     </el-form-item>
 
     <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.region" />
+      <el-input v-model="formLabelAlign.password" />
     </el-form-item>
 
     
