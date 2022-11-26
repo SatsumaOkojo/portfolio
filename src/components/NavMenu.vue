@@ -15,6 +15,9 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/login">ログイン</RouterLink>
           <RouterLink to="/signup">新規登録</RouterLink>
           <RouterLink to="/logout">ログアウト</RouterLink>
+          <RouterLink to="/mypage">マイページ</RouterLink>
+          <RouterLink to="/proposal-table">企画書</RouterLink>
+          <RouterLink to="/create-user">ユーザー作成</RouterLink>
           <!-- v-if = "author == 1" -->
           
         </nav>
@@ -68,6 +71,10 @@ nav a:first-of-type {
     margin: 1em;
     float: right;
     font-size: 1rem;
+  }
+
+  nav a {
+    border-left: 1px solid var(--color-border);
   }
 }
 </style>

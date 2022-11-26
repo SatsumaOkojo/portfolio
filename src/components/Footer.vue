@@ -13,8 +13,11 @@
   width:100%;
   height: 50px;
   background-color: #ffd900d0;
-  margin-bottom: 0;
   text-align: center;
 }
 
+.footer p {
+  margin:0;
+  padding-top: 10px;
+}
 </style>

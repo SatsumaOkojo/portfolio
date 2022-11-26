@@ -14,13 +14,15 @@ import Footer from './components/Footer.vue';
                <el-main>
 
                </el-main>
-
+              
                <el-footer>
                  <Footer />
                </el-footer>
         </el-container>
       </div>
     </template>
+
+    
 
 
 

@@ -91,6 +91,10 @@ const formLabelAlign = reactive({
     min-height: 100vh;
     display: flex;
     background-color: rgb(252, 255, 212);
+    background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
   }
 
   #mypage {

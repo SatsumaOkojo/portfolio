@@ -34,12 +34,22 @@ const formLabelAlign = reactive({
       
       <el-form-item label="役職">
         <!-- 役職に権限ついている -->
-      <label class="block"><input type="radio" name="position" value="1" checked>園長</label>
-      <label class="block"><input type="radio" name="position" value="2" >主任</label>
-      <label class="block"><input type="radio" name="position" value="3">0歳児担任</label>
-      <label class="block"><input type="radio" name="position" value="4">事務</label>
-      <label class="block"><input type="radio" name="position" value="5">栄養士</label>
-      <label class="block"><input type="radio" name="position" value="6">保育士</label>
+    <select id="position">
+      <option>主任</option>
+      <option>副主任</option>
+      <option>0歳児担任</option>
+      <option>1歳児担任</option>
+      <option>2歳児担任</option>
+      <option>3歳児担任</option>
+      <option>4歳児担任</option>
+      <option>5歳児担任</option>
+      <option>合同クラス担任</option>
+      <option>事務</option>
+      <option>栄養士</option>
+      <option>看護師</option>
+      <option>保育士</option>
+
+    </select>
       </el-form-item>
     </el-form>
     
@@ -55,6 +65,10 @@ const formLabelAlign = reactive({
     min-height: 100vh;
     display: flex;
     background-color: rgb(252, 255, 212);
+    background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
   }
 
   .create_user {

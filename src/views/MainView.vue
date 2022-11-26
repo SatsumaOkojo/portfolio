@@ -1,3 +1,15 @@
+date day="";
+day=;
+
+var event_name="";
+event_name=;
+
+date date_stamp="";
+date_stamp=;
+
+var event_name="";
+event_name=;
+
 <template>
 <div id =skyblue>
 <div id="facility">
@@ -8,6 +20,7 @@
       <div class="item2">
         <h1>今月の予定</h1>
         <!-- 変数 -->
+        <!-- {{day}}日　{{event_name}} -->
         <p>9日  身体測定<br>
            16日  消火避難訓練<br>
            25日  誕生会<br>
@@ -17,6 +30,7 @@
       <div class="item2">
         <h1>更新情報</h1>
         <!-- 変数 -->
+        <!-- {{date_time}} {{title}} -->
         <p>2022.11.19  11月誕生会企画書<br>
            2022.11.15  11月消火避難訓練<br>
            2022.11.1  園長より<br>
@@ -29,6 +43,8 @@
     <img alt="Character2" src="@/assets/Character2.png" />
     <!-- ここに画像を入れる <img -->
     <!-- 変数 -->
+    <!-- {{position}}
+         {{user_name}} -->
     <h3>園長<br>
         田中太郎</h3>
   </div>
@@ -77,6 +93,11 @@
 
 #skyblue {
     background-color: rgb(148, 223, 255);
+    background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  
 }
 
  #facility {

@@ -65,6 +65,10 @@ const formLabelAlign = reactive({
 <style>
 
 .sign {
+  background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     margin: 0px;
@@ -74,7 +78,7 @@ const formLabelAlign = reactive({
   .signup {
     text-align: center;
     margin: auto;
-    width: 45%;
+    width: 40%;
     border: 2px solid #5cbec7d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(193, 193, 193, 0.242);
@@ -93,7 +97,7 @@ const formLabelAlign = reactive({
   .signup {
     text-align: center;
     margin: auto;
-    width: 45%;
+    width: 40%;
     border: 2px solid #52bfc9d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(148, 148, 148, 0.5);

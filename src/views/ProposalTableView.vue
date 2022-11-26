@@ -3,15 +3,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
 const tableData = [
   {
-    wareki: '令和4年度',
-    date: '7月7日',
+    date: '2022年7月7日',
     event: '七夕',
     proposal: 'img',
     manager: "鈴木　すず"
   },
   {
-    wareki: '令和4年度',
-    date: '7月25日',
+    date: '2022年7月25日',
     event: '7月誕生会',
     proposal: 'img',
     manager: "町田　真智子"
@@ -32,19 +30,18 @@ const tableData = [
    </form>
    
 <!-- これは役職あるひとだけ -->
-   <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
+<RouterLink to="/proposal-post"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
 
    </div>
 
 
 <div id="column">
   <el-table :data="tableData">
-      <el-table-column prop="wareki" label="年度" width="180" />
-      <el-table-column prop="date" label="日程" width="180" />
-      <el-table-column prop="event" label="行事名" width="180" />
+      <el-table-column prop="date" label="日程" width="190" />
+      <el-table-column prop="event" label="行事名" width="190" />
       <!-- 企画書はクリックしたらProposalView.vueへ -->
-      <el-table-column prop="proposal" label="企画書" width="180" />
-      <el-table-column prop="manager" label="担当者" width="180"/>
+      <el-table-column prop="proposal" label="企画書" width="190" />
+      <el-table-column prop="manager" label="担当者" width="190"/>
   </el-table>
 </div>
 
@@ -54,10 +51,15 @@ const tableData = [
 <style>
 #skyblue {
     background-color: rgb(228, 244, 255);
+    min-height: 100vh;
+    background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #keyword {
-  padding: 10px;
+  padding: 2.5em;
   margin: 0 10%;
   display: flex;
 }

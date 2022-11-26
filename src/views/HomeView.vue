@@ -7,7 +7,12 @@ import { RouterLink, RouterView } from 'vue-router'
     <h1 id="top">園のことをもっと知ろう！<br>
                みんなで簡単に情報共有</h1>
 
-    <img alt="wood" class="wood" src="@/assets/wood.jpg" />
+    <h3 id="top2">
+          保育・教育施設向け
+    </h3>
+
+    <img alt="wood" class="wood" src="@/assets/wood3.png" />
+
 
         <div class="box">
            <p>こんなことありませんか？</p>
@@ -64,10 +69,10 @@ import { RouterLink, RouterView } from 'vue-router'
           <img alt="proposal" class="sample_page"  src="@/assets/proposal.png" width="87%" />
          
           <div class="box3">
-          <h3>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
+          <h4>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
              これだけでも、園の情報がよくわかるのではないでしょうか<br>
              これらを活用して園のことをもっと知り、簡単に情報が共有できるようにしませんか？<br><br>
-             お気軽にお問い合わせください</h3>
+             お気軽にお問い合わせください</h4>
             </div>   
     
 
@@ -83,10 +88,20 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
 <style>
+
+main {
+  background-color:  #fffde9;
+  margin: 0 10px;
+  background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 /* 木の画像 */
  .wood {
-  min-width: 100%;
-  height: 100%;
+  min-width: 80%;
+  height: 400px;
+  margin: 0 10%;
  }
 
  #top {
@@ -97,6 +112,13 @@ import { RouterLink, RouterView } from 'vue-router'
   margin-left: 30px;
 }
 
+#top2 {
+  position: absolute;
+  margin: 12em;
+  font-size: 1.3em;
+  color: #fff;
+}
+
 /* 下のテキストボックス */
  .box{
     margin : 2.5em auto ;
@@ -104,6 +126,7 @@ import { RouterLink, RouterView } from 'vue-router'
     line-height : 1.8 ;
     border : dotted 10px #333;
     border-radius: 50px; 
+    background-color: #fff;
 }
 
 /* 下のテキストボックスの文字 */
@@ -161,7 +184,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 @media (min-width: 1024px) {
 
-
+main {
+  background-color:  #fffde9;
+  margin: 0 10px;
+}
 
   #top {
   position: absolute;
@@ -173,8 +199,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 /* 木の画像 */
   .wood {
-  min-width:100%;
-  height:400px;
+  width: 50%;
  } 
 
 /* 下のテキストボックス */
@@ -184,6 +209,7 @@ import { RouterLink, RouterView } from 'vue-router'
     line-height : 1.8 ;
     border : dotted 10px #333;
     border-radius: 50px; 
+    background-color: #fff;
 }
 
 /* 下のテキストボックスの文字 */
@@ -225,8 +251,8 @@ import { RouterLink, RouterView } from 'vue-router'
     text-align: center;
     font-weight: bold;
     font-size: 1.3em;
-    margin: 5em 25%;
-    padding-left: 4.6em;
+    margin: 5em 30%;
+    padding: auto;
 }
 
 /* クラッカーimg */
@@ -260,6 +286,7 @@ import { RouterLink, RouterView } from 'vue-router'
   padding: 0.8em;
   margin: 0 15% 2em 15%;
   border-radius: 50px; 
+  background-color: #fff;
 }
 
 /* ページ紹介 */

@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <template>
      <div class="yellow">
     <div class="post">
@@ -18,7 +22,7 @@
   <input type="date" value="2022-11-11" name="date" id="date">
 </div>
 
-  <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
+<RouterLink to="/proposal-table"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
   <!-- 投稿できました　必要？ -->
 
 </div>
@@ -32,6 +36,10 @@
     background-color: rgb(255, 250, 196);
     min-height: 100vh;
     display: flex;
+    background-image: url(@/assets/trees.png);
+  background-position: bottom; 
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .post {
