@@ -22,7 +22,6 @@ const formLabelAlign = reactive({
     :label-position="labelPosition"
     label-width="100px"
     :model="formLabelAlign"
-    style="max-width: 460px"
   >
     <el-form-item label="メールアドレス">
       <el-input v-model="formLabelAlign.mail" />
@@ -74,12 +73,17 @@ const formLabelAlign = reactive({
   .login {
     text-align: center;
     margin: auto;
-    width: 40%;
+    width: 50%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);
     padding: 3em;
     border-radius: 10px;
   }
+
+  .el-form-item {
+    margin: 2em;
+  }
+
 }
 </style>

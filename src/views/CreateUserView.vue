@@ -1,6 +1,14 @@
 <script lang="ts" setup>
-
 import { reactive, ref } from 'vue'
+import { h } from 'vue'
+import { ElMessage } from 'element-plus'
+
+const open = () => {
+  ElMessage('ユーザー登録完了しました')
+}
+
+
+
 
 const labelPosition = ref('right')
 
@@ -34,6 +42,7 @@ const formLabelAlign = reactive({
       
       <el-form-item label="役職">
         <!-- 役職に権限ついている -->
+        <!-- {{position_name}} {{author_id}} -->
     <select id="position">
       <option>主任</option>
       <option>副主任</option>
@@ -53,7 +62,7 @@ const formLabelAlign = reactive({
       </el-form-item>
     </el-form>
     
-   <a href="" class="btn btn--orange btn--cubic btn--shadow">登録する</a>
+    <el-button :plain="true" @click="open"><a href="" class="btn btn--orange btn--cubic btn--shadow">登録する</a></el-button>
    
   
     </div>

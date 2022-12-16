@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from 'vue-router'
 
 import { reactive, ref } from 'vue'
 
@@ -36,7 +35,7 @@ const formLabelAlign = reactive({
   mail: '',
   password: '',
   corporation: '',
-  facility_name: '',
+  facility: '',
 })
 </script>
 
@@ -49,7 +48,7 @@ const formLabelAlign = reactive({
  
  <div class="float_box">
     <img alt="Character2" src="@/assets/Character2.png" />
-   
+    <a href=""><br>画像を変更する</a>
 </div>
      <div class="float_text">
 
@@ -65,22 +64,18 @@ const formLabelAlign = reactive({
 
 
     <el-form-item label="ユーザー名"> 
-     <h4>田中太郎</h4>
-     <!-- {{name}} -->
+      <el-input v-model="formLabelAlign.name" /> 
     </el-form-item>
 
     <el-form-item label="メールアドレス">
-     <h4>tanaka2000@ezweb.ne.jp</h4>
-     <!-- {{mail}} -->
+      <el-input v-model="formLabelAlign.mail" />
     </el-form-item>
 
     <el-form-item label="パスワード">
-    <h4>tanaka2022</h4>
-    <!-- {{password}} -->
+      <el-input v-model="formLabelAlign.password" />
     </el-form-item>
 
     
-    <RouterLink to="/mypage-update"><a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a></RouterLink>
     <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
 
      </div>
@@ -105,7 +100,7 @@ const formLabelAlign = reactive({
   #mypage {
     text-align: center;
     margin: auto;
-    width: 65%;
+    width: 50%;
     height: 300px;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
@@ -114,20 +109,7 @@ const formLabelAlign = reactive({
     border-radius: 10px;
   }
 
-  .faceicon img{
-  width: 70%;
-  height: auto;
-  border: solid 3px #ffffff;
-  border-radius: 50%;
-}
 
-.el-form-item {
-    margin-bottom: 0.3em;
-}
-
-.el-form-item p {
-   text-decoration: underline;
-} 
 @media (min-width: 1024px) {
   .yellow {
     min-height: 100vh;
@@ -139,19 +121,17 @@ const formLabelAlign = reactive({
   #mypage {
     text-align: center;
     margin: 4em auto;
-    width: 60%;
+    width: 45%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);
     padding: 2em;
   }
 
- 
-
 
 .float_box {
     padding: 0.5em;         /* 箱の大きさ調整 */
-    width: 200px;               /* 箱の大きさ調整 */
+    width: 120px;               /* 箱の大きさ調整 */
     text-align: center;         /* テキストをセンタリング */
     /* 背景色設定 */
     float:  left;               /* 要素を右に回り込ませる */
@@ -171,16 +151,12 @@ const formLabelAlign = reactive({
  
 .float_text {
     float: left;                /* 要素を右に回り込ませる */
-    width: calc(80% - 140px);  /* 文字の箱の大きさ調整 */
+    width: calc(100% - 140px);  /* 文字の箱の大きさ調整 */
 }
 
 .el-form-item {
-    margin-bottom: 0.3em;
+    margin-bottom: 2em;
 }
-
-.el-form-item h4{
-   text-decoration: underline;
-} 
 
 a.btn--red {
   color: #fff;
@@ -188,7 +164,7 @@ a.btn--red {
   border-bottom: 5px solid #b80000;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 1em;
+  margin: 3em;
   font-size: 1.2em;
 }
 

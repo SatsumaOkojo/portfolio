@@ -1,19 +1,23 @@
-date day="";
-day=;
+<script lang="ts" setup>
 
-var event_name="";
-event_name=;
+const btn = document.getElementById('btn');
+  
+  
+  btn.addEventListener('click', function() {
+  
+    prompt('名前を入力してください', '例：佐藤');
+  
+  });
 
-date date_stamp="";
-date_stamp=;
 
-var event_name="";
-event_name=;
+</script>
+
 
 <template>
 <div id =skyblue>
 <div id="facility">
     <h1>あいうえお保育園</h1>
+<!-- {[facility_name]} -->
     </div>
 
     <div class="wrap2">
@@ -41,10 +45,11 @@ event_name=;
     <div class="balloon5">
   <div class="faceicon">
     <img alt="Character2" src="@/assets/Character2.png" />
-    <!-- ここに画像を入れる <img -->
+    <!-- ここに画像を入れる <icon_image_path-->
+      
     <!-- 変数 -->
-    <!-- {{position}}
-         {{user_name}} -->
+    <!-- {{position_name}}
+         {{name}} -->
     <h3>園長<br>
         田中太郎</h3>
   </div>
@@ -53,6 +58,7 @@ event_name=;
         <p>法人より行動規制の変更がありました。<br>
           ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
          ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
+         <!-- {{message}} -->
       <!-- <p>文章を入れる</p> 横幅の指定もできるか、文字が多いとレイアウト崩れる-->
       <!-- 文字制限も？ -->
       <!-- ポップアップ＋変数 -->
@@ -60,8 +66,9 @@ event_name=;
 
     <!-- これは役職あるひとだけ -->
     <div class="sub">
-    <h6>更新日 2022.11.14 17:00{{}}</h6>
-   <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
+    <h6>更新日 2022.11.14 17:00</h6>   
+    <!-- {{update_at}} -->
+    <button id="btn"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></button>
   </div>
   </div>
   </div>
@@ -94,9 +101,9 @@ event_name=;
 #skyblue {
     background-color: rgb(148, 223, 255);
     background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-position: bottom; 
+    background-size: contain;
+    background-repeat: no-repeat;
   
 }
 

@@ -12,7 +12,7 @@ const formLabelAlign = reactive({
   mail: '',
   password: '',
   corporation: '',
-  facility: '',
+  facility_name: '',
 })
 
 
@@ -35,7 +35,7 @@ const formLabelAlign = reactive({
     </el-form-item>
 
     <el-form-item label="園名">
-      <el-input v-model="formLabelAlign.facility" />
+      <el-input v-model="formLabelAlign.facility_name" />
     </el-form-item>
 
     <el-form-item label="ユーザー名">
@@ -56,7 +56,7 @@ const formLabelAlign = reactive({
 
   </el-form>
 
-      <a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a>
+  <RouterLink to="/login"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
    
     </div>
   </div>

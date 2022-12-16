@@ -3,16 +3,16 @@ import { RouterLink, RouterView } from 'vue-router'
 
 const tableData = [
   {
-    date: '2022年7月7日',
-    event: '七夕',
-    proposal: 'img',
-    manager: "鈴木　すず"
+    schedule: '2022年7月7日',
+    event_name: '七夕',
+    proposal_image_path: 'img',
+    name: "鈴木　すず"
   },
   {
-    date: '2022年7月25日',
-    event: '7月誕生会',
-    proposal: 'img',
-    manager: "町田　真智子"
+    schedule: '2022年7月25日',
+    event_name: '7月誕生会',
+    proposal_image_path: 'img',
+    name: "町田　真智子"
   },
 ]
 </script>
@@ -37,11 +37,11 @@ const tableData = [
 
 <div id="column">
   <el-table :data="tableData">
-      <el-table-column prop="date" label="日程" width="190" />
-      <el-table-column prop="event" label="行事名" width="190" />
+      <el-table-column prop="schedule" label="日程" width="190" />
+      <el-table-column prop="event_name" label="行事名" width="190" />
       <!-- 企画書はクリックしたらProposalView.vueへ -->
-      <el-table-column prop="proposal" label="企画書" width="190" />
-      <el-table-column prop="manager" label="担当者" width="190"/>
+      <el-table-column prop="proposal_image_path" label="企画書" width="190" />
+      <el-table-column prop="name" label="担当者" width="190"/>
   </el-table>
 </div>
 
