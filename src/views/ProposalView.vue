@@ -1,7 +1,9 @@
 <template>
     <div id =skyblue>
-        <h1>行事名</h1>
-        <h1>imgが出る</h1>
+        <div class="center">
+        <h1>七夕行事</h1>
+        <img alt="tanabata" class="proposal_image" src="@/assets/tanabata.png"  />
+        </div>
     </div>
 </template>
 
@@ -14,4 +16,19 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.center {
+    text-align: center;
+}
+#skyblue h1 {
+    background-color: #ffe600;
+    border: 1em;
+    padding: 1em;
+    margin: 0 20%;
+}
+
+.proposal_image {
+    margin: 1em ; 
+}
+
 </style>

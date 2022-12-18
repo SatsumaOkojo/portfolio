@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 
 const btn = document.getElementById('btn');
   
@@ -10,7 +10,25 @@ const btn = document.getElementById('btn');
   });
 
 
+</script> -->
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { ElMessageBox } from 'element-plus'
+
+const dialogVisible = ref(false)
+
+const handleClose = (done: () => void) => {
+  ElMessageBox.confirm('Are you sure to close this dialog?')
+    .then(() => {
+      done()
+    })
+    .catch(() => {
+      // catch error
+    })
+}
 </script>
+
+
 
 
 <template>
@@ -46,7 +64,7 @@ const btn = document.getElementById('btn');
   <div class="faceicon">
     <img alt="Character2" src="@/assets/Character2.png" />
     <!-- ここに画像を入れる <icon_image_path-->
-      
+
     <!-- 変数 -->
     <!-- {{position_name}}
          {{name}} -->
@@ -68,10 +86,33 @@ const btn = document.getElementById('btn');
     <div class="sub">
     <h6>更新日 2022.11.14 17:00</h6>   
     <!-- {{update_at}} -->
-    <button id="btn"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></button>
+    <!-- <button id="btn"> -->
+     <a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a> 
+    <!-- </button> -->
   </div>
   </div>
   </div>
+
+  <el-button class="btn btn--red btn--cubic btn--shadow" text @click="dialogVisible = true">
+   編集する
+  </el-button>
+
+  <el-dialog
+    v-model="dialogVisible"
+    title="Tips"
+    width="30%"
+    :before-close="handleClose"
+  >
+    <span>This is a message</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogVisible = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
  
 
   <div class="balloon5">
@@ -147,6 +188,11 @@ const btn = document.getElementById('btn');
   padding: 20px;
   width: 20%;
   text-align: center;
+}
+
+
+.dialog-footer button:first-child {
+  margin-right: 10px;
 }
 
 .balloon5 .faceicon h3 {
