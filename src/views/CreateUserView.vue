@@ -21,51 +21,51 @@ const formLabelAlign = reactive({
 
 <template>
     <div class="yellow">
-      <div class="create_user">
-  
-       <h1>ユーザー作成</h1>
 
-    <div style="margin: 20px" />
-    <el-form
-      :label-position="labelPosition"
-      label-width="100px"
-      :model="formLabelAlign"
-      style="max-width: 460px"
-    >
-      <el-form-item label="ユーザー名">
-        <el-input v-model="formLabelAlign.name" />
-      </el-form-item>
+        <div class="create_user">
+           <h1>ユーザー作成</h1>
 
-      <el-form-item label="メールアドレス">
-        <el-input v-model="formLabelAlign.mail" />
-      </el-form-item>
+            <div style="margin: 20px" />
+               <el-form
+                  :label-position="labelPosition"
+                   label-width="100px"
+                   :model="formLabelAlign"
+                   style="max-width: 460px"
+                     >
+
+                        <el-form-item label="ユーザー名">
+                            <el-input v-model="formLabelAlign.name" />
+                        </el-form-item>
+
+                        <el-form-item label="メールアドレス">
+                            <el-input v-model="formLabelAlign.mail" />
+                        </el-form-item>
       
-      <el-form-item label="役職">
-        <!-- 役職に権限ついている -->
-        <!-- {{position_name}} {{author_id}} -->
-    <select id="position">
-      <option>主任</option>
-      <option>副主任</option>
-      <option>0歳児担任</option>
-      <option>1歳児担任</option>
-      <option>2歳児担任</option>
-      <option>3歳児担任</option>
-      <option>4歳児担任</option>
-      <option>5歳児担任</option>
-      <option>合同クラス担任</option>
-      <option>事務</option>
-      <option>栄養士</option>
-      <option>看護師</option>
-      <option>保育士</option>
-
-    </select>
-      </el-form-item>
-    </el-form>
+                        <el-form-item label="役職">
+                            <!-- 役職に権限ついている -->
+                            <!-- {{position_name}} {{author_id}} -->
+                            <select id="position">
+                             <option>主任</option>
+                             <option>副主任</option>
+                             <option>0歳児担任</option>
+                             <option>1歳児担任</option>
+                             <option>2歳児担任</option>
+                             <option>3歳児担任</option>
+                             <option>4歳児担任</option>
+                             <option>5歳児担任</option>
+                             <option>合同クラス担任</option>
+                             <option>事務</option>
+                             <option>栄養士</option>
+                             <option>看護師</option>
+                             <option>保育士</option>
+                            </select>
+                         </el-form-item>
+                           
+                </el-form>
     
-    <el-button :plain="true" @click="open"><a href="" class="btn btn--orange btn--cubic btn--shadow">登録する</a></el-button>
+                  <a href="" class="btn btn--orange btn--cubic btn--shadow">登録する</a>
    
-  
-    </div>
+        </div>
     </div>
   </template>
 

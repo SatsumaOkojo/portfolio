@@ -1,27 +1,29 @@
 <template>
+
   <div class="color">
-    <div class="logout">
-     <h1>ログアウトしました</h1>
-     </div>
+      <div id="logout">
+          <h1>ログアウトしました</h1>
+       </div>
      <img alt="bye" class="bye" src="@/assets/logout.png" /> 
      <img alt="msg" class="msg" src="@/assets/message.png" />
-</div>
+   </div>
+   
 </template>
 
 <style>
  .color {
     background-color: rgba(255, 235, 205, 0.783);
     background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-position: bottom; 
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
-  .logout {
+ #logout {
   margin: 0 4em;
  }
 
- .logout h1 {
+ #logout h1 {
     font-size: 1em;
     margin-left: 2em;
     padding-top: 2em;
@@ -46,13 +48,13 @@
     background-color: rgba(255, 235, 205, 0.783);
   }
   
- .logout {
+ #logout {
   margin: 0 4em;
   padding: 0 2em
  }
 
 
-  .logout h1 {
+ #logout h1 {
     font-size: 2.6em;
     padding-top: 2em;
     margin: 0 2em;

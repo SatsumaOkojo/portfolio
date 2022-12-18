@@ -18,69 +18,66 @@ import { RouterLink, RouterView } from 'vue-router'
            <p>こんなことありませんか？</p>
         </div>
 
-   <div class="wrap">
-      <div class="item">
-         <h3>情報共有がうまくいかない</h3>
-           <img alt="problem1" src="@/assets/problem1.png" width=300px height=200px />
-             <p>伝達ミスや認識の違いによって<br>トラブルが起きてしまう</p>
-      </div>
+             <div class="wrap">
+                 <div class="item">
+                     <h3>情報共有がうまくいかない</h3>
+                     <img alt="problem1" src="@/assets/problem1.png" width=300px height=200px />
+                     <p>伝達ミスや認識の違いによって<br>トラブルが起きてしまう</p>
+                  </div>
 
-      <div class="item">
-          <h3>会議等が入り仕事が終わらない</h3>
-            <img alt="problem2" src="@/assets/problem2.png" width=300px height=200px />
-              <p>時間に余裕がなくなり<br>保育の質が下がってしまう</p>
-       </div>
+                 <div class="item">
+                     <h3>会議等が入り仕事が終わらない</h3>
+                     <img alt="problem2" src="@/assets/problem2.png" width=300px height=200px />
+                     <p>時間に余裕がなくなり<br>保育の質が下がってしまう</p>
+                  </div>
 
-      <div class="item">
-          <h3>欲しい資料をいつでも確認できない</h3>
-            <img alt="problem3" src="@/assets/problem3.png" width=300px height=200px />
-               <p>ファイルが1つしかない為<br>他の人が持って行ってしまうと<br>見ることができない</p>
-        </div>
-    </div>
+                 <div class="item">
+                     <h3>欲しい資料をいつでも確認できない</h3>
+                     <img alt="problem3" src="@/assets/problem3.png" width=300px height=200px />
+                    <p>ファイルが1つしかない為<br>他の人が持って行ってしまうと<br>見ることができない</p>
+                 </div>
+             </div>
 
 
-    <div class="center">
-           <p>そこで<br>
-              HoikuDiaryでは<br><br>
-              これら問題を”手軽に”解決できるように<br>
-              最低限必要な機能をまとめてみました！
-           </p>
-           <img alt="cracker" class="cracker" src="@/assets/cracker.png"  />
+               <div class="center">
+                  <p>そこで<br>
+                     HoikuDiaryでは<br><br>
+                     これら問題を”手軽に”解決できるように<br>
+                     最低限必要な機能をまとめてみました！
+                  </p>
+                    <img alt="cracker" class="cracker" src="@/assets/cracker.png"  />
   
 
-     
-      <div class="box2">
-           <h1>メインページ</h1>
-      </div>
-       <div class="box3">
-           <h2>月の行事　更新のお知らせ　職員からのお知らせ　<br>
-               園長先生や各クラスからのお知らせ等まとめて見ることができます！</h2>
-       </div>
-          <img alt="mainpage" class="sample_page"  src="@/assets/mainpage.png"  />
+                  <div class="box2">
+                     <h1>メインページ</h1>
+                  </div>
+                      <div class="box3">
+                         <h2>月の行事　更新のお知らせ　職員からのお知らせ　<br>
+                             園長先生や各クラスからのお知らせ等まとめて見ることができます！</h2>
+                      </div>
+                         <img alt="mainpage" class="sample_page"  src="@/assets/mainpage.png"  />
          
         
-          <div class="box2">
-           <h1>行事企画書</h1>
-      </div>
-       <div class="box3">
-           <h2>行事の企画書を確認できます！<br>
-               作成した企画書は随時まとめられるのでいつでも見られますよ</h2>
-       </div>
-          <img alt="proposal" class="sample_page"  src="@/assets/proposal.png" width="87%" />
+                   <div class="box2">
+                      <h1>行事企画書</h1>
+                   </div>
+                      <div class="box3">
+                          <h2>行事の企画書を確認できます！<br>
+                          作成した企画書は随時まとめられるのでいつでも見られますよ</h2>
+                      </div>
+                         <img alt="proposal" class="sample_page"  src="@/assets/proposal.png" width="87%" />
          
-          <div class="box3">
-          <h4>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
-             これだけでも、園の情報がよくわかるのではないでしょうか<br>
-             これらを活用して園のことをもっと知り、簡単に情報が共有できるようにしませんか？<br><br>
-             お気軽にお問い合わせください</h4>
-            </div>   
+                      <div class="box3">
+                          <h4>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
+                              これだけでも、園の情報がよくわかるのではないでしょうか<br>
+                              これらを活用して園のことをもっと知り、簡単に情報が共有できるようにしませんか？<br><br>
+                              お気軽にお問い合わせください</h4>
+                       </div>   
     
+                            <RouterLink to="/signup"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
+                            <a href="" class="btn btn--orange btn--cubic btn--shadow">お問い合わせ</a>
 
-
-    <RouterLink to="/signup"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
-    <a href="" class="btn btn--orange btn--cubic btn--shadow">お問い合わせ</a>
-
-  </div>
+             </div>
   </main>
 </template>
 

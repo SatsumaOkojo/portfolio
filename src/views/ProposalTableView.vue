@@ -20,39 +20,42 @@ const tableData = [
 
 <template>
     <div id =skyblue>
-      <div id="keyword">
+      
+        <div id="keyword">
 
-      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-   <form method="get" action="#" class="search_container">
-      <input type="text" size="25" placeholder="キーワード検索">
-      <input type="submit" value="&#xf002">
-   </form>
+           <form method="get" action="#" class="search_container">
+               <input type="text" size="25" placeholder="キーワード検索">
+               <input type="submit" value="&#xf002">
+           </form>
    
-<!-- これは役職あるひとだけ -->
-<RouterLink to="/proposal-post"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
+                 <!-- これは役職あるひとだけ -->
+               <RouterLink to="/proposal-post"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
 
-   </div>
+        </div>
 
 
-<div id="column">
-  <el-table :data="tableData">
-      <el-table-column prop="schedule" label="日程" width="190" />
-      <el-table-column prop="event_name" label="行事名" width="190" />
-      <!-- 企画書はクリックしたらProposalView.vueへ -->
-      <el-table-column prop="proposal_image_path" label="企画書" width="190" />
-      <el-table-column prop="name" label="担当者" width="190"/>
-  </el-table>
-</div>
+            <div id="column">
+                <el-table :data="tableData">
+                  <el-table-column prop="schedule" label="日程" width="190" />
+                  <el-table-column prop="event_name" label="行事名" width="190" />
+                  <!-- 企画書はクリックしたらProposalView.vueへ -->
+                  <el-table-column prop="proposal_image_path" label="企画書" width="190" />
+                  <el-table-column prop="name" label="担当者" width="190"/>
+                </el-table>
+             </div>
 
     </div>
 </template>
 
+
+
 <style>
 #skyblue {
-    background-color: rgb(228, 244, 255);
-    min-height: 100vh;
-    background-image: url(@/assets/trees.png);
+  background-color: rgb(228, 244, 255);
+  min-height: 100vh;
+  background-image: url(@/assets/trees.png);
   background-position: bottom; 
   background-size: contain;
   background-repeat: no-repeat;
@@ -75,13 +78,16 @@ const tableData = [
   width: 265px;
   overflow: hidden;
 }
+
 .search_container input[type="text"]{
   border: none;
   height: 2.0em;
 }
+
 .search_container input[type="text"]:focus {
   outline: 0;
 }
+
 .search_container input[type="submit"]{
   cursor: pointer;
   font-family: FontAwesome;

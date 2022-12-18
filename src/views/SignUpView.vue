@@ -21,43 +21,43 @@ const formLabelAlign = reactive({
 
 <template>
   <div class="sign">
-    <div class="signup">
+     <div class="signup">
     
-    <div style="margin: 20px" />
-  <el-form
-    :label-position="labelPosition"
-    label-width="100px"
-    :model="formLabelAlign"
-    style="max-width: 460px"
-  >
-    <el-form-item label="法人名">
-      <el-input v-model="formLabelAlign.corporation" />
-    </el-form-item>
+          <div style="margin: 20px" />
+              <el-form
+                 :label-position="labelPosition"
+                  label-width="100px"
+                 :model="formLabelAlign"
+                  style="max-width: 460px"
+                 >
 
-    <el-form-item label="園名">
-      <el-input v-model="formLabelAlign.facility_name" />
-    </el-form-item>
+                   <el-form-item label="法人名">
+                      <el-input v-model="formLabelAlign.corporation" />
+                   </el-form-item>
 
-    <el-form-item label="ユーザー名">
-      <el-input v-model="formLabelAlign.name" />
-    </el-form-item>
+                   <el-form-item label="園名">
+                      <el-input v-model="formLabelAlign.facility_name" />
+                   </el-form-item>
 
-    <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.mail" />
-    </el-form-item>
+                   <el-form-item label="ユーザー名">
+                      <el-input v-model="formLabelAlign.name" />
+                   </el-form-item>
 
-    <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.password" />
-    </el-form-item>
+                   <el-form-item label="メールアドレス">
+                      <el-input v-model="formLabelAlign.mail" />
+                   </el-form-item>
 
-    <p><input type="checkbox" id="consent-chk" name="consent-chk">
-			<label for="consent-chk"><RouterLink to="/">利用規約</RouterLink>に同意する</label>
-		</p>
+                   <el-form-item label="パスワード">
+                      <el-input v-model="formLabelAlign.password" />
+                   </el-form-item>
 
-  </el-form>
+                      <p><input type="checkbox" id="consent-chk" name="consent-chk">
+			                <label for="consent-chk"><RouterLink to="/">利用規約</RouterLink>に同意する</label>
+		                  </p>
 
-  <RouterLink to="/login"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
-   
+               </el-form>
+
+                  <RouterLink to="/login"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>   
     </div>
   </div>
 </template>
@@ -65,10 +65,10 @@ const formLabelAlign = reactive({
 <style>
 
 .sign {
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-image: url(@/assets/trees.png);
+    background-position: bottom; 
+    background-size: contain;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     margin: 0px;

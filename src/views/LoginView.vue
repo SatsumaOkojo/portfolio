@@ -14,39 +14,39 @@ const formLabelAlign = reactive({
 
 <template>
   <div class="yellow">
-    <div class="login">
+     <div class="login">
 
      
-    <div style="margin: 20px" />
-  <el-form
-    :label-position="labelPosition"
-    label-width="100px"
-    :model="formLabelAlign"
-  >
-    <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.mail" />
-    </el-form-item>
-    <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.password" />
-    </el-form-item>
-  </el-form>
+          <div style="margin: 20px" />
+             <el-form
+               :label-position="labelPosition"
+                label-width="100px"
+               :model="formLabelAlign"
+                >
+
+                  <el-form-item label="メールアドレス">
+                      <el-input v-model="formLabelAlign.mail" />
+                  </el-form-item>
+
+                  <el-form-item label="パスワード">
+                       <el-input v-model="formLabelAlign.password" />
+                  </el-form-item>
+             </el-form>
   
 
-    <RouterLink to="/main"><a href="" class="btn btn--orange btn--cubic btn--shadow">ログイン</a></RouterLink>
- 
+                <RouterLink to="/main"><a href="" class="btn btn--orange btn--cubic btn--shadow">ログイン</a></RouterLink>
+                <p><RouterLink to="/main">パスワードをお忘れの方</RouterLink></p>
 
-    <p><RouterLink to="/main">パスワードをお忘れの方</RouterLink></p>
-
-  </div>
+    </div>
   </div>
 </template>
 
 <style>
  .yellow {
-    min-height: 100vh;
-    display: flex;
-    background-color: rgb(252, 255, 212);
-    background-image: url(@/assets/trees.png);
+  min-height: 100vh;
+  display: flex;
+  background-color: rgb(252, 255, 212);
+  background-image: url(@/assets/trees.png);
   background-position: bottom; 
   background-size: contain;
   background-repeat: no-repeat;

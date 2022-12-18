@@ -3,43 +3,41 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-     <div class="yellow">
-    <div class="post">
+   <div class="yellow">
+        <div class="post">
 
-<div class="post3">
-    <label for="post1">行事名  </label>
-    <!-- {{event_name}} -->
-    <input type="textbox" placeholder="11月誕生会">
-</div>
+            <div class="post3">
+               <label for="post1">行事名  </label>
+               <!-- {{event_name}} -->
+               <input type="textbox" placeholder="11月誕生会">
+            </div>
 
-<div class="post3">
-    <!-- ドラック＆ドロップしたい -->
-    <label for="post2">企画書  </label>
-    <!-- {{proposal_image_path}} -->
-    <input type="textbox" >
-</div>
+            <div class="post3">
+                <!-- ドラック＆ドロップしたい -->
+                <label for="post2">企画書  </label>
+               <!-- {{proposal_image_path}} -->
+               <input type="textbox" >
+             </div>
 
-<div class="post3">
-    <lavel for="post3">実施日  </lavel>
-    <!-- {{schedule}} -->
-  <input type="date" value="2022-11-11" name="date" id="date">
-</div>
+            <div class="post3">
+                <lavel for="post3">実施日  </lavel>
+                 <!-- {{schedule}} -->
+                <input type="date" value="2022-11-11" name="date" id="date">
+             </div>
 
-<RouterLink to="/proposal-table"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
+               <RouterLink to="/proposal-table"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
 
-
-</div>
-</div>
-
+        </div>
+   </div>
 </template>
 
 
 <style>
 .yellow {
-    background-color: rgb(255, 250, 196);
-    min-height: 100vh;
-    display: flex;
-    background-image: url(@/assets/trees.png);
+  background-color: rgb(255, 250, 196);
+  min-height: 100vh;
+  display: flex;
+  background-image: url(@/assets/trees.png);
   background-position: bottom; 
   background-size: contain;
   background-repeat: no-repeat;
@@ -57,7 +55,7 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .post3 {
-    padding:2em;
+  padding:2em;
 }
 
 a.btn--red {

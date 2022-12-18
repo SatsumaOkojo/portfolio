@@ -46,48 +46,42 @@ const formLabelAlign = reactive({
     <div id="mypage">
         <div class="float_box-wrap">
  
- 
- <div class="float_box">
-    <img alt="Character2" src="@/assets/Character2.png" />
-   
-</div>
-     <div class="float_text">
+            <div class="float_box">
+               <img alt="Character2" src="@/assets/Character2.png" />
+            </div>
 
-    <!-- v-if ="authr ==1" 園長だけ -->
-    <!-- <el-form-item  label="法人名"> 
-      <el-input v-model="formLabelAlign.corporation" /> 
-    </el-form-item>
+              <div class="float_text">
+                   <!-- v-if ="authr ==1" 園長だけ -->
+                   <!-- <el-form-item  label="法人名"> 
+                       <el-input v-model="formLabelAlign.corporation" /> 
+                      </el-form-item>
 
-    <el-form-item label="園名"> 
-      <el-input v-model="formLabelAlign.facility" /> 
-    </el-form-item> -->
-    <!-- 　ここまで園長だけ -->
-
-
-    <el-form-item label="ユーザー名"> 
-     <h4>田中太郎</h4>
-     <!-- {{name}} -->
-    </el-form-item>
-
-    <el-form-item label="メールアドレス">
-     <h4>tanaka2000@ezweb.ne.jp</h4>
-     <!-- {{mail}} -->
-    </el-form-item>
-
-    <el-form-item label="パスワード">
-    <h4>tanaka2022</h4>
-    <!-- {{password}} -->
-    </el-form-item>
-
-    
-    <RouterLink to="/mypage-update"><a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a></RouterLink>
-    <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
-
-     </div>
-     </div>
-     
+                       <el-form-item label="園名"> 
+                           <el-input v-model="formLabelAlign.facility" /> 
+                       </el-form-item> -->
+                  <!-- 　ここまで園長だけ -->
   
-  </div>
+                       <el-form-item label="ユーザー名"> 
+                          <h4>田中太郎</h4>
+                          <!-- {{name}} -->
+                        </el-form-item>
+
+                        <el-form-item label="メールアドレス">
+                           <h4>tanaka2000@ezweb.ne.jp</h4>
+                           <!-- {{mail}} -->
+                        </el-form-item>
+
+                        <el-form-item label="パスワード">
+                            <h4>tanaka2022</h4>
+                          <!-- {{password}} -->
+                        </el-form-item>
+
+                           <RouterLink to="/mypage-update"><a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a></RouterLink>
+                            <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
+
+              </div>
+         </div>
+    </div>
   </div>
 </template>
 
@@ -97,9 +91,9 @@ const formLabelAlign = reactive({
     display: flex;
     background-color: rgb(252, 255, 212);
     background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-position: bottom; 
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   #mypage {

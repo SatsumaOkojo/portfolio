@@ -46,43 +46,41 @@ const formLabelAlign = reactive({
         <div class="float_box-wrap">
  
  
- <div class="float_box">
-    <img alt="Character2" src="@/assets/Character2.png" />
-    <a href=""><br>画像を変更する</a>
-</div>
-     <div class="float_text">
+           <div class="float_box">
+             <img alt="Character2" src="@/assets/Character2.png" />
+             <a href=""><br>画像を変更する</a>
+           </div>
 
-    <!-- v-if ="authr ==1" 園長だけ -->
-    <!-- <el-form-item  label="法人名"> 
-      <el-input v-model="formLabelAlign.corporation" /> 
-    </el-form-item>
+                <div class="float_text">
+                    <!-- v-if ="authr ==1" 園長だけ -->
+                    <!-- <el-form-item  label="法人名"> 
+                    <el-input v-model="formLabelAlign.corporation" /> 
+                    </el-form-item>
 
-    <el-form-item label="園名"> 
-      <el-input v-model="formLabelAlign.facility" /> 
-    </el-form-item> -->
-    <!-- 　ここまで園長だけ -->
+                     <el-form-item label="園名"> 
+                     <el-input v-model="formLabelAlign.facility" /> 
+                     </el-form-item> -->
+                    <!-- 　ここまで園長だけ -->
 
 
-    <el-form-item label="ユーザー名"> 
-      <el-input v-model="formLabelAlign.name" /> 
-    </el-form-item>
+                     <el-form-item label="ユーザー名"> 
+                         <el-input v-model="formLabelAlign.name" /> 
+                     </el-form-item>
 
-    <el-form-item label="メールアドレス">
-      <el-input v-model="formLabelAlign.mail" />
-    </el-form-item>
+                     <el-form-item label="メールアドレス">
+                         <el-input v-model="formLabelAlign.mail" />
+                     </el-form-item>
 
-    <el-form-item label="パスワード">
-      <el-input v-model="formLabelAlign.password" />
-    </el-form-item>
+                     <el-form-item label="パスワード">
+                          <el-input v-model="formLabelAlign.password" />
+                     </el-form-item>
 
     
-    <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
+                        <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
 
-     </div>
-     </div>
-     
-  
-  </div>
+                   </div>
+         </div>
+      </div>
   </div>
 </template>
 
@@ -92,9 +90,9 @@ const formLabelAlign = reactive({
     display: flex;
     background-color: rgb(252, 255, 212);
     background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+   background-position: bottom; 
+   background-size: contain;
+   background-repeat: no-repeat;
   }
 
   #mypage {

@@ -1,16 +1,3 @@
-<!-- <script lang="ts" setup>
-
-const btn = document.getElementById('btn');
-  
-  
-  btn.addEventListener('click', function() {
-  
-    prompt('名前を入力してください', '例：佐藤');
-  
-  });
-
-
-</script> -->
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
@@ -32,68 +19,10 @@ const handleClose = (done: () => void) => {
 
 
 <template>
-<div id =skyblue>
-<div id="facility">
-    <h1>あいうえお保育園</h1>
-<!-- {[facility_name]} -->
-    </div>
 
-    <div class="wrap2">
-      <div class="item2">
-        <h1>今月の予定</h1>
-        <!-- 変数 -->
-        <!-- {{day}}日　{{event_name}} -->
-        <p>9日      身体測定<br>
-           16日     消火避難訓練<br>
-           25日     誕生会<br>
-           26日     職員会議　園内研修</p>
-      </div>
-
-      <div class="item2">
-        <h1>更新情報</h1>
-        <!-- 変数 -->
-        <!-- {{date_time}} {{title}} -->
-        <p>2022.11.19  11月誕生会企画書<br>
-           2022.11.15  11月消火避難訓練<br>
-           2022.11.1  園長より<br>
-           2022.10.30  つぼみ組より</p>
-       </div>
-    </div>
-
-    <div class="balloon5">
-  <div class="faceicon">
-    <img alt="Character2" src="@/assets/Character2.png" />
-    <!-- ここに画像を入れる <icon_image_path-->
-
-    <!-- 変数 -->
-    <!-- {{position_name}}
-         {{name}} -->
-    <h3>園長<br>
-        田中太郎</h3>
-  </div>
-  <div class="chatting">
-    <div class="says">
-        <p>法人より行動規制の変更がありました。<br>
-          ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
-         ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
-         <!-- {{message}} -->
-      <!-- <p>文章を入れる</p> 横幅の指定もできるか、文字が多いとレイアウト崩れる-->
-      <!-- 文字制限も？ -->
-      <!-- ポップアップ＋変数 -->
-    </div>
-
-    <!-- これは役職あるひとだけ -->
-    <div class="sub">
-    <h6>更新日 2022.11.14 17:00</h6>   
-    <!-- {{update_at}} -->
-    <!-- <button id="btn"> -->
-     <a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a> 
-    <!-- </button> -->
-  </div>
-  </div>
-  </div>
-
-  <el-button class="btn btn--red btn--cubic btn--shadow" text @click="dialogVisible = true">
+   <div id =skyblue>
+    
+  <!-- <el-button  text @click="dialogVisible = true">
    編集する
   </el-button>
 
@@ -112,29 +41,72 @@ const handleClose = (done: () => void) => {
         </el-button>
       </span>
     </template>
-  </el-dialog>
- 
+  </el-dialog> -->
 
-  <div class="balloon5">
-  <div class="faceicon">
-    <img alt="Character2" src="@/assets/Character2.png" />
-    <h3>主任<br>
-        佐藤花子</h3>
-  </div>
+       <div id="facility">
+           <h1>あいうえお保育園</h1>
+          <!-- {[facility_name]} -->
+       </div>
 
-  <div class="chatting">
-    <div class="says">
-        <p>23日の内科健診はつぼみ組から順に行います。13:30～です。</p>
+          <div class="wrap2">
+
+             <div class="item2">
+                <h1>今月の予定</h1>
+                <!-- 変数 -->
+                <!-- {{day}}日　{{event_name}} -->
+                    <p>9日      身体測定<br>
+                       16日     消火避難訓練<br>
+                       25日     誕生会<br>
+                       26日     職員会議　園内研修</p>
+             </div>
+
+             <div class="item2">
+                 <h1>更新情報</h1>
+                 <!-- 変数 -->
+                 <!-- {{date_time}} {{title}} -->
+                    <p>2022.11.19  11月誕生会企画書<br>
+                      2022.11.15  11月消火避難訓練<br>
+                      2022.11.1  園長より<br>
+                      2022.10.30  つぼみ組より</p>
+             </div>
+         </div>
+
+           <div class="balloon5">
+
+              <div class="faceicon">
+              <img alt="Character2" src="@/assets/Character2.png" />
+             <!-- ここに画像を入れる <icon_image_path-->
+
+              <!-- 変数 -->
+              <!-- {{position_name}}
+                   {{name}} -->
+                <h3>園長<br>
+                  田中太郎</h3>
+              </div>
+                  <div class="chatting">
+                      <div class="says">
+                         <p>法人より行動規制の変更がありました。<br>
+                            ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
+                            ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
+                           <!-- {{message}} -->
+                     
+                           <!-- 文字制限も？ -->
+                           <!-- ポップアップ＋変数 -->
+                       </div>
+
+                        <!-- これは役職あるひとだけ -->
+                      <div class="sub">
+                          <h6>更新日 2022.11.14 17:00</h6>   
+                             <!-- {{update_at}} -->
+              
+                            <a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a> 
+                    
+                       </div>
+                   </div>
+             </div>
+
     </div>
 
-    <div class="sub">
-    <h6>更新日 2022.11.14 17:00{{}}</h6>
-   <a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a>
-  </div>
-  </div>
-</div>
-
-</div>
 </template>
 
 <style>
