@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import { ElButton } from 'element-plus'
 import { ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
+
 
 const dialogVisible = ref(false)
 
@@ -13,12 +15,15 @@ const handleClose = (done: () => void) => {
       // catch error
     })
 }
+
+
 </script>
 
 
 
 
 <template>
+  <el-button>ボタン</el-button>
 
    <div id =skyblue>
     
@@ -44,7 +49,7 @@ const handleClose = (done: () => void) => {
   </el-dialog> -->
 
        <div id="facility">
-           <h1>あいうえお保育園</h1>
+          <input model="facility_name"><h1>あいうえお保育園</h1>
           <!-- {[facility_name]} -->
        </div>
 
@@ -52,8 +57,6 @@ const handleClose = (done: () => void) => {
 
              <div class="item2">
                 <h1>今月の予定</h1>
-                <!-- 変数 -->
-                <!-- {{day}}日　{{event_name}} -->
                     <p>9日      身体測定<br>
                        16日     消火避難訓練<br>
                        25日     誕生会<br>
@@ -80,12 +83,13 @@ const handleClose = (done: () => void) => {
               <!-- 変数 -->
               <!-- {{position_name}}
                    {{name}} -->
-                <h3>園長<br>
-                  田中太郎</h3>
+                <input model="position_name"><h3>園長{{ position_name }}<br>
+                  <input model="name">田中太郎{{ name }}</h3>
               </div>
                   <div class="chatting">
                       <div class="says">
-                         <p>法人より行動規制の変更がありました。<br>
+                        <input model="message">
+                         <p>法人より行動規制の変更がありました。{{ message }}<br>
                             ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
                             ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
                            <!-- {{message}} -->
@@ -96,11 +100,11 @@ const handleClose = (done: () => void) => {
 
                         <!-- これは役職あるひとだけ -->
                       <div class="sub">
-                          <h6>更新日 2022.11.14 17:00</h6>   
+                          <h6>更新日 <input id=update_at>2022.11.14 17:00{{ update_at }}</h6>   
                              <!-- {{update_at}} -->
               
-                            <a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a> 
-                    
+                             <el-button class="red-btn">編集する</el-button> 
+                             <!-- 権限ID4以外の人だけ表示 -->v-if="author == !4"
                        </div>
                    </div>
              </div>
@@ -218,25 +222,14 @@ const handleClose = (done: () => void) => {
  display: inline;
 }
 
-a.btn--red {
+.red-btn {
+  background-color: #ff3700;
   color: #fff;
-  background-color: #e70000;
-  border-bottom: 5px solid #b80000;
+  border: 2px solid #ad3100;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 3em;
+  margin: 2em;
   font-size: 1.2em;
-}
-
-a.btn--red:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #e70000;
-  border-bottom: 2px solid #b80000;
-}
-
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 </style>

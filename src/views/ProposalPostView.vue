@@ -2,7 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
-<template>
+<template v-if="author == !4,3">
+<!-- 権限4と3の人はここに来れない -->
    <div class="yellow">
         <div class="post">
 
@@ -25,7 +26,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 <input type="date" value="2022-11-11" name="date" id="date">
              </div>
 
-               <RouterLink to="/proposal-table"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
+               <RouterLink to="/proposal-table"><el-button class="red-btn">投稿する</el-button></RouterLink>
 
         </div>
    </div>
@@ -58,25 +59,14 @@ import { RouterLink, RouterView } from 'vue-router'
   padding:2em;
 }
 
-a.btn--red {
+.red-btn {
+  background-color: #ff3700;
   color: #fff;
-  background-color: #e70000;
-  border-bottom: 5px solid #b80000;
+  border: 2px solid #ad3100;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 3em;
+  margin: 2em;
   font-size: 1.2em;
-}
-
-a.btn--red:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #e70000;
-  border-bottom: 2px solid #b80000;
-}
-
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 

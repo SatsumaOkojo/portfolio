@@ -76,8 +76,8 @@ const formLabelAlign = reactive({
                           <!-- {{password}} -->
                         </el-form-item>
 
-                           <RouterLink to="/mypage-update"><a href="" class="btn btn--red btn--cubic btn--shadow">編集する</a></RouterLink>
-                            <RouterLink to="/"><a href="" class="btn btn--red btn--cubic btn--shadow">退会する</a></RouterLink>
+                           <RouterLink to="/mypage-update"><el-button class="red-btn">編集する</el-button></RouterLink>
+                            <RouterLink to="/"><el-button  class="green-btn">退会する</el-button></RouterLink>
 
               </div>
          </div>
@@ -176,25 +176,25 @@ const formLabelAlign = reactive({
    text-decoration: underline;
 } 
 
-a.btn--red {
+.red-btn {
+  background-color: #ff3700;
   color: #fff;
-  background-color: #e70000;
-  border-bottom: 5px solid #b80000;
+  border: 2px solid #ad3100;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 1em;
+  margin: 2em;
   font-size: 1.2em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
-a.btn--red:hover {
-  margin-top: 3px;
+.green-btn {
+  background-color: #00a835;
   color: #fff;
-  background: #e70000;
-  border-bottom: 2px solid #b80000;
-}
-
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  border: 2px solid #036502;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 2em;
+  font-size: 1.2em;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 }

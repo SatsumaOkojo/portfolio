@@ -34,7 +34,8 @@ const formLabelAlign = reactive({
              </el-form>
   
 
-                <RouterLink to="/main"><a href="" class="btn btn--orange btn--cubic btn--shadow">ログイン</a></RouterLink>
+                <RouterLink to="/main"><el-button class="red-btn">ログイン</el-button></RouterLink>
+                <!-- ログインできなかったらどうする？ -->
                 <p><RouterLink to="/main">パスワードをお忘れの方</RouterLink></p>
 
     </div>
@@ -85,5 +86,15 @@ const formLabelAlign = reactive({
     margin: 2em;
   }
 
+  .red-btn {
+  background-color: #ff3700;
+  color: #fff;
+  border: 2px solid #ad3100;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 2em;
+  font-size: 1.2em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
 }
 </style>

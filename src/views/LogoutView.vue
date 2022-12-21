@@ -1,5 +1,13 @@
-<template>
+<script lang="ts" setup>
+  import { ElButton } from 'element-plus'
+  export default {
+    components: { ElButton },
+  }
+</script>
 
+
+<template>
+    <el-button>I am ElButton</el-button>
   <div class="color">
       <div id="logout">
           <h1>ログアウトしました</h1>

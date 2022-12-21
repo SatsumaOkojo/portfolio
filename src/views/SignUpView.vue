@@ -31,11 +31,11 @@ const formLabelAlign = reactive({
                   style="max-width: 460px"
                  >
 
-                   <el-form-item label="法人名">
+                   <el-form-item v-if="author ==1" label="法人名">
                       <el-input v-model="formLabelAlign.corporation" />
                    </el-form-item>
 
-                   <el-form-item label="園名">
+                   <el-form-item v-if="author ==1" label="園名">
                       <el-input v-model="formLabelAlign.facility_name" />
                    </el-form-item>
 
@@ -57,7 +57,7 @@ const formLabelAlign = reactive({
 
                </el-form>
 
-                  <RouterLink to="/login"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>   
+                  <RouterLink to="/login"><el-button class="red-btn">新規登録</el-button></RouterLink>   
     </div>
   </div>
 </template>
@@ -112,5 +112,15 @@ const formLabelAlign = reactive({
     margin-bottom: 1.5em;
   }
 
+  .red-btn {
+  background-color: #ff3700;
+  color: #fff;
+  border: 2px solid #ad3100;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 2em;
+  font-size: 1.2em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
 }
 </style>

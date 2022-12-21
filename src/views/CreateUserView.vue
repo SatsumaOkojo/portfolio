@@ -19,7 +19,7 @@ const formLabelAlign = reactive({
 </script>
 
 
-<template>
+<template v-if="author == 1">
     <div class="yellow">
 
         <div class="create_user">
@@ -63,7 +63,7 @@ const formLabelAlign = reactive({
                            
                 </el-form>
     
-                  <a href="" class="btn btn--orange btn--cubic btn--shadow">登録する</a>
+                  <el-button class="red-btn">登録する</el-button>
    
         </div>
     </div>
@@ -100,4 +100,15 @@ const formLabelAlign = reactive({
     display: block;
     margin: 1em;
   }
+
+  .red-btn {
+  background-color: #ff3700;
+  color: #fff;
+  border: 2px solid #ad3100;
+  border-radius: 50px;
+  padding: 0.3em 1.3em;
+  margin: 2em;
+  font-size: 1.2em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
 </style>

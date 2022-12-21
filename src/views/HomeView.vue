@@ -74,8 +74,8 @@ import { RouterLink, RouterView } from 'vue-router'
                               お気軽にお問い合わせください</h4>
                        </div>   
     
-                            <RouterLink to="/signup"><a href="" class="btn btn--orange btn--cubic btn--shadow">新規登録</a></RouterLink>
-                            <a href="" class="btn btn--orange btn--cubic btn--shadow">お問い合わせ</a>
+                            <RouterLink to="/signup"><el-button class="red-btn">新規登録</el-button></RouterLink>
+                            <el-button class="red-btn">お問い合わせ</el-button>
 
              </div>
   </main>
@@ -298,29 +298,16 @@ main {
   border: 1px solid #919191d8;
 }
 
-
-a.btn--orange {
+.red-btn {
+  background-color: #ff3700;
   color: #fff;
-  background-color: #eb6100;
-  border-bottom: 5px solid #b84c00;
+  border: 2px solid #ad3100;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 3em;
-  font-size: 1.6em;
-  
-}
-a.btn--orange:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #f56500;
-  border-bottom: 2px solid #b84c00;
-}
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  margin: 2em;
+  font-size: 1.2em;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
-
-
 
 @media not all and (min-width: 768px) {
   .item {
