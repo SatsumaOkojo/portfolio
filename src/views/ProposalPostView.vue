@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
-<template v-if="author == !4,3">
+<template>
 <!-- 権限4と3の人はここに来れない -->
    <div class="yellow">
         <div class="post">

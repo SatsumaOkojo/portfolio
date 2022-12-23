@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 
-
+var author_id = 3;
 </script>
 
 <template>
@@ -17,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/logout">ログアウト</RouterLink>
           <RouterLink to="/mypage">マイページ</RouterLink>
           <RouterLink to="/proposal-table">企画書</RouterLink>
-          <RouterLink to="/create-user">ユーザー作成</RouterLink>
+          <RouterLink to="/create-user" v-if="author_id == 1">ユーザー作成</RouterLink>
           <!-- v-if = "author == 1" -->
           
         </nav>

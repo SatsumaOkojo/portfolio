@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 import { ElButton } from 'element-plus'
-import { ref } from 'vue'
-import { ElMessageBox } from 'element-plus'
+import { reactive, ref } from 'vue'
+const dialogFormVisible = ref(false)
+const formLabelWidth = '140px'
 
+const form = reactive({
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
+  desc: '',
+})
 
-const dialogVisible = ref(false)
-
-const handleClose = (done: () => void) => {
-  ElMessageBox.confirm('Are you sure to close this dialog?')
-    .then(() => {
-      done()
-    })
-    .catch(() => {
-      // catch error
-    })
-}
-
+var author_id = 4;
 
 </script>
 
@@ -23,33 +23,11 @@ const handleClose = (done: () => void) => {
 
 
 <template>
-  <el-button>ボタン</el-button>
 
    <div id =skyblue>
-    
-  <!-- <el-button  text @click="dialogVisible = true">
-   編集する
-  </el-button>
-
-  <el-dialog
-    v-model="dialogVisible"
-    title="Tips"
-    width="30%"
-    :before-close="handleClose"
-  >
-    <span>This is a message</span>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogVisible = false">
-          Confirm
-        </el-button>
-      </span>
-    </template>
-  </el-dialog> -->
 
        <div id="facility">
-          <input model="facility_name"><h1>あいうえお保育園</h1>
+          <h1>あいうえお保育園</h1>
           <!-- {[facility_name]} -->
        </div>
 
@@ -83,12 +61,11 @@ const handleClose = (done: () => void) => {
               <!-- 変数 -->
               <!-- {{position_name}}
                    {{name}} -->
-                <input model="position_name"><h3>園長{{ position_name }}<br>
-                  <input model="name">田中太郎{{ name }}</h3>
+                  <h3>園長{{ position_name }}<br>
+                    田中太郎{{ name }}</h3>
               </div>
                   <div class="chatting">
                       <div class="says">
-                        <input model="message">
                          <p>法人より行動規制の変更がありました。{{ message }}<br>
                             ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
                             ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
@@ -100,14 +77,34 @@ const handleClose = (done: () => void) => {
 
                         <!-- これは役職あるひとだけ -->
                       <div class="sub">
-                          <h6>更新日 <input id=update_at>2022.11.14 17:00{{ update_at }}</h6>   
+                          <h6>更新日 2022.11.14 17:00{{ update_at }}</h6>   
                              <!-- {{update_at}} -->
-              
-                             <el-button class="red-btn">編集する</el-button> 
-                             <!-- 権限ID4以外の人だけ表示 -->v-if="author == !4"
-                       </div>
-                   </div>
+                             <el-button id="edit" @click="dialogFormVisible = true"  v-if="author_id !== 4">
+                                編集する
+                              </el-button>
+                                     
+                                    <el-dialog v-model="dialogFormVisible" title="メッセージ">
+                                        <el-form :model="form">
+                                           <el-form-item label="Message" :label-width="formLabelWidth">
+                                             <el-input v-model="form.name" autocomplete="off" />
+                                            </el-form-item>
+                                         </el-form>
+
+
+                     <template #footer>
+                       <span class="dialog-footer">
+                                <el-button @click="dialogFormVisible = false">戻る</el-button>
+                                <el-button type="primary" @click="dialogFormVisible = false">
+                                 更新する
+                                </el-button>
+                       </span>
+                      </template>
+                                       </el-dialog>
+                             <!-- <el-button id ="edit-btn" class="red-btn">編集する</el-button> 
+                              権限ID4以外の人だけ表示 v-if="author == !4" -->
+                         </div>
              </div>
+          </div>
 
     </div>
 

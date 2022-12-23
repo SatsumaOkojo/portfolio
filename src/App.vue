@@ -2,6 +2,7 @@
 
 import NavMenu from './components/NavMenu.vue';
 import Footer from './components/Footer.vue';
+
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import Footer from './components/Footer.vue';
                </el-header>
 
                <el-main>
-
+         
                </el-main>
               
                <el-footer>

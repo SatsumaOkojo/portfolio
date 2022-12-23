@@ -37,6 +37,8 @@ const formLabelAlign = reactive({
   corporation: '',
   facility: '',
 })
+
+var author_id = 3;
 </script>
 
 
@@ -52,14 +54,14 @@ const formLabelAlign = reactive({
            </div>
 
                 <div class="float_text">
-                    <!-- v-if ="authr ==1" 園長だけ -->
-                    <!-- <el-form-item  label="法人名"> 
-                    <el-input v-model="formLabelAlign.corporation" /> 
+                   
+                    <el-form-item  v-if="author_id == 1" label="法人名"> 
+                      <el-input v-model="formLabelAlign.corporation" /> 
                     </el-form-item>
 
-                     <el-form-item label="園名"> 
-                     <el-input v-model="formLabelAlign.facility" /> 
-                     </el-form-item> -->
+                     <el-form-item v-if="author_id == 1" label="園名"> 
+                       <el-input v-model="formLabelAlign.facility" /> 
+                     </el-form-item>
                     <!-- 　ここまで園長だけ -->
 
 
@@ -120,6 +122,7 @@ const formLabelAlign = reactive({
     text-align: center;
     margin: 4em auto;
     width: 45%;
+    height: 70%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);

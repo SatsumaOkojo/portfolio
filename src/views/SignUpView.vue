@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 import { reactive, ref } from 'vue'
 
-
+const centerDialogVisible = ref(false)
 
 const labelPosition = ref('right')
 
@@ -31,11 +31,11 @@ const formLabelAlign = reactive({
                   style="max-width: 460px"
                  >
 
-                   <el-form-item v-if="author ==1" label="法人名">
+                   <el-form-item  label="法人名">
                       <el-input v-model="formLabelAlign.corporation" />
                    </el-form-item>
 
-                   <el-form-item v-if="author ==1" label="園名">
+                   <el-form-item  label="園名">
                       <el-input v-model="formLabelAlign.facility_name" />
                    </el-form-item>
 
@@ -51,14 +51,31 @@ const formLabelAlign = reactive({
                       <el-input v-model="formLabelAlign.password" />
                    </el-form-item>
 
-                      <p><input type="checkbox" id="consent-chk" name="consent-chk">
-			                <label for="consent-chk"><RouterLink to="/">利用規約</RouterLink>に同意する</label>
-		                  </p>
+                      
+			                <el-button text @click="centerDialogVisible = true"><input type="checkbox" id="consent-chk" name="consent-chk">
+    利用規約に同意する
+  </el-button>
 
-               </el-form>
-
+  <el-dialog
+    v-model="centerDialogVisible"
+    title="利用規約"
+    width="30%"
+    align-center
+  >
+    <span>利用規約が書かれています</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">閉じる</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false">
+          確認
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
                   <RouterLink to="/login"><el-button class="red-btn">新規登録</el-button></RouterLink>   
-    </div>
+    
+                  </el-form>
+                </div>
   </div>
 </template>
 

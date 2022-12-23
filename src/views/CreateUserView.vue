@@ -16,10 +16,12 @@ const formLabelAlign = reactive({
   name: '',
   mail: '',
 })
+
+
 </script>
 
 
-<template v-if="author == 1">
+<template>
     <div class="yellow">
 
         <div class="create_user">

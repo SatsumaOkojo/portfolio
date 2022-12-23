@@ -15,6 +15,8 @@ const tableData = [
     name: "町田　真智子"
   },
 ]
+
+var author_id = 3;
 </script>
 
 
@@ -31,7 +33,7 @@ const tableData = [
            </form>
    
                  <!-- これは役職あるひとだけ -->
-               <RouterLink to="/proposal-post"><el-button class="red-btn" v-if="author == !4">投稿する</el-button></RouterLink>
+               <RouterLink to="/proposal-post"><el-button class="red-btn" v-if="author_id == 1 || 2">投稿する</el-button></RouterLink>
 
         </div>
 
