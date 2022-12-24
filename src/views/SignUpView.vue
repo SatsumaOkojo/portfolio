@@ -20,7 +20,6 @@ const formLabelAlign = reactive({
 
 
 <template>
-  <div class="sign">
      <div class="signup">
     
           <div style="margin: 20px" />
@@ -76,26 +75,15 @@ const formLabelAlign = reactive({
     
                   </el-form>
                 </div>
-  </div>
+
 </template>
 
 <style>
 
-.sign {
-    background-image: url(@/assets/trees.png);
-    background-position: bottom; 
-    background-size: contain;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display: flex;
-    margin: 0px;
-    background-color: rgb(218, 255, 255);
-  }
-
   .signup {
     text-align: center;
-    margin: auto;
-    width: 40%;
+    margin: 3em auto;
+    width: 55%;
     border: 2px solid #5cbec7d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(193, 193, 193, 0.242);
@@ -104,17 +92,11 @@ const formLabelAlign = reactive({
 
 
 @media (min-width: 1024px) {
-  .sign {
-    min-height: 100vh;
-    display: flex;
-    margin: 0px;
-    background-color: rgb(218, 255, 255);
-  }
 
   .signup {
     text-align: center;
-    margin: auto;
-    width: 40%;
+    margin: 3em auto;
+    width: 55%;
     border: 2px solid #52bfc9d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(148, 148, 148, 0.5);
@@ -128,6 +110,15 @@ const formLabelAlign = reactive({
   .el-form-item{
     margin-bottom: 1.5em;
   }
+
+.el-form-item__content{
+  max-width: 60%;
+  padding-left: 1em;
+}
+
+.el-form-item__label {
+  min-width: 30%;
+}
 
   .red-btn {
   background-color: #ff3700;

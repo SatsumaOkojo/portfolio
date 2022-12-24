@@ -17,13 +17,6 @@
 </template>
 
 <style>
- .color {
-    background-color: rgba(255, 235, 205, 0.783);
-    background-image: url(@/assets/trees.png);
-    background-position: bottom; 
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
 
  #logout {
   margin: 0 4em;
@@ -50,9 +43,7 @@
   }
 
 @media (min-width: 1024px) {
-  .color {
-    background-color: rgba(255, 235, 205, 0.783);
-  }
+
   
  #logout {
   margin: 0 4em;

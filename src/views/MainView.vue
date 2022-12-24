@@ -1,6 +1,88 @@
 <script lang="ts" setup>
+import { onMounted } from "@vue/runtime-core";
+import { ref } from "@vue/reactivity";
+
+import { RouterLink } from "vue-router";
+
+import axios from "axios";
 import { ElButton } from 'element-plus'
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
+
+
+const results = ref([]);
+const id = ref("");
+const name = ref("");
+const facility_name = ref("");
+const position_name = ref("");
+const event_name = ref("");
+const updated_at = ref("");
+const created_at = ref("");
+const message = ref("");
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/users")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      name.value = response.data[0].name;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/facilities")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      facility_name.value = response.data[0].facility_name;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/positions")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      position_name.value = response.data[0].position_name;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/proposals")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      event_name.value = response.data[0].event_name;
+      created_at.value = response.data[0].updated_at;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/messages")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      message.value = response.data[0].message;
+      updated_at.value = response.data[0].updated_at;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
 const dialogFormVisible = ref(false)
 const formLabelWidth = '140px'
 
@@ -23,11 +105,8 @@ var author_id = 4;
 
 
 <template>
-
-   <div id =skyblue>
-
        <div id="facility">
-          <h1>あいうえお保育園</h1>
+          <h1>{{ facility_name }}</h1>
           <!-- {[facility_name]} -->
        </div>
 
@@ -43,12 +122,10 @@ var author_id = 4;
 
              <div class="item2">
                  <h1>更新情報</h1>
-                 <!-- 変数 -->
-                 <!-- {{date_time}} {{title}} -->
-                    <p>2022.11.19  11月誕生会企画書<br>
-                      2022.11.15  11月消火避難訓練<br>
-                      2022.11.1  園長より<br>
-                      2022.10.30  つぼみ組より</p>
+                
+                    <p>{{ created_at }}<br>
+                     「{{ event_name }}」更新しました！<br></p>
+                     
              </div>
          </div>
 
@@ -61,24 +138,19 @@ var author_id = 4;
               <!-- 変数 -->
               <!-- {{position_name}}
                    {{name}} -->
-                  <h3>園長{{ position_name }}<br>
-                    田中太郎{{ name }}</h3>
+                  <h3>{{ position_name }}<br>
+                    {{ name }}</h3>
               </div>
                   <div class="chatting">
                       <div class="says">
-                         <p>法人より行動規制の変更がありました。{{ message }}<br>
-                            ー－－－－－－－－－－－－－ー－－－－－－－－－－－－－－－－
-                            ー－－－－－－ー－－－－－－－－－－－－－－－－－－－－－－－－</p>
-                           <!-- {{message}} -->
-                     
-                           <!-- 文字制限も？ -->
-                           <!-- ポップアップ＋変数 -->
+                         <p>{{ message }}</p>
+                          
                        </div>
 
-                        <!-- これは役職あるひとだけ -->
+                       
                       <div class="sub">
-                          <h6>更新日 2022.11.14 17:00{{ update_at }}</h6>   
-                             <!-- {{update_at}} -->
+                          <h6>更新日 {{ updated_at }}</h6>   
+                             
                              <el-button id="edit" @click="dialogFormVisible = true"  v-if="author_id !== 4">
                                 編集する
                               </el-button>
@@ -100,26 +172,17 @@ var author_id = 4;
                        </span>
                       </template>
                                        </el-dialog>
-                             <!-- <el-button id ="edit-btn" class="red-btn">編集する</el-button> 
-                              権限ID4以外の人だけ表示 v-if="author == !4" -->
+                           
                          </div>
              </div>
           </div>
 
-    </div>
+
 
 </template>
 
 <style>
 
-#skyblue {
-    background-color: rgb(148, 223, 255);
-    background-image: url(@/assets/trees.png);
-    background-position: bottom; 
-    background-size: contain;
-    background-repeat: no-repeat;
-  
-}
 
  #facility {
     background-color: rgb(255, 55, 55);

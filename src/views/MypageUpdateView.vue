@@ -38,12 +38,11 @@ const formLabelAlign = reactive({
   facility: '',
 })
 
-var author_id = 3;
+var author_id = 1;
 </script>
 
 
 <template>
-  <div class="yellow">
     <div id="mypage">
         <div class="float_box-wrap">
  
@@ -51,6 +50,7 @@ var author_id = 3;
            <div class="float_box">
              <img alt="Character2" src="@/assets/Character2.png" />
              <a href=""><br>画像を変更する</a>
+             <RouterLink to="/"><el-button class="red-btn">更新する</el-button></RouterLink>
            </div>
 
                 <div class="float_text">
@@ -77,31 +77,18 @@ var author_id = 3;
                           <el-input v-model="formLabelAlign.password" />
                      </el-form-item>
 
-    
-                        <RouterLink to="/"><el-button class="red-btn">更新する</el-button></RouterLink>
-
                    </div>
          </div>
       </div>
-  </div>
 </template>
 
 <style>
- .yellow {
-    min-height: 100vh;
-    display: flex;
-    background-color: rgb(252, 255, 212);
-    background-image: url(@/assets/trees.png);
-   background-position: bottom; 
-   background-size: contain;
-   background-repeat: no-repeat;
-  }
 
   #mypage {
     text-align: center;
     margin: auto;
-    width: 50%;
-    height: 300px;
+    width: 60%;
+    height: 380px;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
@@ -111,18 +98,12 @@ var author_id = 3;
 
 
 @media (min-width: 1024px) {
-  .yellow {
-    min-height: 100vh;
-    display: flex;
-    background-color: rgb(252, 255, 212);
-    border-radius: 10px;
-  }
 
   #mypage {
     text-align: center;
     margin: 4em auto;
-    width: 45%;
-    height: 70%;
+    width: 60%;
+    height: 400px;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);
@@ -157,6 +138,11 @@ var author_id = 3;
 
 .el-form-item {
     margin-bottom: 2em;
+}
+
+.el-input__wrapper {
+  max-width: 70%;
+  margin-left: 4em;
 }
 
 .red-btn {

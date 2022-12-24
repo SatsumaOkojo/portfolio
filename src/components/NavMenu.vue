@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 var author_id = 3;
 </script>
 
 <template>
+
  
-    <header>
+  
       <img alt="logo" class="logo" src="@/assets/icon.logo.png" width="170" height="50" />
       
    
@@ -21,14 +22,13 @@ var author_id = 3;
           <!-- v-if = "author == 1" -->
           
         </nav>
-    </header>
+   
+     
  
-  
-    <RouterView />
   </template>
 
 <style scoped>
-header {
+/* header {
   height: 50px;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@ header {
   background: #ffffff;
   position: fixed;
   box-shadow: 0px 3px 5px rgba(106, 103, 103, 0.537);
-}
+} */
 
 
 nav {

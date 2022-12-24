@@ -4,7 +4,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
 <!-- 権限4と3の人はここに来れない -->
-   <div class="yellow">
         <div class="post">
 
             <div class="post3">
@@ -29,20 +28,10 @@ import { RouterLink, RouterView } from 'vue-router'
                <RouterLink to="/proposal-table"><el-button class="red-btn">投稿する</el-button></RouterLink>
 
         </div>
-   </div>
 </template>
 
 
 <style>
-.yellow {
-  background-color: rgb(255, 250, 196);
-  min-height: 100vh;
-  display: flex;
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .post {
  margin: 3em auto;

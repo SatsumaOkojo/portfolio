@@ -22,7 +22,7 @@ const formLabelAlign = reactive({
 
 
 <template>
-    <div class="yellow">
+
 
         <div class="create_user">
            <h1>ユーザー作成</h1>
@@ -68,19 +68,10 @@ const formLabelAlign = reactive({
                   <el-button class="red-btn">登録する</el-button>
    
         </div>
-    </div>
+
   </template>
 
   <style>
-.yellow {
-    min-height: 100vh;
-    display: flex;
-    background-color: rgb(252, 255, 212);
-    background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
-  }
 
   .create_user {
     text-align: center;

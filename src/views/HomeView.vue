@@ -3,7 +3,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <main>
     <h1 id="top">園のことをもっと知ろう！<br>
                みんなで簡単に情報共有</h1>
 
@@ -78,7 +77,7 @@ import { RouterLink, RouterView } from 'vue-router'
                             <el-button class="red-btn">お問い合わせ</el-button>
 
              </div>
-  </main>
+
 </template>
 
 
@@ -89,6 +88,7 @@ import { RouterLink, RouterView } from 'vue-router'
 main {
   background-color:  #fffde9;
   margin: 0 10px;
+  height: 100%;
   background-image: url(@/assets/trees.png);
   background-position: bottom; 
   background-size: contain;

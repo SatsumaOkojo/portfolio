@@ -31,7 +31,6 @@ const labelPosition = ref('right')
 
 
 <template>
-  <div class="yellow">
      <div class="login">
 
      
@@ -57,23 +56,13 @@ const labelPosition = ref('right')
                 <p><RouterLink to="/main">パスワードをお忘れの方</RouterLink></p>
 
     </div>
-  </div>
 </template>
 
 <style>
- .yellow {
-  min-height: 100vh;
-  display: flex;
-  background-color: rgb(252, 255, 212);
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
-  }
 
   .login {
     text-align: center;
-    margin: auto;
+    margin: 3em auto;
     width: 45%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
@@ -83,16 +72,11 @@ const labelPosition = ref('right')
   }
   
 @media (min-width: 1024px) {
-  .yellow {
-    min-height: 100vh;
-    display: flex;
-    background-color: rgb(252, 255, 212);
-  }
 
   .login {
     text-align: center;
-    margin: auto;
-    width: 50%;
+    margin: 3em auto;
+    width: 40%;
     border: 2px solid #bc9244d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(158, 113, 79, 0.5);
@@ -102,6 +86,10 @@ const labelPosition = ref('right')
 
   .el-form-item {
     margin: 2em;
+  }
+
+  .el-form-item__label {
+    min-width: 30%;
   }
 
   .red-btn {

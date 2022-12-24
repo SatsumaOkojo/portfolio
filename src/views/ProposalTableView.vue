@@ -1,129 +1,124 @@
 <script lang="ts" setup>
+import { onMounted } from "@vue/runtime-core";
+import { computed, ref } from "@vue/reactivity";
 import { RouterLink, RouterView } from 'vue-router'
+import axios from "axios";
 
-const tableData = [
+interface User {
+  date: string
+  name: string
+  address: string
+}
+
+const search = ref('')
+const filterTableData = computed(() =>
+  tableData.filter(
+    (data) =>
+      !search.value ||
+      data.name.toLowerCase().includes(search.value.toLowerCase())
+  )
+)
+const handleEdit = (index: number, row: User) => {
+  console.log(index, row)
+}
+const handleDelete = (index: number, row: User) => {
+  console.log(index, row)
+}
+
+const tableData: User[] = [
   {
-    schedule: '2022年7月7日',
-    event_name: '七夕',
-    proposal_image_path: 'img',
-    name: "鈴木　すず"
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
   },
   {
-    schedule: '2022年7月25日',
-    event_name: '7月誕生会',
-    proposal_image_path: 'img',
-    name: "町田　真智子"
+    date: '2016-05-02',
+    name: 'John',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Morgan',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Jessy',
+    address: 'No. 189, Grove St, Los Angeles',
   },
 ]
 
-var author_id = 3;
+
+const results = ref([]);
+const id = ref("");
+const schedule = ref("");
+const event_name = ref("");
+const proposal_image_path = ref("");
+const name = ref("");
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/proposals")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      schedule.value = response.data[0].schedule;
+      event_name.value = response.data[0].event_name;
+      proposal_image_path.value = response.data[0].proposal_image_path;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/users")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      name.value = response.data[0].name;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+
+var author_id = 1;
 </script>
 
 
 <template>
-    <div id =skyblue>
+
+  <div id ="post-btn">
+    <RouterLink to="/proposal-post"><el-button class="red-btn" v-if="author_id === 1 || author_id === 2">投稿する</el-button></RouterLink>
+ </div>
+
+      <el-table style="width: 100%">
+           <el-table-column label="日程" />{{  schedule }}
+           <el-table-column label="行事名"/>{{ event_name }}
+           <el-table-column label="企画書" />{{ proposal_image_path }}
+           <el-table-column label="担当者" />{{ name }}
+           <el-table-column>
+              <template #header>
+                  <el-input v-model="search" size="small" placeholder="キーワードを入力して探す" />
+              </template>
       
-        <div id="keyword">
-
-         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-           <form method="get" action="#" class="search_container">
-               <input type="text" size="25" placeholder="キーワード検索">
-               <input type="submit" value="&#xf002">
-           </form>
-   
-                 <!-- これは役職あるひとだけ -->
-               <RouterLink to="/proposal-post"><el-button class="red-btn" v-if="author_id == 1 || 2">投稿する</el-button></RouterLink>
-
-        </div>
-
-
-            <div id="column">
-                <el-table :data="tableData">
-                  <el-table-column prop="schedule" label="日程" width="190" />
-                  <el-table-column prop="event_name" label="行事名" width="190" />
-                  <!-- 企画書はクリックしたらProposalView.vueへ -->
-                  <el-table-column prop="proposal_image_path" label="企画書" width="190" />
-                  <el-table-column prop="name" label="担当者" width="190"/>
-                </el-table>
-             </div>
-
-    </div>
+            </el-table-column>
+       </el-table>
 </template>
 
 
 
 <style>
-#skyblue {
-  background-color: rgb(228, 244, 255);
-  min-height: 100vh;
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+#post-btn {
+  margin: 1em;
 }
-
-#keyword {
-  padding: 2.5em;
-  margin: 0 10%;
-  display: flex;
-}
-
-.search_container{
-  position: relative;
-  box-sizing: border-box;
-  border: 2px solid #576fe8;
-  display: block;
-  padding: 3px 10px;
-  border-radius: 3px;
-  height: 2.3em;
-  width: 265px;
-  overflow: hidden;
-}
-
-.search_container input[type="text"]{
-  border: none;
-  height: 2.0em;
-}
-
-.search_container input[type="text"]:focus {
-  outline: 0;
-}
-
-.search_container input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #578fef;
-  color: #fff;
-  position: absolute;
-  width: 3.5em;
-  height: 3.0em;
-  right:0px;
-  top: -5px;
-  outline : none;
-}
-
-.red-btn {
-  background-color: #ff3700;
-  color: #fff;
-  border: 2px solid #ad3100;
-  border-radius: 50px;
-  padding: 0.3em 1.3em;
-  margin: 2em;
-  font-size: 1.2em;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-
-#column {
-    margin: 0 2em;
-}
-
 .el-table {
     background-color: #ffffff;
     padding: 1em 3em;
     border: 2px solid #52bfc9d8;
     text-align: left;
+    margin:3em 1em;
 }
 
 </style>
