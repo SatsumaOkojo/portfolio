@@ -1,30 +1,36 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { reactive, ref } from 'vue'
+
+const labelPosition = ref('right')
+
+const formLabelAlign = reactive({
+  name: '',
+  region: '',
+  type: '',
+})
 </script>
 
 <template>
 <!-- 権限4と3の人はここに来れない -->
         <div class="post">
+          <el-form
+              :label-position="labelPosition"
+               label-width="100px"
+               :model="formLabelAlign"
+               style="max-width: 460px"
+                >
+                  <el-form-item label="行事名">
+                    <el-input v-model="formLabelAlign.name" />
+                  </el-form-item>
+                  <el-form-item label="企画書">
+                     <el-input v-model="formLabelAlign.region" />
+                  </el-form-item>
+                  <el-form-item label="企画書">
+                    <input type="date" value="2023-01-01" name="date" id="date">
+                  </el-form-item>
 
-            <div class="post3">
-               <label for="post1">行事名  </label>
-               <!-- {{event_name}} -->
-               <input type="textbox" placeholder="11月誕生会">
-            </div>
-
-            <div class="post3">
-                <!-- ドラック＆ドロップしたい -->
-                <label for="post2">企画書  </label>
-               <!-- {{proposal_image_path}} -->
-               <input type="textbox" >
-             </div>
-
-            <div class="post3">
-                <lavel for="post3">実施日  </lavel>
-                 <!-- {{schedule}} -->
-                <input type="date" value="2022-11-11" name="date" id="date">
-             </div>
-
+          </el-form>
                <RouterLink to="/proposal-table"><el-button class="red-btn">投稿する</el-button></RouterLink>
 
         </div>

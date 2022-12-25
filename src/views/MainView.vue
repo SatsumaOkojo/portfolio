@@ -83,21 +83,23 @@ onMounted(() => {
     .catch((error) => console.log(error));
 });
 
-const dialogFormVisible = ref(false)
+const createMessage = (): void => {
+  axios
+    .post("http://localhost/api/messages", {
+      id: id.value,
+      message: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
+
 const formLabelWidth = '140px'
+const dialogFormVisible = ref(false)
 
-const form = reactive({
-  name: '',
-  region: '',
-  date1: '',
-  date2: '',
-  delivery: false,
-  type: [],
-  resource: '',
-  desc: '',
-})
-
-var author_id = 4;
+var author_id = 1;
 
 </script>
 
@@ -151,22 +153,21 @@ var author_id = 4;
                       <div class="sub">
                           <h6>更新日 {{ updated_at }}</h6>   
                              
-                             <el-button id="edit" @click="dialogFormVisible = true"  v-if="author_id !== 4">
+                             <el-button id="edit" class="red-btn" @click="dialogFormVisible = true"  v-if="author_id !== 4">
                                 編集する
                               </el-button>
                                      
                                     <el-dialog v-model="dialogFormVisible" title="メッセージ">
-                                        <el-form :model="form">
+                                        <el-form>
                                            <el-form-item label="Message" :label-width="formLabelWidth">
-                                             <el-input v-model="form.name" autocomplete="off" />
+                                             <el-input v-model="message" autocomplete="off" />
                                             </el-form-item>
                                          </el-form>
 
 
                      <template #footer>
                        <span class="dialog-footer">
-                                <el-button @click="dialogFormVisible = false">戻る</el-button>
-                                <el-button type="primary" @click="dialogFormVisible = false">
+                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="createMessage">
                                  更新する
                                 </el-button>
                        </span>

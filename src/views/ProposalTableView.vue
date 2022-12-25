@@ -82,7 +82,6 @@ onMounted(() => {
     .catch((error) => console.log(error));
 });
 
-
 var author_id = 1;
 </script>
 

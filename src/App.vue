@@ -40,6 +40,7 @@ import Footer from './components/Footer.vue';
 
 .el-main {
   padding: 0;
+  margin:0;
   min-height: 82vh;
 }
 

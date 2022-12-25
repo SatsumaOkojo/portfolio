@@ -1,21 +1,82 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { h } from 'vue'
-import { ElMessage } from 'element-plus'
+import axios from "axios";
 
-const open = () => {
-  ElMessage('ユーザー登録完了しました')
+const id = ref("");
+const name = ref("");
+const mail = ref("");
+const position_id = ("");
+
+const createNewUser = (): void => {
+  axios
+    .post("http://localhost/api/users", {
+      id: id.value,
+      name: "",
+      mail: "",
+      position_id: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
 }
 
 
 
-
 const labelPosition = ref('right')
+const value1 = ref([])
 
-const formLabelAlign = reactive({
-  name: '',
-  mail: '',
-})
+const options = [
+  {
+    value: '主任',
+    label: '主任',
+  },
+  {
+    value: '副主任',
+    label: '副主任',
+  },
+  {
+    value: '0歳児担任',
+    label: '0歳児担任',
+  },
+  {
+    value: '1歳児担任',
+    label: '1歳児担任',
+  },
+  {
+    value: '2歳児担任',
+    label: '2歳児担任',
+  },
+  {
+    value: '3歳児担任',
+    label: '3歳児担任',
+  },
+  {
+    value: '4歳児担任',
+    label: '4歳児担任',
+  },
+  {
+    value: '5歳児担任',
+    label: '5歳児担任',
+  },
+  {
+    value: '合同クラス担任',
+    label: '合同クラス担任',
+  },
+  {
+    value: '栄養士',
+    label: '栄養士',
+  },
+  {
+    value: '看護師',
+    label: '看護師',
+  },
+  {
+    value: '保育士',
+    label: '保育士',
+  },
+  
+]
 
 
 </script>
@@ -31,41 +92,39 @@ const formLabelAlign = reactive({
                <el-form
                   :label-position="labelPosition"
                    label-width="100px"
-                   :model="formLabelAlign"
                    style="max-width: 460px"
                      >
 
                         <el-form-item label="ユーザー名">
-                            <el-input v-model="formLabelAlign.name" />
+                            <el-input v-model="name" />
                         </el-form-item>
 
                         <el-form-item label="メールアドレス">
-                            <el-input v-model="formLabelAlign.mail" />
+                            <el-input v-model="mail" />
                         </el-form-item>
       
                         <el-form-item label="役職">
                             <!-- 役職に権限ついている -->
                             <!-- {{position_name}} {{author_id}} -->
-                            <select id="position">
-                             <option>主任</option>
-                             <option>副主任</option>
-                             <option>0歳児担任</option>
-                             <option>1歳児担任</option>
-                             <option>2歳児担任</option>
-                             <option>3歳児担任</option>
-                             <option>4歳児担任</option>
-                             <option>5歳児担任</option>
-                             <option>合同クラス担任</option>
-                             <option>事務</option>
-                             <option>栄養士</option>
-                             <option>看護師</option>
-                             <option>保育士</option>
-                            </select>
+                            <el-select
+                                v-model="position_id"
+                                multiple
+                                placeholder="選択してください"
+                                style="width: 240px"
+                                 >
+                                 <el-option
+                                   v-for="item in options"
+                                  :key="item.value"
+                                  :label="item.label"
+                                  :value="item.value"
+                                    />
+                                </el-select>
+                  
                          </el-form-item>
                            
                 </el-form>
     
-                  <el-button class="red-btn">登録する</el-button>
+                  <el-button class="red-btn" v-on:click="createNewUser">登録する</el-button>
    
         </div>
 

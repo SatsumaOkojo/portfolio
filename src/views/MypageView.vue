@@ -3,6 +3,7 @@ import { onMounted } from "@vue/runtime-core";
 import { RouterLink } from "vue-router";
 import axios from "axios";
 import { reactive, ref } from 'vue'
+import { Edit } from '@element-plus/icons-vue'
 
 
 const labelPosition = ref('right')
@@ -54,7 +55,35 @@ onMounted(() => {
     })
     .catch((error) => console.log(error));
 });
-var author_id = 1;
+
+const updateUserName = (): void => {
+  axios
+    .post("http://localhost/api/users", {
+      id: id.value,
+      name: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
+const updateMail = (): void => {
+  axios
+    .post("http://localhost/api/users", {
+      id: id.value,
+      mail: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
+const formLabelWidth = '140px'
+const dialogFormVisible = ref(false)
+const dialogFormVisible2 = ref(false)
+var author_id = 2;
 </script>
 
 
@@ -65,13 +94,13 @@ var author_id = 1;
             <div class="float_box">
                <img alt="Character2" src="@/assets/Character2.png" />
 
-               <RouterLink to="/mypage-update"><el-button class="red-btn">編集する</el-button></RouterLink>
                <RouterLink to="/"><el-button  class="green-btn">退会する</el-button></RouterLink>
             </div>
 
+
               <div class="float_text">
           
-                   <el-form-item v-if="author_id == 1" label="法人名"> 
+                      <el-form-item v-if="author_id == 1" label="法人名"> 
                        <h4>{{ corporation }}</h4>
                       </el-form-item>
 
@@ -80,17 +109,46 @@ var author_id = 1;
                        </el-form-item>
   
                        <el-form-item label="ユーザー名"> 
-                          <h4>{{ name }}</h4>
+                          <h4>{{ name }}<el-button type="primary" :icon="Edit" circle  @click="dialogFormVisible = true"  /></h4>
                         </el-form-item>
 
                         <el-form-item label="メールアドレス">
-                           <h4>{{ mail }}</h4>
+                           <h4>{{ mail }}<el-button type="primary" :icon="Edit" circle  @click="dialogFormVisible2 = true"  /></h4>
                         </el-form-item>
 
-                        <el-form-item label="パスワード">
-                            <h4>{{ password }}</h4>
-                        </el-form-item>
+                        <el-dialog v-model="dialogFormVisible" title="ユーザー名">
+                                        <el-form>
+                                           <el-form-item label="" :label-width="formLabelWidth">
+                                             <el-input v-model="name" autocomplete="off" />
+                                            </el-form-item>
+                                         </el-form>
 
+
+                     <template #footer>
+                       <span class="dialog-footer">
+                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="updateUserName">
+                                 更新する
+                                </el-button>
+                       </span>
+                      </template>
+                                       </el-dialog>
+
+                                       <el-dialog v-model="dialogFormVisible2" title="メールアドレス">
+                                        <el-form>
+                                           <el-form-item label="" :label-width="formLabelWidth">
+                                             <el-input v-model="mail" autocomplete="off" />
+                                            </el-form-item>
+                                         </el-form>
+
+
+                     <template #footer>
+                       <span class="dialog-footer">
+                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="updateMail">
+                                 更新する
+                                </el-button>
+                       </span>
+                      </template>
+                                       </el-dialog>
               </div>
          </div>
     </div>

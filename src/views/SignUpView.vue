@@ -1,19 +1,35 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import axios from "axios";
 import { reactive, ref } from 'vue'
 
 const centerDialogVisible = ref(false)
 
 const labelPosition = ref('right')
 
-const formLabelAlign = reactive({
-  name: '',
-  mail: '',
-  password: '',
-  corporation: '',
-  facility_name: '',
-})
+// const results = ref([]);
+const id = ref("");
+const corporation = ref("");
+const facility_name = ref("");
+const name = ref("");
+const mail = ref("");
+const password = ref("");
+
+const signUp = (): void => {
+  axios
+    .post("http://localhost/api/facilities","http://localhost/api/users", {
+      id: id.value,
+      corporation: "",
+      facility_name: "",
+      name: "",
+      mail: "",
+      password: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
 
 
 </script>
@@ -26,54 +42,53 @@ const formLabelAlign = reactive({
               <el-form
                  :label-position="labelPosition"
                   label-width="100px"
-                 :model="formLabelAlign"
                   style="max-width: 460px"
                  >
 
                    <el-form-item  label="法人名">
-                      <el-input v-model="formLabelAlign.corporation" />
+                      <el-input v-model="corporation" />
                    </el-form-item>
 
                    <el-form-item  label="園名">
-                      <el-input v-model="formLabelAlign.facility_name" />
+                      <el-input v-model="facility_name" />
                    </el-form-item>
 
                    <el-form-item label="ユーザー名">
-                      <el-input v-model="formLabelAlign.name" />
+                      <el-input v-model="name" />
                    </el-form-item>
 
                    <el-form-item label="メールアドレス">
-                      <el-input v-model="formLabelAlign.mail" />
+                      <el-input v-model="mail" />
                    </el-form-item>
 
                    <el-form-item label="パスワード">
-                      <el-input v-model="formLabelAlign.password" />
+                      <el-input v-model="password" />
                    </el-form-item>
 
                       
 			                <el-button text @click="centerDialogVisible = true"><input type="checkbox" id="consent-chk" name="consent-chk">
-    利用規約に同意する
-  </el-button>
+                            利用規約に同意する
+                      </el-button>
 
-  <el-dialog
-    v-model="centerDialogVisible"
-    title="利用規約"
-    width="30%"
-    align-center
-  >
-    <span>利用規約が書かれています</span>
-    <template #footer>
+                                <el-dialog
+                                  v-model="centerDialogVisible"
+                                  title="利用規約"
+                                  width="30%"
+                                  align-center
+                                   >
+                                 <span>利用規約が書かれています</span>
+   <template #footer>
       <span class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">閉じる</el-button>
         <el-button type="primary" @click="centerDialogVisible = false">
           確認
         </el-button>
       </span>
     </template>
-  </el-dialog>
-                  <RouterLink to="/login"><el-button class="red-btn">新規登録</el-button></RouterLink>   
+                                 </el-dialog>
+                </el-form>
+                  <RouterLink to="/login"><el-button class="red-btn" v-on:click="signUp">新規登録</el-button></RouterLink>   
     
-                  </el-form>
+
                 </div>
 
 </template>
@@ -83,7 +98,7 @@ const formLabelAlign = reactive({
   .signup {
     text-align: center;
     margin: 3em auto;
-    width: 55%;
+    width: 45%;
     border: 2px solid #5cbec7d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(193, 193, 193, 0.242);
@@ -96,11 +111,12 @@ const formLabelAlign = reactive({
   .signup {
     text-align: center;
     margin: 3em auto;
-    width: 55%;
-    border: 2px solid #52bfc9d8;
+    width: 45%;
+    border: 2px solid #c98252d8;
     background-color: #ffffff;
     box-shadow: 6px 7px 0 0 rgba(148, 148, 148, 0.5);
     padding: 1em;
+    border-radius: 10px;
   }
 
   .el-form {
