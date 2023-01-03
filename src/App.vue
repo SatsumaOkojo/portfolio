@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import NavMenu from './components/NavMenu.vue';
-import Footer from './components/Footer.vue';
+// import Footer from './components/Footer.vue';
 
 </script>
 
@@ -17,7 +17,8 @@ import Footer from './components/Footer.vue';
                </el-main>
               
                <el-footer>
-                 <Footer />
+                <p>Copyright</p>
+                 <!-- <Footer /> -->
                </el-footer>
         </el-container>
       </div>
@@ -40,9 +41,16 @@ import Footer from './components/Footer.vue';
 
 .el-main {
   padding: 0;
-  margin:0;
+  margin: 0;
   min-height: 82vh;
 }
+
+.el-footer {
+  background-color: rgb(200, 137, 43);
+  text-align: center;
+  color:#ffffff;
+}
+
 
 
 </style>

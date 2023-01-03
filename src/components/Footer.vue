@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="footer">
     <footer>  
       <p>Copyright 2022 sample.</p>
@@ -20,4 +20,4 @@
   margin:0;
   padding-top: 10px;
 }
-</style>
+</style> -->

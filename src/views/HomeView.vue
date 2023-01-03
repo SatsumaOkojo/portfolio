@@ -10,7 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
           保育・教育施設向け
     </h3>
 
-    <img alt="wood" class="wood" src="@/assets/wood3.png" />
+    <img alt="top_image" class="top_image" src="@/assets/top.jpg" />
 
 
         <div class="box">
@@ -74,7 +74,7 @@ import { RouterLink, RouterView } from 'vue-router'
                        </div>   
     
                             <RouterLink to="/signup"><el-button class="red-btn">新規登録</el-button></RouterLink>
-                            <el-button class="red-btn">お問い合わせ</el-button>
+                            <el-button class="red-btn"><a id="white" href="https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link">お問い合わせ</a></el-button>
 
              </div>
 
@@ -94,11 +94,10 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
 }
-/* 木の画像 */
- .wood {
-  min-width: 80%;
-  height: 400px;
-  margin: 0 10%;
+
+ .top_image {
+  height: 300px;
+  width: 98vw;
  }
 
  #top {
@@ -106,14 +105,17 @@ main {
   font-size: 1.8em;
   font-weight: bold;
   color: #ffffff;
-  margin-left: 30px;
+  margin-left: 26%;
+  text-shadow: 1px 2px 3px #ffffff
 }
 
 #top2 {
   position: absolute;
   margin: 12em;
   font-size: 1.3em;
-  color: #fff;
+  color: rgb(235, 227, 216);
+  text-decoration: underline;
+  margin-left: 40%;
 }
 
 /* 下のテキストボックス */
@@ -161,10 +163,9 @@ main {
 /* クラッカー中身 */
 .center p {
     position: absolute; 
-    text-align: center;
     font-weight: bold;
     font-size: 1.3em;
-    margin: 5em 31%;
+    margin: 5em 35%;
 }
 
 /* クラッカーimg */
@@ -174,7 +175,9 @@ main {
   padding: 0 30px;
 }
 
-
+#white {
+  color: #fff;
+}
 
 
 
@@ -188,17 +191,27 @@ main {
 
   #top {
   position: absolute;
-  font-size: 2.6em;
+  font-size: 3em;
   font-weight: bold;
-  color: #ffffff;
-  margin-left: 30px;
+  color: #6d4532;
+  text-align: center;
+  margin-left: 24%;
+  text-shadow: 1px 3px 3px #ffffff
 }
 
-/* 木の画像 */
-  .wood {
-  width: 50%;
- } 
+.top_image {
+  height: 400px;
+  width: 98vw;
+ }
 
+ #top2 {
+  position: absolute;
+  margin: 12em;
+  margin-left: 40%;
+  font-size: 1.3em;
+  color: rgb(249, 245, 240);
+  text-decoration: underline;
+}
 /* 下のテキストボックス */
  .box {
     margin : 3em 20em 4em 20em ;
@@ -245,10 +258,10 @@ main {
 /* クラッカー中身 */
 .center p {
     position: absolute; 
-    text-align: center;
     font-weight: bold;
     font-size: 1.3em;
-    margin: 5em 30%;
+    margin: 5em;
+    margin-left: 33%;
     padding: auto;
 }
 

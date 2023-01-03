@@ -15,6 +15,7 @@ var author_id = 1;
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/login">ログイン</RouterLink>
           <RouterLink to="/signup">新規登録</RouterLink>
+          <RouterLink to="/main">メインページ</RouterLink>
           <RouterLink to="/logout">ログアウト</RouterLink>
           <RouterLink to="/mypage">マイページ</RouterLink>
           <RouterLink to="/proposal-table">企画書</RouterLink>

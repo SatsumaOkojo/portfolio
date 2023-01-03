@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
+import type { Ref } from 'vue';
 
 import { RouterLink } from "vue-router";
 
@@ -15,9 +16,46 @@ const name = ref("");
 const facility_name = ref("");
 const position_name = ref("");
 const event_name = ref("");
-const updated_at = ref("");
-const created_at = ref("");
+const updated_at = ref<Date>();
+const created_at = ref<Date>();
 const message = ref("");
+
+
+
+
+// const updated_at_str = getStringFromDate(updated_at);
+// // console.log(updated_at_str);
+
+
+ 
+//  var year_str = updated_at.getFullYear();
+//  //月だけ+1すること
+//  var month_str = 1 + updated_at.getMonth();
+//  var day_str = updated_at.getDate();
+//  var hour_str = updated_at.getHours();
+//  var minute_str = updated_at.getMinutes();
+//  var second_str = updated_at.getSeconds();
+ 
+ 
+//  format_str = 'YYYY-MM-DD hh:mm:ss';
+//  format_str = format_str.replace(/YYYY/g, year_str);
+//  format_str = format_str.replace(/MM/g, month_str);
+//  format_str = format_str.replace(/DD/g, day_str);
+//  format_str = format_str.replace(/hh/g, hour_str);
+//  format_str = format_str.replace(/mm/g, minute_str);
+//  format_str = format_str.replace(/ss/g, second_str);
+ 
+//  return format_str;
+// };
+
+// const updated_atText = 
+// console.log(updated_at.toLocaleDateString());
+
+// const updated_at_text = `${updated_at.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+// console.log(updated_at_text);
+
+// const created_atText = `${created_at.getFullYear()}年${created_at.getMonth() + 1}月${created_at.getDate()}日`;
+// console.log(created_atText);
 
 onMounted(() => {
   axios
@@ -78,6 +116,7 @@ onMounted(() => {
       id.value = response.data[0].id;
       message.value = response.data[0].message;
       updated_at.value = response.data[0].updated_at;
+      console.log(updated_at.value.toLocaleString());
       console.log(id.value);
     })
     .catch((error) => console.log(error));
@@ -177,8 +216,6 @@ var author_id = 1;
                          </div>
              </div>
           </div>
-
-
 
 </template>
 

@@ -1,11 +1,27 @@
 <script lang="ts" setup>
+import { onMounted } from "@vue/runtime-core";
 import { reactive, ref } from 'vue'
 import axios from "axios";
 
+const results = ref([]);
 const id = ref("");
 const name = ref("");
 const mail = ref("");
 const position_id = ("");
+const position_name = ref("");
+
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/positions")
+    .then((response) => {
+      results.value = response.data;
+      id.value = response.data[0].id;
+      position_name.value = response.data[0].position_name;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
 
 const createNewUser = (): void => {
   axios
@@ -24,58 +40,20 @@ const createNewUser = (): void => {
 
 
 const labelPosition = ref('right')
-const value1 = ref([])
+const value = ref('')
+
+// const options = [
+//   {
+//     value: position_name.value,
+//     label: position_name.value,
+//   },
+// ]
 
 const options = [
   {
-    value: '主任',
-    label: '主任',
+    value: ("主任"),
+    label: ("主任"),
   },
-  {
-    value: '副主任',
-    label: '副主任',
-  },
-  {
-    value: '0歳児担任',
-    label: '0歳児担任',
-  },
-  {
-    value: '1歳児担任',
-    label: '1歳児担任',
-  },
-  {
-    value: '2歳児担任',
-    label: '2歳児担任',
-  },
-  {
-    value: '3歳児担任',
-    label: '3歳児担任',
-  },
-  {
-    value: '4歳児担任',
-    label: '4歳児担任',
-  },
-  {
-    value: '5歳児担任',
-    label: '5歳児担任',
-  },
-  {
-    value: '合同クラス担任',
-    label: '合同クラス担任',
-  },
-  {
-    value: '栄養士',
-    label: '栄養士',
-  },
-  {
-    value: '看護師',
-    label: '看護師',
-  },
-  {
-    value: '保育士',
-    label: '保育士',
-  },
-  
 ]
 
 
@@ -107,7 +85,7 @@ const options = [
                             <!-- 役職に権限ついている -->
                             <!-- {{position_name}} {{author_id}} -->
                             <el-select
-                                v-model="position_id"
+                                v-model="value"
                                 multiple
                                 placeholder="選択してください"
                                 style="width: 240px"

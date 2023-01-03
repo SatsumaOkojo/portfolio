@@ -7,7 +7,7 @@ const centerDialogVisible = ref(false)
 
 const labelPosition = ref('right')
 
-// const results = ref([]);
+const results = ref([]);
 const id = ref("");
 const corporation = ref("");
 const facility_name = ref("");
@@ -17,10 +17,21 @@ const password = ref("");
 
 const signUp = (): void => {
   axios
-    .post("http://localhost/api/facilities","http://localhost/api/users", {
+    .post("http://localhost/api/facilities", {
       id: id.value,
       corporation: "",
       facility_name: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
+const signUp2 = (): void => {
+  axios
+    .post("http://localhost/api/users", {
+      id: id.value,
       name: "",
       mail: "",
       password: "",
@@ -86,7 +97,7 @@ const signUp = (): void => {
     </template>
                                  </el-dialog>
                 </el-form>
-                  <RouterLink to="/login"><el-button class="red-btn" v-on:click="signUp">新規登録</el-button></RouterLink>   
+                  <RouterLink to="/login"><el-button class="red-btn" v-on:click="signUp, signUp2">新規登録</el-button></RouterLink>   
     
 
                 </div>

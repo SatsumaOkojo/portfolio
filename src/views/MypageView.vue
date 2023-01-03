@@ -58,7 +58,7 @@ onMounted(() => {
 
 const updateUserName = (): void => {
   axios
-    .post("http://localhost/api/users", {
+    .put("http://localhost/api/users/{id}", {
       id: id.value,
       name: "",
     })
@@ -70,7 +70,7 @@ const updateUserName = (): void => {
 
 const updateMail = (): void => {
   axios
-    .post("http://localhost/api/users", {
+    .put("http://localhost/api/users/{id}", {
       id: id.value,
       mail: "",
     })
@@ -83,7 +83,7 @@ const updateMail = (): void => {
 const formLabelWidth = '140px'
 const dialogFormVisible = ref(false)
 const dialogFormVisible2 = ref(false)
-var author_id = 2;
+var author_id = 1;
 </script>
 
 
@@ -220,15 +220,22 @@ var author_id = 2;
  
 .float_text {
     float: left;                /* 要素を右に回り込ませる */
-    width: calc(80% - 140px);  /* 文字の箱の大きさ調整 */
+    width: calc(87% - 140px);  /* 文字の箱の大きさ調整 */
+}
+
+.el-form-item__label {
+    padding-right: 2em;
+    width:9em;
+    max-width: 9em;
 }
 
 .el-form-item {
-    margin-bottom: 0.3em;
+    margin-bottom: 2em;
 }
 
 .el-form-item h4{
    text-decoration: underline;
+   
 } 
 
 .red-btn {

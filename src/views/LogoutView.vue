@@ -24,9 +24,8 @@
 
  #logout h1 {
     font-size: 1em;
-    margin-left: 2em;
+    margin-left: 34%;
     padding-top: 2em;
-    border-bottom: dashed 3px #2ba43b;
   }
 
   .bye {
@@ -36,7 +35,7 @@
 
   .msg {
     position: absolute;
-    margin: 1em 0 2em 7em;
+    margin: 1em 15% 1em 30%;
     top: 3em;
     width:40%;
     height:17%;
@@ -54,8 +53,7 @@
  #logout h1 {
     font-size: 2.6em;
     padding-top: 2em;
-    margin: 0 2em;
-    border-bottom: dashed 3px #2ba43b;
+    margin: 0 10%;
   }
 
   .bye {
@@ -65,7 +63,7 @@
 
   .msg {
     position: absolute;
-    margin: 2em 0 4em 19em;
+    margin: 10em 30% 1em 30%;
     top: 3em;
     width:40%;
     height:40%;

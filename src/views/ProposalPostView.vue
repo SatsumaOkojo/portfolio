@@ -1,14 +1,30 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { reactive, ref } from 'vue'
+import axios from "axios";
 
+const results = ref([]);
+const id = ref("");
+const event_name = ref("");
+const proposal_image_path = ref("");
+const schedule = ref("");
+
+
+const createProposal = (): void => {
+  axios
+    .post("http://localhost/api/proposals", {
+      id: id.value,
+      event_name: "",
+      proposal_image_path: "",
+      schedule: "",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
 const labelPosition = ref('right')
 
-const formLabelAlign = reactive({
-  name: '',
-  region: '',
-  type: '',
-})
 </script>
 
 <template>
@@ -17,21 +33,20 @@ const formLabelAlign = reactive({
           <el-form
               :label-position="labelPosition"
                label-width="100px"
-               :model="formLabelAlign"
                style="max-width: 460px"
                 >
                   <el-form-item label="行事名">
-                    <el-input v-model="formLabelAlign.name" />
+                    <el-input v-model="event_name" />
                   </el-form-item>
                   <el-form-item label="企画書">
-                     <el-input v-model="formLabelAlign.region" />
+                     <el-input v-model="proposal_image_path" />
                   </el-form-item>
-                  <el-form-item label="企画書">
-                    <input type="date" value="2023-01-01" name="date" id="date">
+                  <el-form-item label="企画日">
+                    <input type="date"  v-model="schedule" />
                   </el-form-item>
 
           </el-form>
-               <RouterLink to="/proposal-table"><el-button class="red-btn">投稿する</el-button></RouterLink>
+               <RouterLink to="/proposal-table"><el-button class="red-btn" v-on:click="createProposal">投稿する</el-button></RouterLink>
 
         </div>
 </template>
