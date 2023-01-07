@@ -23,6 +23,15 @@ const message = ref("");
 
 
 
+// console.log(updated_at.value.getDate()+
+//           "/"+(updated_at.value.getMonth()+1)+
+//           "/"updated_at.value.getFullYear()+
+//           " "+updated_at.value.getHours()+
+//           ":"+updated_at.value.getMinutes()+
+//           ":"+updated_at.value.getSeconds());
+
+
+
 // const updated_at_str = getStringFromDate(updated_at);
 // // console.log(updated_at_str);
 
@@ -56,6 +65,12 @@ const message = ref("");
 
 // const created_atText = `${created_at.getFullYear()}年${created_at.getMonth() + 1}月${created_at.getDate()}日`;
 // console.log(created_atText);
+// function formatDate(dt) {
+//   var y = updated_at.getFullYear();
+//   var m = ('00' + (updated_at.getMonth()+1)).slice(-2);
+//   var d = ('00' + updated_at.getDate()).slice(-2);
+//   return (y + '-' + m + '-' + d);
+// };
 
 onMounted(() => {
   axios
@@ -106,8 +121,6 @@ onMounted(() => {
     .catch((error) => console.log(error));
 });
 
-
-
 onMounted(() => {
   axios
     .get("http://localhost/api/messages")
@@ -116,11 +129,12 @@ onMounted(() => {
       id.value = response.data[0].id;
       message.value = response.data[0].message;
       updated_at.value = response.data[0].updated_at;
-      console.log(updated_at.value.toLocaleString());
+      console.log(updated_at.value);
       console.log(id.value);
     })
     .catch((error) => console.log(error));
 });
+
 
 const createMessage = (): void => {
   axios
@@ -135,8 +149,27 @@ const createMessage = (): void => {
 };
 
 
+// const getFormattedDate = (updated_at: Date, format: string) => {
+//   const symbol = {
+//     M: updated_at.getMonth() + 1,
+//     d: updated_at..getDate(),
+//     h: updated_at.getHours(),
+//     m: updated_at.getMinutes(),
+//     s: updated_at.getSeconds(),
+//   };
+
+//   const formatted = format.replace(/(M+|d+|h+|m+|s+)/g, (v) =>
+//     ((v.length > 1 ? "0" : "") + symbol[v.slice(-1) as keyof typeof symbol]).slice(-2)
+//   );
+
+//   return formatted.replace(/(y+)/g, (v) =>
+//     updated_at.getFullYear().toString().slice(-v.length)
+//   );
+// };
 const formLabelWidth = '140px'
 const dialogFormVisible = ref(false)
+
+
 
 var author_id = 1;
 

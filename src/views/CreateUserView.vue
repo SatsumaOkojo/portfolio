@@ -96,6 +96,7 @@ const options = [
                                   :label="item.label"
                                   :value="item.value"
                                     />
+                                    <!-- <el-option>{{ valueみたいな？ }}</el-option> -->
                                 </el-select>
                   
                          </el-form-item>

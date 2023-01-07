@@ -1,9 +1,15 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import axios from "axios";
 import { reactive, ref } from 'vue'
 
 const labelPosition = ref('right')
+
+axios.get('/sanctum/csrf-cookie').then(response => {
+    // ログイン…
+})
+
+
 
 // //ログインボタン押下で作動
 // button.addEventListener('click', () =>{
