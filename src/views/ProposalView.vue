@@ -23,10 +23,8 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/users")
     .then((response) => {
       results.value = response.data;
@@ -36,6 +34,8 @@ onMounted(() => {
     })
     .catch((error) => console.log(error));
 });
+
+
 
 </script>
 

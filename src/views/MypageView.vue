@@ -29,10 +29,8 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/facilities")
     .then((response) => {
       results.value = response.data;
@@ -41,11 +39,9 @@ onMounted(() => {
       corporation.value = response.data[0].corporation;
       console.log(id.value);
     })
-    .catch((error) => console.log(error));
-});
+    .catch((error) => console.log(error)); 
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/positions")
     .then((response) => {
       results.value = response.data;
@@ -55,6 +51,8 @@ onMounted(() => {
     })
     .catch((error) => console.log(error));
 });
+
+
 
 const updateUserName = (): void => {
   axios

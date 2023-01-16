@@ -20,15 +20,16 @@ const updated_at = ref<Date>();
 const created_at = ref<Date>();
 const message = ref("");
 
+// await console.log(updated_at.value?.getDate()+
+//           "/"+updated_at.value?.getMonth()+1+
+//           "/"+updated_at.value?.getFullYear()+
+//           " "+updated_at.value?.getHours()+
+//           ":"+updated_at.value?.getMinutes()+
+//           ":"+updated_at.value?.getSeconds());
 
 
 
-// console.log(updated_at.value.getDate()+
-//           "/"+(updated_at.value.getMonth()+1)+
-//           "/"updated_at.value.getFullYear()+
-//           " "+updated_at.value.getHours()+
-//           ":"+updated_at.value.getMinutes()+
-//           ":"+updated_at.value.getSeconds());
+const getFormattedDate = (updated_at: Date): string => updated_at.toLocaleDateString();
 
 
 
@@ -60,8 +61,7 @@ const message = ref("");
 // const updated_atText = 
 // console.log(updated_at.toLocaleDateString());
 
-// const updated_at_text = `${updated_at.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
-// console.log(updated_at_text);
+
 
 // const created_atText = `${created_at.getFullYear()}年${created_at.getMonth() + 1}月${created_at.getDate()}日`;
 // console.log(created_atText);
@@ -82,10 +82,8 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/facilities")
     .then((response) => {
       results.value = response.data;
@@ -94,10 +92,8 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/positions")
     .then((response) => {
       results.value = response.data;
@@ -106,10 +102,8 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/proposals")
     .then((response) => {
       results.value = response.data;
@@ -119,26 +113,30 @@ onMounted(() => {
       console.log(id.value);
     })
     .catch((error) => console.log(error));
-});
 
-onMounted(() => {
-  axios
+    axios
     .get("http://localhost/api/messages")
     .then((response) => {
       results.value = response.data;
-      id.value = response.data[0].id;
-      message.value = response.data[0].message;
-      updated_at.value = response.data[0].updated_at;
-      console.log(updated_at.value);
+      id.value = response.data[1].id;
+      message.value = response.data[1].message;
+      updated_at.value = response.data[1].updated_at;
       console.log(id.value);
+      console.log(updated_at.value);
     })
     .catch((error) => console.log(error));
 });
 
 
-const createMessage = (): void => {
+
+// const dateText = 
+//   return updated_at.value.format('')
+
+
+
+const updateMessage = (): void => {
   axios
-    .post("http://localhost/api/messages", {
+    .put("http://localhost/api/messages/${id}", {
       id: id.value,
       message: "",
     })
@@ -170,6 +168,19 @@ const formLabelWidth = '140px'
 const dialogFormVisible = ref(false)
 
 
+// await const str = `${
+//     updated_at.value?.getFullYear()
+// }/${
+//     String(updated_at.value?.getMonth() + 1).padStart(2, '0')
+// }/${
+//     String(updated_at.value?.getDate()).padStart(2, '0')
+// } ${
+//     String(updated_at.value?.getHours()).padStart(2, '0')
+// }:${
+//     String(updated_at.value?.getMinutes()).padStart(2, '0')
+// }:${
+//     String(updated_at.value?.getSeconds()).padStart(2, '0')
+// }`;
 
 var author_id = 1;
 
@@ -181,7 +192,6 @@ var author_id = 1;
 <template>
        <div id="facility">
           <h1>{{ facility_name }}</h1>
-          <!-- {[facility_name]} -->
        </div>
 
           <div class="wrap2">
@@ -207,11 +217,7 @@ var author_id = 1;
 
               <div class="faceicon">
               <img alt="Character2" src="@/assets/Character2.png" />
-             <!-- ここに画像を入れる <icon_image_path-->
-
-              <!-- 変数 -->
-              <!-- {{position_name}}
-                   {{name}} -->
+   
                   <h3>{{ position_name }}<br>
                     {{ name }}</h3>
               </div>
@@ -223,7 +229,7 @@ var author_id = 1;
 
                        
                       <div class="sub">
-                          <h6>更新日 {{ updated_at }}</h6>   
+                          <h6>更新日 {{ getFormattedDate }}</h6>   
                              
                              <el-button id="edit" class="red-btn" @click="dialogFormVisible = true"  v-if="author_id !== 4">
                                 編集する
@@ -239,7 +245,7 @@ var author_id = 1;
 
                      <template #footer>
                        <span class="dialog-footer">
-                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="createMessage">
+                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="updateMessage">
                                  更新する
                                 </el-button>
                        </span>

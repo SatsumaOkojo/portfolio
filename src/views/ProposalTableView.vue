@@ -83,6 +83,14 @@ const proposalsData = [
   }
 ]
 
+// 繰り返し
+proposalsData.forEach( function( value ) {
+ 
+ console.log( value.schedule );
+ console.log( value.event_name );
+});
+
+
 var author_id = 1;
 </script>
 

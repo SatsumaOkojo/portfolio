@@ -193,10 +193,10 @@ main {
   position: absolute;
   font-size: 3em;
   font-weight: bold;
-  color: #6d4532;
+  color: #ffffff;
   text-align: center;
   margin-left: 24%;
-  text-shadow: 1px 3px 3px #ffffff
+  text-shadow: 1px 3px 1px #7b6c6c
 }
 
 .top_image {
