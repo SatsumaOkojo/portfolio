@@ -41,10 +41,14 @@ onMounted(() => {
 
 <template>
         <div class="center">
+        <h1 id="yellow">七夕</h1>
+        <img alt="tanabata" class="proposal_image"  src="@/assets/tanabata.png"/>
+        </div>
+        <!-- <div class="center">
         <h1 id="yellow">{{ event_name }}</h1>
         <p>{{ name }}</p>
         <img alt="tanabata" class="proposal_image" {{ proposal_image_path }} />
-        </div>
+        </div> -->
 </template>
 
 <style>
@@ -52,11 +56,13 @@ onMounted(() => {
 .center {
     text-align: center;
 }
+
 #yellow {
     background-color: #ffe600;
     border: 1em;
     padding: 1em;
-    margin: 0 20%;
+    margin: 0 auto;
+    max-width: 30%;
 }
 
 .proposal_image {

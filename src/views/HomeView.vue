@@ -54,7 +54,7 @@ import { RouterLink, RouterView } from 'vue-router'
                          <h2>月の行事　更新のお知らせ　職員からのお知らせ　<br>
                              園長先生や各クラスからのお知らせ等まとめて見ることができます！</h2>
                       </div>
-                         <img alt="mainpage" class="sample_page"  src="@/assets/mainpage.png"  />
+                         <img alt="mainpage" class="sample_page"  src="@/assets/mainpage1.png"  />
          
         
                    <div class="box2">
@@ -64,7 +64,7 @@ import { RouterLink, RouterView } from 'vue-router'
                           <h2>行事の企画書を確認できます！<br>
                           作成した企画書は随時まとめられるのでいつでも見られますよ</h2>
                       </div>
-                         <img alt="proposal" class="sample_page"  src="@/assets/proposal.png" width="87%" />
+                         <img alt="proposal" class="sample_page"  src="@/assets/tanabata.png"  />
          
                       <div class="box3">
                           <h4>他にも園での決まり事をまとめたページや献立表等も載せられます！<br>
@@ -309,6 +309,8 @@ main {
 .sample_page {
   margin: 0 0 60px 0;
   border: 1px solid #919191d8;
+  max-width: 70%;
+  max-height: 1000px;
 }
 
 .red-btn {

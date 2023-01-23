@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
-import type { Ref } from 'vue';
+// import type { Ref } from 'vue';
 
 import { RouterLink } from "vue-router";
 
@@ -11,75 +11,31 @@ import { reactive } from 'vue'
 
 
 const results = ref([]);
+const usersResults = ref([]);
+const messageResults = ref([]);
 const id = ref("");
+const user_id = ref("");
 const name = ref("");
 const facility_name = ref("");
 const position_name = ref("");
 const event_name = ref("");
 const updated_at = ref<Date>();
+  // ref<Date>(new Date());
 const created_at = ref<Date>();
 const message = ref("");
 
-// await console.log(updated_at.value?.getDate()+
-//           "/"+updated_at.value?.getMonth()+1+
-//           "/"+updated_at.value?.getFullYear()+
-//           " "+updated_at.value?.getHours()+
-//           ":"+updated_at.value?.getMinutes()+
-//           ":"+updated_at.value?.getSeconds());
 
-
-
-const getFormattedDate = (updated_at: Date): string => updated_at.toLocaleDateString();
-
-
-
-// const updated_at_str = getStringFromDate(updated_at);
-// // console.log(updated_at_str);
-
-
- 
-//  var year_str = updated_at.getFullYear();
-//  //月だけ+1すること
-//  var month_str = 1 + updated_at.getMonth();
-//  var day_str = updated_at.getDate();
-//  var hour_str = updated_at.getHours();
-//  var minute_str = updated_at.getMinutes();
-//  var second_str = updated_at.getSeconds();
- 
- 
-//  format_str = 'YYYY-MM-DD hh:mm:ss';
-//  format_str = format_str.replace(/YYYY/g, year_str);
-//  format_str = format_str.replace(/MM/g, month_str);
-//  format_str = format_str.replace(/DD/g, day_str);
-//  format_str = format_str.replace(/hh/g, hour_str);
-//  format_str = format_str.replace(/mm/g, minute_str);
-//  format_str = format_str.replace(/ss/g, second_str);
- 
-//  return format_str;
-// };
-
-// const updated_atText = 
-// console.log(updated_at.toLocaleDateString());
-
-
-
-// const created_atText = `${created_at.getFullYear()}年${created_at.getMonth() + 1}月${created_at.getDate()}日`;
-// console.log(created_atText);
-// function formatDate(dt) {
-//   var y = updated_at.getFullYear();
-//   var m = ('00' + (updated_at.getMonth()+1)).slice(-2);
-//   var d = ('00' + updated_at.getDate()).slice(-2);
-//   return (y + '-' + m + '-' + d);
-// };
+const toString = Object.prototype.toString;
 
 onMounted(() => {
   axios
     .get("http://localhost/api/users")
     .then((response) => {
-      results.value = response.data;
-      id.value = response.data[0].id;
+    usersResults.value = response.data;
+      user_id.value = response.data[0].id;
       name.value = response.data[0].name;
       console.log(id.value);
+      console.log(Object.values(usersResults));
     })
     .catch((error) => console.log(error));
 
@@ -117,26 +73,26 @@ onMounted(() => {
     axios
     .get("http://localhost/api/messages")
     .then((response) => {
-      results.value = response.data;
-      id.value = response.data[1].id;
-      message.value = response.data[1].message;
-      updated_at.value = response.data[1].updated_at;
+      messageResults.value = response.data;
+      id.value = response.data[0].id;
+      message.value = response.data[0].message;
+      updated_at.value = response.data[0].updated_at;
       console.log(id.value);
+      console.log(response.data[1].updated_at);
+      console.log(toString.call(response.data[1].updated_at));
       console.log(updated_at.value);
+      console.log(toString.call(updated_at.value));
+      console.log(updated_at.value.toString());
     })
     .catch((error) => console.log(error));
 });
 
 
 
-// const dateText = 
-//   return updated_at.value.format('')
-
-
 
 const updateMessage = (): void => {
   axios
-    .put("http://localhost/api/messages/${id}", {
+    .put("http://localhost/api/messages/1", {
       id: id.value,
       message: "",
     })
@@ -147,40 +103,29 @@ const updateMessage = (): void => {
 };
 
 
-// const getFormattedDate = (updated_at: Date, format: string) => {
-//   const symbol = {
-//     M: updated_at.getMonth() + 1,
-//     d: updated_at..getDate(),
-//     h: updated_at.getHours(),
-//     m: updated_at.getMinutes(),
-//     s: updated_at.getSeconds(),
-//   };
 
-//   const formatted = format.replace(/(M+|d+|h+|m+|s+)/g, (v) =>
-//     ((v.length > 1 ? "0" : "") + symbol[v.slice(-1) as keyof typeof symbol]).slice(-2)
-//   );
 
-//   return formatted.replace(/(y+)/g, (v) =>
-//     updated_at.getFullYear().toString().slice(-v.length)
-//   );
-// };
 const formLabelWidth = '140px'
 const dialogFormVisible = ref(false)
 
 
-// await const str = `${
-//     updated_at.value?.getFullYear()
-// }/${
-//     String(updated_at.value?.getMonth() + 1).padStart(2, '0')
-// }/${
-//     String(updated_at.value?.getDate()).padStart(2, '0')
-// } ${
-//     String(updated_at.value?.getHours()).padStart(2, '0')
-// }:${
-//     String(updated_at.value?.getMinutes()).padStart(2, '0')
-// }:${
-//     String(updated_at.value?.getSeconds()).padStart(2, '0')
-// }`;
+const items = ref([
+  {
+  name: '田中太郎',
+  position_name: '園長',
+  message: '園長からのお知らせです'
+},
+{
+  name: '中村花子',
+  position_name: '主任',
+  message: '主任からのお知らせです'
+},
+{
+  name: '町田真智子',
+  position_name: '0歳児担任',
+  message: '0歳児担任からのお知らせです'
+},
+])
 
 var author_id = 1;
 
@@ -213,23 +158,24 @@ var author_id = 1;
              </div>
          </div>
 
-           <div class="balloon5">
+           <div class="balloon5" v-for="item in items" >
 
               <div class="faceicon">
+                <!-- v-for="user in users" -->
               <img alt="Character2" src="@/assets/Character2.png" />
    
-                  <h3>{{ position_name }}<br>
-                    {{ name }}</h3>
+                  <h3>{{ item.position_name }}<br>
+                    {{ item.name  }}</h3>
               </div>
                   <div class="chatting">
                       <div class="says">
-                         <p>{{ message }}</p>
+                         <p>{{ item.message }}</p>
                           
                        </div>
 
                        
-                      <div class="sub">
-                          <h6>更新日 {{ getFormattedDate }}</h6>   
+                      <div class="sub"> 
+                          <h6>更新日 {{ updated_at }}</h6>  
                              
                              <el-button id="edit" class="red-btn" @click="dialogFormVisible = true"  v-if="author_id !== 4">
                                 編集する
@@ -238,7 +184,7 @@ var author_id = 1;
                                     <el-dialog v-model="dialogFormVisible" title="メッセージ">
                                         <el-form>
                                            <el-form-item label="Message" :label-width="formLabelWidth">
-                                             <el-input v-model="message" autocomplete="off" />
+                                             <el-input v-model="message"   autocomplete="off" />
                                             </el-form-item>
                                          </el-form>
 

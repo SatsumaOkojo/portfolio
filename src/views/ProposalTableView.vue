@@ -75,20 +75,29 @@ onMounted(() => {
 //   }
 // ]
 
+// const proposalsData = [
+//   {
+//     id: id.value,
+//     schedule: schedule.value,
+//     event_name: event_name.value,
+//     proposal: proposal_image_path.value
+//   }
+// ]
+
 const proposalsData = [
   {
     schedule: schedule.value,
     event_name: event_name.value,
     proposal: proposal_image_path.value
-  }
+  },
 ]
 
 // 繰り返し
-proposalsData.forEach( function( value ) {
+// proposalsData.forEach( function( value ) {
  
- console.log( value.schedule );
- console.log( value.event_name );
-});
+//  console.log( value.schedule );
+//  console.log( value.event_name );
+// });
 
 
 var author_id = 1;
@@ -101,10 +110,11 @@ var author_id = 1;
     <RouterLink to="/proposal-post"><el-button class="red-btn" v-if="author_id === 1 || author_id === 2">投稿する</el-button></RouterLink>
  </div>
 
-      <el-table :data="proposalsData" style="width: 80%">
+      <el-table  :data="proposalsData" style="width: 80%">
            <el-table-column label="日程">{{ schedule }}</el-table-column>
            <el-table-column label="行事名">{{ event_name }}</el-table-column>
            <el-table-column label="企画書">{{ proposal_image_path }}</el-table-column>
+           <el-table-column label=""><RouterLink to="/proposal"><el-button class="small-btn">企画書ページへ</el-button></RouterLink></el-table-column>
            <el-table-column>
               <!-- <template #header>
                   <el-input v-model="search" size="small" placeholder="キーワードを入力して探す" />
@@ -125,7 +135,11 @@ var author_id = 1;
     padding: 1em 3em;
     border: 2px solid #52bfc9d8;
     text-align: left;
-    margin:3em 1em;
+    margin:3em 6em;
+}
+
+.small-btn {
+  font-size: 0.2em;
 }
 
 </style>

@@ -26,10 +26,13 @@ onMounted(() => {
 const createNewUser = (): void => {
   axios
     .post("http://localhost/api/users", {
-      id: id.value,
-      name: "",
-      mail: "",
-      position_id: "",
+      name: "早田宗助",
+      mail: "souda@gmail.com",
+      position_id: "3",
+      facility_id: "1",
+      password: "aiueohoikuen",
+      icon_image_path: "image1",
+      delete_at: "2023-1-22",
     })
     .then((response) => {
       console.log(response.data);
@@ -53,6 +56,30 @@ const options = [
   {
     value: ("主任"),
     label: ("主任"),
+  },
+  {
+    value: ("0歳児担任"),
+    label: ("0歳児担任"),
+  },
+  {
+    value: ("1歳児担任"),
+    label: ("1歳児担任"),
+  },
+  {
+    value: ("2歳児担任"),
+    label: ("2歳児担任"),
+  },
+  {
+    value: ("3歳児担任"),
+    label: ("3歳児担任"),
+  },
+  {
+    value: ("4歳児担任"),
+    label: ("4歳児担任"),
+  },
+  {
+    value: ("5歳児担任"),
+    label: ("5歳児担任"),
   },
 ]
 
