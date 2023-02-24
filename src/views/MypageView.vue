@@ -56,9 +56,8 @@ onMounted(() => {
 
 const updateUserName = (): void => {
   axios
-    .put("http://localhost/api/users/{id}", {
-      id: id.value,
-      name: "",
+    .put("http://localhost/api/users/1", {
+      name: name.value,
     })
     .then((response) => {
       console.log(response.data);
@@ -68,9 +67,8 @@ const updateUserName = (): void => {
 
 const updateMail = (): void => {
   axios
-    .put("http://localhost/api/users/{id}", {
-      id: id.value,
-      mail: "",
+    .put("http://localhost/api/users/1", {
+      mail: mail.value,
     })
     .then((response) => {
       console.log(response.data);
@@ -86,7 +84,10 @@ var author_id = 1;
 
 
 <template>
+<el-button type="success" id="navButton"><RouterLink to="/main" id="white">戻る</RouterLink></el-button>
+
     <div id="mypage">
+     
         <div class="float_box-wrap">
  
             <div class="float_box">
@@ -141,7 +142,7 @@ var author_id = 1;
 
                      <template #footer>
                        <span class="dialog-footer">
-                                <el-button type="primary" @click="dialogFormVisible = false" v-on:click="updateMail">
+                                <el-button type="primary" @click="dialogFormVisible2 = false" v-on:click="updateMail">
                                  更新する
                                 </el-button>
                        </span>
@@ -154,6 +155,16 @@ var author_id = 1;
 </template>
 
 <style>
+
+#navButton {
+  font-weight: bold;
+  margin: 1em 3em;
+  background-color: #ff6eaf;
+  border: 2px solid #fc9fbb;
+  border-radius: 20px;
+  padding: 20px;
+}
+
   #mypage {
     text-align: center;
     margin: auto;

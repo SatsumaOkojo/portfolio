@@ -2,27 +2,36 @@
 import { RouterLink } from 'vue-router'
 
 var author_id = 1;
+
+
+const homepage = (): void => {
+  
+      document.location.href = "http://127.0.0.1:5173/";
+
+};
+
+
 </script>
 
 <template>
 
  
   
-      <img alt="logo" class="logo" src="@/assets/icon.logo.png" width="170" height="50" />
+      <img alt="logo" class="logo"  v-on:click="homepage" src="@/assets/icon.logo.png" width="170" height="50" />
       
    
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
+        <!-- <nav>
           <RouterLink to="/login">ログイン</RouterLink>
           <RouterLink to="/signup">新規登録</RouterLink>
-          <RouterLink to="/main">メインページ</RouterLink>
-          <RouterLink to="/logout">ログアウト</RouterLink>
-          <RouterLink to="/mypage">マイページ</RouterLink>
-          <RouterLink to="/proposal-table">企画書</RouterLink>
-          <RouterLink to="/create-user" v-if="author_id == 1">ユーザー作成</RouterLink>
-          <!-- v-if = "author == 1" -->
+          <template>
+              <RouterLink to="/main">メインページ</RouterLink>
+              <RouterLink to="/logout">ログアウト</RouterLink>
+              <RouterLink to="/mypage">マイページ</RouterLink>
+              <RouterLink to="/proposal-table">企画書</RouterLink>
+              <RouterLink to="/create-user" v-if="author_id == 1">ユーザー作成</RouterLink>
+            </template> -->
           
-        </nav>
+        <!-- </nav> -->
    
      
  
@@ -32,6 +41,7 @@ var author_id = 1;
 nav {
   margin: 0.3em 0;
   float: right;
+  font-size: 0.4em;
 }
 
 nav a {
@@ -52,7 +62,7 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin-left: 15px;
+    margin-left: 43%;
   }
 
    nav {

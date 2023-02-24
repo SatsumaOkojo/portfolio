@@ -1,6 +1,10 @@
 <script lang="ts" setup>
   import { ElButton } from 'element-plus'
 
+  setTimeout(function () {
+	document.location = 'http://127.0.0.1:5173/';
+}, 3000);
+
 </script>
 
 

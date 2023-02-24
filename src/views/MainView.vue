@@ -11,8 +11,9 @@ import { reactive } from 'vue'
 
 
 const results = ref([]);
-const usersResults = ref([]);
+const users = ref([]);
 const messageResults = ref([]);
+const proposals = ref([]);
 const id = ref("");
 const user_id = ref("");
 const name = ref("");
@@ -31,11 +32,10 @@ onMounted(() => {
   axios
     .get("http://localhost/api/users")
     .then((response) => {
-    usersResults.value = response.data;
+      users.value = response.data;
       user_id.value = response.data[0].id;
       name.value = response.data[0].name;
       console.log(id.value);
-      console.log(Object.values(usersResults));
     })
     .catch((error) => console.log(error));
 
@@ -62,7 +62,7 @@ onMounted(() => {
     axios
     .get("http://localhost/api/proposals")
     .then((response) => {
-      results.value = response.data;
+      proposals.value = response.data;
       id.value = response.data[0].id;
       event_name.value = response.data[0].event_name;
       created_at.value = response.data[0].updated_at;
@@ -94,7 +94,7 @@ const updateMessage = (): void => {
   axios
     .put("http://localhost/api/messages/1", {
       id: id.value,
-      message: "",
+      message: message.value,
     })
     .then((response) => {
       console.log(response.data);
@@ -104,26 +104,16 @@ const updateMessage = (): void => {
 
 
 
-
 const formLabelWidth = '140px'
 const dialogFormVisible = ref(false)
 
 
 const items = ref([
   {
-  name: '田中太郎',
-  position_name: '園長',
-  message: '園長からのお知らせです'
-},
-{
-  name: '中村花子',
-  position_name: '主任',
-  message: '主任からのお知らせです'
-},
-{
-  name: '町田真智子',
-  position_name: '0歳児担任',
-  message: '0歳児担任からのお知らせです'
+  id: 1,
+  name: name.value,
+  position_name: position_name.value,
+  message: message.value
 },
 ])
 
@@ -136,8 +126,16 @@ var author_id = 1;
 
 <template>
        <div id="facility">
-          <h1>{{ facility_name }}</h1>
+          <h1>{{ facility_name }}{{ users }}</h1>
+          <!-- <li v-for="user in users">{{ user.name }}</li> -->
        </div>
+
+       <div class="center">
+<el-button type="success" id="navButton"><RouterLink to="/logout" id="white">ログアウト</RouterLink></el-button>
+<el-button type="success" id="navButton"><RouterLink to="/proposal-table" id="white">企画書</RouterLink></el-button>
+<el-button type="success" id="navButton"><RouterLink to="/mypage" id="white">マイページ</RouterLink></el-button>
+<el-button type="success" id="navButton"><RouterLink to="/create-user" id="white">ユーザー作成</RouterLink></el-button>
+</div>
 
           <div class="wrap2">
 
@@ -146,30 +144,29 @@ var author_id = 1;
                     <p>9日      身体測定<br>
                        16日     消火避難訓練<br>
                        25日     誕生会<br>
-                       26日     職員会議　園内研修</p>
+                       26日     職員会議  園内研修{{ messageResults }}</p>
              </div>
 
              <div class="item2">
                  <h1>更新情報</h1>
                 
-                    <p>{{ created_at }}<br>
-                     「{{ event_name }}」更新しました！<br></p>
+                    <p class="small" v-for="proposal in proposals" :key="id">{{ proposal.created_at }}<br>
+                     「{{ proposal.event_name }}」更新しました！<br></p>
                      
              </div>
          </div>
 
-           <div class="balloon5" v-for="item in items" >
+           <div class="balloon5" v-for="user in users" :key="user_id">
 
-              <div class="faceicon">
-                <!-- v-for="user in users" -->
+              <div class="faceicon" >
               <img alt="Character2" src="@/assets/Character2.png" />
    
-                  <h3>{{ item.position_name }}<br>
-                    {{ item.name  }}</h3>
+                  <h3 >{{ position_name }}<br>
+                    {{ user.name  }}</h3>
               </div>
                   <div class="chatting">
                       <div class="says">
-                         <p>{{ item.message }}</p>
+                         <p>{{ message }}</p>
                           
                        </div>
 
@@ -201,11 +198,35 @@ var author_id = 1;
                          </div>
              </div>
           </div>
+              <!-- <div class="balloon5" v-for="user in users" :key="user_id">
 
+                <div class="faceicon" >
+                   <img alt="Character2" src="@/assets/Character2.png" />
+
+                     <h3>{{ position_name }}<br>
+                            {{ user.name  }}</h3>
+              </div>
+                 <div class="chatting">
+                       <div class="says">
+                         <p>{{ message }}</p>
+                 </div>
+                      <div class="sub"> 
+                         <h6>更新日 {{ updated_at }}</h6> 
+                      </div>
+                </div>
+            </div> -->
 </template>
 
 <style>
-
+#navButton {
+  font-weight: bold;
+  margin: 1em 3em;
+  background-color: #ff6eaf;
+  border: 2px solid #fc9fbb;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 3px 3px 0px rgba(114, 118, 117, 0.258);
+}
 
  #facility {
     background-color: rgb(255, 55, 55);
@@ -235,6 +256,9 @@ var author_id = 1;
     border-radius: 20px; 
  }
  
+ .small {
+  font-size: 0.5em;
+ }
  .balloon5 {
   width: 100%;
   margin: 1.5em 0;

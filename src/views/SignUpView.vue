@@ -15,12 +15,14 @@ const name = ref("");
 const mail = ref("");
 const password = ref("");
 
+
+
 const signUp = (): void => {
   axios
     .post("http://localhost/api/facilities", {
-      id: id.value,
-      corporation: "",
-      facility_name: "",
+      corporation: corporation.value,
+      facility_name: facility_name.value,
+      delete_at: "2023-02-05",
     })
     .then((response) => {
       console.log(response.data);
@@ -31,13 +33,18 @@ const signUp = (): void => {
 const signUp2 = (): void => {
   axios
     .post("http://localhost/api/users", {
-      id: id.value,
-      name: "",
-      mail: "",
-      password: "",
+      name: name.value,
+      mail: mail.value,
+      password: password.value,
+      position_id: "1",
+      facility_id: "2",
+      icon_image_path: "image1",
+      delete_at: "2023-02-05",
     })
     .then((response) => {
       console.log(response.data);
+      document.location.href = "http://127.0.0.1:5173/login";
+      alert("新規登録できました！");
     })
     .catch((error) => console.log(error));
 };
@@ -78,7 +85,7 @@ const signUp2 = (): void => {
 
                       
 			                <el-button text @click="centerDialogVisible = true"><input type="checkbox" id="consent-chk" name="consent-chk">
-                            利用規約に同意する
+                            <p><span id="blue">利用規約</span>に同意する</p>
                       </el-button>
 
                                 <el-dialog
@@ -97,7 +104,7 @@ const signUp2 = (): void => {
     </template>
                                  </el-dialog>
                 </el-form>
-                  <RouterLink to="/login"><el-button class="red-btn" v-on:click="signUp, signUp2">新規登録</el-button></RouterLink>   
+                  <el-button class="red-btn" v-on:click=signUp2>新規登録</el-button>   
     
 
                 </div>
@@ -116,6 +123,9 @@ const signUp2 = (): void => {
     padding: 3em;
   }
 
+  #blue {
+    color:rgb(0, 162, 255);
+  }
 
 @media (min-width: 1024px) {
 
@@ -129,6 +139,7 @@ const signUp2 = (): void => {
     padding: 1em;
     border-radius: 10px;
   }
+
 
   .el-form {
     margin: 1em 2em;

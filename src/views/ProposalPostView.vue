@@ -14,9 +14,11 @@ const createProposal = (): void => {
   axios
     .post("http://localhost/api/proposals", {
       id: id.value,
-      event_name: "",
-      proposal_image_path: "",
-      schedule: "",
+      user_id: "1",
+      event_name: event_name.value,
+      proposal_image_path: proposal_image_path.value,
+      schedule: schedule.value,
+      deleted_at: "2023-02-10",
     })
     .then((response) => {
       console.log(response.data);

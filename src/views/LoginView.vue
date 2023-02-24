@@ -7,46 +7,48 @@ import axios from "axios";
 
 const labelPosition = ref('right')
 
-// const results = ref([]);
-// const id = ref("");
+const results = ref([]);
+const id = ref("");
 const mail = ref("");
 const password = ref("");
+
+
+var page_id = 1;
+
 
 
 // const data = { mail : mail.value, password : password.value}
 
 
-// onMounted(() => {
-//   axios
-//     .get("http://localhost/api/users")
-//     .then((response) => {
-//       results.value = response.data;
-//       id.value = response.data[0].id;
-//       mail.value = response.data[0].mail;
-//       password.value = response.data[0].password;
-//       console.log(id.value);
-//       console.log(mail.value);
-//       console.log(password.value);
-//     })
-//     .catch((error) => console.log(error));
+onMounted(() => {
+  axios
+    .get("http://localhost/api/users")
+    .then((response) => {
+      results.value = response.data;
+    })
+    .catch((error) => console.log(error));
     
-//   });
+  });
 
 
   const loginCheck = (): void => {
+    console.log(mail.value);
+    console.log(password.value);
   axios
     .post("http://localhost/api/users/login/" , {
-      mail: "sawayama23@gmail.com",
-      password: "tanaka2022",
+      mail: mail.value,
+      password: password.value,
     })
     .then((response) => {
       console.log(response);
       document.location.href = "http://127.0.0.1:5173/main";
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error); 
+      alert("メールアドレス、又はパスワードが間違っています");
     });
 };
+
 
 
 </script>

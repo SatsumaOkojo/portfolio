@@ -6,12 +6,16 @@ import { RouterLink, RouterView } from 'vue-router'
     <h1 id="top">園のことをもっと知ろう！<br>
                みんなで簡単に情報共有</h1>
 
-    <h3 id="top2">
+    <p id="top2">
           保育・教育施設向け
-    </h3>
+    </p>
 
     <img alt="top_image" class="top_image" src="@/assets/top.jpg" />
 
+    <div id="startButton">
+          <el-button type="success" id="navButton"><RouterLink to="/signup" id="white">新規登録</RouterLink></el-button>
+          <el-button type="success" id="navButton"><RouterLink to="/login" id="white">ログイン</RouterLink></el-button>
+        </div>
 
         <div class="box">
            <p>こんなことありませんか？</p>
@@ -97,7 +101,7 @@ main {
 
  .top_image {
   height: 300px;
-  width: 98vw;
+  width: 97vw;
  }
 
  #top {
@@ -113,10 +117,18 @@ main {
   position: absolute;
   margin: 12em;
   font-size: 1.3em;
-  color: rgb(235, 227, 216);
+  color: rgb(255, 252, 247);
   text-decoration: underline;
   margin-left: 40%;
 }
+
+#startButton {
+  position: absolute;
+  margin-top: -5em;
+  margin-left: 40%;
+}
+
+
 
 /* 下のテキストボックス */
  .box{
@@ -201,7 +213,7 @@ main {
 
 .top_image {
   height: 400px;
-  width: 98vw;
+  width: 100vw;
  }
 
  #top2 {

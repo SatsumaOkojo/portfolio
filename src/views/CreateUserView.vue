@@ -3,21 +3,19 @@ import { onMounted } from "@vue/runtime-core";
 import { reactive, ref } from 'vue'
 import axios from "axios";
 
-const results = ref([]);
+const positions = ref([]);
 const id = ref("");
 const name = ref("");
-const mail = ref("");
-const position_id = ("");
 const position_name = ref("");
+const mail = ref("");
+
 
 
 onMounted(() => {
   axios
     .get("http://localhost/api/positions")
     .then((response) => {
-      results.value = response.data;
-      id.value = response.data[0].id;
-      position_name.value = response.data[0].position_name;
+      positions.value = response.data;
       console.log(id.value);
     })
     .catch((error) => console.log(error));
@@ -26,16 +24,18 @@ onMounted(() => {
 const createNewUser = (): void => {
   axios
     .post("http://localhost/api/users", {
-      name: "早田宗助",
-      mail: "souda@gmail.com",
+      name: name.value,
+      mail: mail.value,
       position_id: "3",
       facility_id: "1",
       password: "aiueohoikuen",
       icon_image_path: "image1",
-      delete_at: "2023-1-22",
+      delete_at: "2023-02-05",
     })
     .then((response) => {
       console.log(response.data);
+      alert("作成できました！");
+      document.location.reload();
     })
     .catch((error) => console.log(error));
 }
@@ -88,7 +88,7 @@ const options = [
 
 
 <template>
-
+<el-button type="success" id="navButton"><RouterLink to="/main" id="white">戻る</RouterLink></el-button>
 
         <div class="create_user">
            <h1>ユーザー作成</h1>
@@ -112,17 +112,17 @@ const options = [
                             <!-- 役職に権限ついている -->
                             <!-- {{position_name}} {{author_id}} -->
                             <el-select
-                                v-model="value"
+                                v-model="position_name"
                                 multiple
                                 placeholder="選択してください"
                                 style="width: 240px"
                                  >
                                  <el-option
-                                   v-for="item in options"
-                                  :key="item.value"
-                                  :label="item.label"
-                                  :value="item.value"
-                                    />
+                                   v-for="position in positions"
+                                  :key="id"
+                                  :value = "position.position_name"
+                                  ></el-option>
+                                  <!-- positionsの中にあるposition_nameをidと紐づけて？表示させたい＋ユーザーに役職持たせて渡したい -->
                                     <!-- <el-option>{{ valueみたいな？ }}</el-option> -->
                                 </el-select>
                   

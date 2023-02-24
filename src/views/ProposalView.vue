@@ -63,7 +63,10 @@ onMounted(() => {
     padding: 1em;
     margin: 0 auto;
     max-width: 30%;
+    font-size: 2em;
 }
+
+
 
 .proposal_image {
     margin: 1em ; 
