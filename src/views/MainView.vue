@@ -126,7 +126,7 @@ var author_id = 1;
 
 <template>
        <div id="facility">
-          <h1>{{ facility_name }}{{ users }}</h1>
+          <h1>{{ facility_name }}</h1>
           <!-- <li v-for="user in users">{{ user.name }}</li> -->
        </div>
 
@@ -144,7 +144,7 @@ var author_id = 1;
                     <p>9日      身体測定<br>
                        16日     消火避難訓練<br>
                        25日     誕生会<br>
-                       26日     職員会議  園内研修{{ messageResults }}</p>
+                       26日     職員会議  園内研修</p>
              </div>
 
              <div class="item2">
