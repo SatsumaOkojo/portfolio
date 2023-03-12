@@ -1,41 +1,38 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
 
 var author_id = 1;
-
+var login_id = 0;
 
 const homepage = (): void => {
-  
-      document.location.href = "http://127.0.0.1:5173/";
-
+  document.location.href = "http://127.0.0.1:5173/";
 };
-
-
 </script>
 
 <template>
+  <img
+    alt="logo"
+    class="logo"
+    v-on:click="homepage"
+    src="@/assets/icon.logo.png"
+    width="170"
+    height="50"
+  />
 
- 
-  
-      <img alt="logo" class="logo"  v-on:click="homepage" src="@/assets/icon.logo.png" width="170" height="50" />
-      
-   
-        <!-- <nav>
-          <RouterLink to="/login">ログイン</RouterLink>
-          <RouterLink to="/signup">新規登録</RouterLink>
-          <template v-if= "login_id === 1">
-              <RouterLink to="/main">メインページ</RouterLink>
-              <RouterLink to="/logout">ログアウト</RouterLink>
-              <RouterLink to="/mypage">マイページ</RouterLink>
-              <RouterLink to="/proposal-table">企画書</RouterLink>
-              <RouterLink to="/create-user" v-if="author_id == 1">ユーザー作成</RouterLink>
-            </template> -->
-          
-        <!-- </nav> -->
-   
-     
- 
-  </template>
+  <nav>
+    <RouterLink to="/login">ログイン</RouterLink>
+    <RouterLink to="/signup">新規登録</RouterLink>
+    <template v-if="login_id === 1">
+      <RouterLink to="/main">メインページ</RouterLink>
+      <RouterLink to="/logout">ログアウト</RouterLink>
+      <RouterLink to="/mypage">マイページ</RouterLink>
+      <RouterLink to="/proposal-table">企画書</RouterLink>
+      <RouterLink to="/create-user" v-if="author_id == 1"
+        >ユーザー作成</RouterLink
+      >
+    </template>
+  </nav>
+</template>
 
 <style scoped>
 nav {
@@ -53,7 +50,6 @@ nav a:first-of-type {
   border: 0;
 }
 
-
 @media (min-width: 1024px) {
   header {
     height: 50px;
@@ -62,10 +58,10 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin-left: 43%;
+    margin-left: 1em;
   }
 
-   nav {
+  nav {
     margin: 1em;
     float: right;
     font-size: 1rem;
