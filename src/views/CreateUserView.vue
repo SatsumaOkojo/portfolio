@@ -24,7 +24,7 @@ const createNewUser = (): void => {
     .post("http://localhost/api/users", {
       name: name.value,
       mail: mail.value,
-      position_id: "3",
+      position_id: "2",
       facility_id: "1",
       password: "aiueohoikuen",
       icon_image_path: "image1",

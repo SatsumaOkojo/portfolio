@@ -12,6 +12,8 @@ const results = ref([]);
 const users = ref([]);
 const messageResults = ref([]);
 const proposals = ref([]);
+const positions = ref([]);
+const items = ref([]);
 const id = ref("");
 const user_id = ref("");
 const name = ref("");
@@ -51,6 +53,14 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
+    .get("http://localhost/api/messages/items/1")
+    .then((response) => {
+      items.value = response.data;
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+
+  axios
     .get("http://localhost/api/facilities")
     .then((response) => {
       results.value = response.data;
@@ -63,7 +73,7 @@ onMounted(() => {
   axios
     .get("http://localhost/api/positions")
     .then((response) => {
-      results.value = response.data;
+      positions.value = response.data;
       id.value = response.data[0].id;
       position_name.value = response.data[0].position_name;
       console.log(id.value);
@@ -113,14 +123,14 @@ const updateMessage = (): void => {
 const formLabelWidth = "140px";
 const dialogFormVisible = ref(false);
 
-const items = ref([
-  {
-    id: 1,
-    name: name.value,
-    position_name: position_name.value,
-    message: message.value,
-  },
-]);
+// const items = ref([
+//   {
+//     id: 1,
+//     name: name.value,
+//     position_name: position_name.value,
+//     message: message.value,
+//   },
+// ]);
 
 type User = {
   id: number;
@@ -155,7 +165,6 @@ var author_id = 1;
 <template>
   <div id="facility">
     <h1>{{ facility_name }}</h1>
-    <!-- <li v-for="user in users">{{ user.name }}</li> -->
   </div>
 
   <div class="center">
@@ -198,22 +207,22 @@ var author_id = 1;
     </div>
   </div>
 
-  <div class="balloon5" v-for="user in users" :key="user_id">
+  <div class="balloon5" v-for="item in items" :key="id">
     <div class="faceicon">
       <img alt="Character2" src="@/assets/Character2.png" />
 
       <h3>
-        {{ position_name }}<br />
-        {{ user.name }}
+        {{ item.position_name }}<br />
+        {{ item.name }}
       </h3>
     </div>
     <div class="chatting">
       <div class="says">
-        <p>{{ message }}</p>
+        <p>{{ item.message }}</p>
       </div>
 
       <div class="sub">
-        <h6>更新日 {{ updated_at }}</h6>
+        <h6>更新日 {{ item.updated_at }}</h6>
 
         <el-button
           id="edit"
@@ -227,7 +236,7 @@ var author_id = 1;
         <el-dialog v-model="dialogFormVisible" title="メッセージ">
           <el-form>
             <el-form-item label="Message" :label-width="formLabelWidth">
-              <el-input v-model="message" autocomplete="off" />
+              <el-input v-model="item.message" autocomplete="off" />
             </el-form-item>
           </el-form>
 

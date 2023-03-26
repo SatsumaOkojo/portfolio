@@ -22,7 +22,8 @@ const homepage = (): void => {
   <nav>
     <RouterLink to="/login">ログイン</RouterLink>
     <RouterLink to="/signup">新規登録</RouterLink>
-    <template v-if="login_id === 1">
+    <template v-if="login_id == 1">
+      <!-- ログインフラグ -->
       <RouterLink to="/main">メインページ</RouterLink>
       <RouterLink to="/logout">ログアウト</RouterLink>
       <RouterLink to="/mypage">マイページ</RouterLink>

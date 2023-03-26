@@ -6,9 +6,6 @@ import axios from "axios";
 
 const proposals = ref([]);
 const id = ref("");
-const schedule = ref("");
-const event_name = ref("");
-const proposal_image_path = ref("");
 
 onMounted(() => {
   axios
@@ -20,13 +17,14 @@ onMounted(() => {
     .catch((error) => console.log(error));
 });
 
-// const proposalsData = [
+// const proposalss = [
 //   {
-//     schedule: schedule.value,
-//     event_name: event_name.value,
-//     proposal: proposal_image_path.value
-//   }
-// ]
+//     id: 1,
+//     schedule: 4 / 1,
+//     event_name: "入園式",
+//     proposal_image_path: "image1",
+//   },
+// ];
 
 // const proposalsData = ([
 //   {
@@ -67,22 +65,17 @@ var author_id = 1;
     >
   </div>
 
-  <el-table v-for="proposal in proposals" :key="id" style="width: 80%">
+  <el-table style="width: 80%" v-for="proposal in proposals" :key="id">
     <el-table-column label="日程">{{ proposal.schedule }}</el-table-column>
     <el-table-column label="行事名">{{ proposal.event_name }}</el-table-column>
     <el-table-column label="企画書">{{
       proposal.proposal_image_path
     }}</el-table-column>
-    <el-table-column label=""
-      ><RouterLink to="/proposal"
-        ><el-button class="small-btn">企画書ページへ</el-button></RouterLink
-      ></el-table-column
-    >
-    <el-table-column>
-      <!-- <template #header>
+    <!-- <RouterLink to="/proposal"><el-button class="small-btn">企画書ページへ</el-button></RouterLink></el-table-column> -->
+
+    <!-- <template #header>
                   <el-input v-model="search" size="small" placeholder="キーワードを入力して探す" />
               </template> -->
-    </el-table-column>
   </el-table>
 </template>
 
