@@ -1,41 +1,37 @@
 <script lang="ts" setup>
 import { onMounted } from "@vue/runtime-core";
-import { RouterLink, RouterView } from 'vue-router';
-import { reactive, ref } from 'vue'
+import { RouterLink, RouterView } from "vue-router";
+import { reactive, ref } from "vue";
 
 import axios from "axios";
 
-const labelPosition = ref('right')
+const labelPosition = ref("right");
 
 const results = ref([]);
 const id = ref("");
 const mail = ref("");
 const password = ref("");
 
-
 var page_id = 1;
-
-
 
 // const data = { mail : mail.value, password : password.value}
 
-
 onMounted(() => {
   axios
-    .get("http://localhost/api/users")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+    )
     .then((response) => {
       results.value = response.data;
     })
     .catch((error) => console.log(error));
-    
-  });
+});
 
-
-  const loginCheck = (): void => {
-    console.log(mail.value);
-    console.log(password.value);
+const loginCheck = (): void => {
+  console.log(mail.value);
+  console.log(password.value);
   axios
-    .post("http://localhost/api/users/login/" , {
+    .post("http://localhost/api/users/login/", {
       mail: mail.value,
       password: password.value,
     })
@@ -44,60 +40,46 @@ onMounted(() => {
       document.location.href = "http://127.0.0.1:5173/main";
     })
     .catch((error) => {
-      console.log(error); 
+      console.log(error);
       alert("メールアドレス、又はパスワードが間違っています");
     });
 };
-
-
-
 </script>
 
-
 <template>
-     <div class="login" >
+  <div class="login">
+    <div style="margin: 20px" />
+    <el-form :label-position="labelPosition" label-width="100px">
+      <el-form-item label="メールアドレス">
+        <!-- <input id="search-mail"/> -->
+        <el-input v-model="mail" />
+      </el-form-item>
 
-     
-          <div style="margin: 20px" />
-             <el-form
-               :label-position="labelPosition"
-                label-width="100px"
-                >
+      <el-form-item label="パスワード">
+        <el-input type="password" v-model="password" />
+        <!-- <input id="search-password" /> -->
+      </el-form-item>
+    </el-form>
 
-                  <el-form-item label="メールアドレス">
-                      <!-- <input id="search-mail"/> -->
-                      <el-input v-model="mail" />
-                  </el-form-item>
+    <el-button class="red-btn" v-on:click="loginCheck">ログイン</el-button>
 
-                  <el-form-item label="パスワード">
-                       <el-input type="password"  v-model="password" />
-                       <!-- <input id="search-password" /> -->
-                  </el-form-item>
-             </el-form>
-  
-
-              <el-button class="red-btn" v-on:click="loginCheck">ログイン</el-button>
-
-                <p>パスワードをお忘れの方</p>
-
-    </div>
+    <p>パスワードをお忘れの方</p>
+  </div>
 </template>
 
 <style>
+.login {
+  text-align: center;
+  margin: 3em auto;
+  width: 45%;
+  border: 2px solid #bc9244d8;
+  background-color: #ffffff;
+  box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
+  padding: 3em;
+  border-radius: 10px;
+}
 
-  .login {
-    text-align: center;
-    margin: 3em auto;
-    width: 45%;
-    border: 2px solid #bc9244d8;
-    background-color: #ffffff;
-    box-shadow: 6px 7px 0 0 rgba(108, 73, 47, 0.5);
-    padding: 3em;
-    border-radius: 10px;
-  }
-  
 @media (min-width: 1024px) {
-
   .login {
     text-align: center;
     margin: 3em auto;
@@ -118,24 +100,14 @@ onMounted(() => {
   }
 
   .red-btn {
-  background-color: #ff3700;
-  color: #fff;
-  border: 2px solid #ad3100;
-  border-radius: 50px;
-  padding: 0.3em 1.3em;
-  margin: 2em;
-  font-size: 1.2em;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
+    background-color: #ff3700;
+    color: #fff;
+    border: 2px solid #ad3100;
+    border-radius: 50px;
+    padding: 0.3em 1.3em;
+    margin: 2em;
+    font-size: 1.2em;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  }
 }
 </style>
-
-
-
-
-
-
-
-
-
-

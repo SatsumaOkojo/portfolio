@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import { onMounted } from "@vue/runtime-core";
 import { computed, ref } from "@vue/reactivity";
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 import axios from "axios";
-
 
 const results = ref([]);
 const id = ref("");
@@ -11,10 +10,11 @@ const event_name = ref("");
 const proposal_image_path = ref("");
 const name = ref("");
 
-
 onMounted(() => {
   axios
-    .get("http://localhost/api/proposals")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/proposals"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -24,8 +24,10 @@ onMounted(() => {
     })
     .catch((error) => console.log(error));
 
-    axios
-    .get("http://localhost/api/users")
+  axios
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -34,17 +36,14 @@ onMounted(() => {
     })
     .catch((error) => console.log(error));
 });
-
-
-
 </script>
 
 <template>
-        <div class="center">
-        <h1 id="yellow">七夕</h1>
-        <img alt="tanabata" class="proposal_image"  src="@/assets/tanabata.png"/>
-        </div>
-        <!-- <div class="center">
+  <div class="center">
+    <h1 id="yellow">七夕</h1>
+    <img alt="tanabata" class="proposal_image" src="@/assets/tanabata.png" />
+  </div>
+  <!-- <div class="center">
         <h1 id="yellow">{{ event_name }}</h1>
         <p>{{ name }}</p>
         <img alt="tanabata" class="proposal_image" {{ proposal_image_path }} />
@@ -52,24 +51,20 @@ onMounted(() => {
 </template>
 
 <style>
-
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 #yellow {
-    background-color: #ffe600;
-    border: 1em;
-    padding: 1em;
-    margin: 0 auto;
-    max-width: 30%;
-    font-size: 2em;
+  background-color: #ffe600;
+  border: 1em;
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 30%;
+  font-size: 2em;
 }
-
-
 
 .proposal_image {
-    margin: 1em ; 
+  margin: 1em;
 }
-
 </style>

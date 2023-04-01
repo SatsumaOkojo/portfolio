@@ -8,8 +8,6 @@ import { RouterLink, RouterView } from "vue-router";
     みんなで簡単に情報共有
   </h1>
 
-  <p id="top2">保育・教育施設向け</p>
-
   <img alt="top_image" class="top_image" src="@/assets/top.jpg" />
 
   <div id="startButton">
@@ -76,7 +74,7 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
     <div class="box3">
       <h2>
-        月の行事　更新のお知らせ　職員からのお知らせ　<br />
+        月の行事 更新のお知らせ 職員からのお知らせ　<br />
         園長先生や各クラスからのお知らせ等まとめて見ることができます！
       </h2>
     </div>
@@ -128,7 +126,7 @@ main {
 
 .top_image {
   height: 300px;
-  width: 97vw;
+  width: 100vw;
 }
 
 #top {
@@ -151,8 +149,8 @@ main {
 
 #startButton {
   position: absolute;
-  margin-top: -5em;
-  margin-left: 40%;
+  margin-top: -7em;
+  margin-left: 35%;
 }
 
 /* 下のテキストボックス */
@@ -234,9 +232,14 @@ main {
 
   .top_image {
     height: 400px;
-    width: 98vw;
+    width: 100vw;
   }
 
+  #navButton {
+    margin-right: 2em;
+    padding: 1.6em;
+    box-shadow: 0 6px 6px 0px rgba(21, 108, 72, 0.258);
+  }
   #top2 {
     position: absolute;
     margin: 12em;

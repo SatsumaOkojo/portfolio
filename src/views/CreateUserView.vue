@@ -11,7 +11,7 @@ const mail = ref("");
 
 onMounted(() => {
   axios
-    .get("http://localhost/api/positions")
+    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions")
     .then((response) => {
       positions.value = response.data;
       console.log(id.value);
@@ -21,7 +21,7 @@ onMounted(() => {
 
 const createNewUser = (): void => {
   axios
-    .post("http://localhost/api/users", {
+    .post("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users", {
       name: name.value,
       mail: mail.value,
       position_id: "2",
@@ -40,44 +40,6 @@ const createNewUser = (): void => {
 
 const labelPosition = ref("right");
 const value = ref("");
-
-// const options = [
-//   {
-//     value: position_name.value,
-//     label: position_name.value,
-//   },
-// ]
-
-const options = [
-  {
-    value: "主任",
-    label: "主任",
-  },
-  {
-    value: "0歳児担任",
-    label: "0歳児担任",
-  },
-  {
-    value: "1歳児担任",
-    label: "1歳児担任",
-  },
-  {
-    value: "2歳児担任",
-    label: "2歳児担任",
-  },
-  {
-    value: "3歳児担任",
-    label: "3歳児担任",
-  },
-  {
-    value: "4歳児担任",
-    label: "4歳児担任",
-  },
-  {
-    value: "5歳児担任",
-    label: "5歳児担任",
-  },
-];
 </script>
 
 <template>
@@ -113,9 +75,9 @@ const options = [
         >
           <el-option
             v-for="position in positions"
-            :key="id"
             :value="position.position_name"
           ></el-option>
+
           <!-- positionsの中にあるposition_nameをidと紐づけて？表示させたい＋ユーザーに役職持たせて渡したい -->
           <!-- <el-option>{{ valueみたいな？ }}</el-option> -->
         </el-select>
