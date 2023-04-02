@@ -17,14 +17,11 @@ const password = ref("");
 
 const signUp = (): void => {
   axios
-    .post(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities",
-      {
-        corporation: corporation.value,
-        facility_name: facility_name.value,
-        delete_at: "2023-02-05",
-      }
-    )
+    .post("http://localhost/api/facilities", {
+      corporation: corporation.value,
+      facility_name: facility_name.value,
+      delete_at: "2023-02-05",
+    })
     .then((response) => {
       console.log(response.data);
     })
@@ -33,18 +30,15 @@ const signUp = (): void => {
 
 const signUp2 = (): void => {
   axios
-    .post(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users",
-      {
-        name: name.value,
-        mail: mail.value,
-        password: password.value,
-        position_id: "1",
-        facility_id: "2",
-        icon_image_path: "image1",
-        delete_at: "2023-02-05",
-      }
-    )
+    .post("http://localhost/api/users", {
+      name: name.value,
+      mail: mail.value,
+      password: password.value,
+      position_id: "1",
+      facility_id: "2",
+      icon_image_path: "image1",
+      delete_at: "2023-02-05",
+    })
     .then((response) => {
       console.log(response.data);
       document.location.href = "http://127.0.0.1:5173/login";

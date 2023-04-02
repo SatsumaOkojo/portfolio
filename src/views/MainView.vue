@@ -43,7 +43,7 @@ onMounted(() => {
   // }
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users")
+    .get("http://localhost/api/users")
     .then((response) => {
       users.value = response.data;
       user_id.value = response.data[0].id;
@@ -53,7 +53,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/messages/items/1")
+    .get("http://localhost/api/messages/items/1")
     .then((response) => {
       items.value = response.data;
       console.log(response.data);
@@ -61,7 +61,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities")
+    .get("http://localhost/api/facilities")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -71,7 +71,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions")
+    .get("http://localhost/api/positions")
     .then((response) => {
       positions.value = response.data;
       id.value = response.data[0].id;
@@ -81,7 +81,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/proposals")
+    .get("http://localhost/api/proposals")
     .then((response) => {
       proposals.value = response.data;
       id.value = response.data[0].id;
@@ -92,7 +92,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/messages")
+    .get("http://localhost/api/messages")
     .then((response) => {
       messageResults.value = response.data;
       id.value = response.data[0].id;
@@ -110,7 +110,7 @@ onMounted(() => {
 
 const updateMessage = (): void => {
   axios
-    .put("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/messages/1", {
+    .put("http://localhost/api/messages/1", {
       id: id.value,
       message: message.value,
     })

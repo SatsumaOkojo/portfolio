@@ -18,9 +18,7 @@ var page_id = 1;
 
 onMounted(() => {
   axios
-    .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
-    )
+    .get("http://localhost/api/users")
     .then((response) => {
       results.value = response.data;
     })

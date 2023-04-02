@@ -9,7 +9,7 @@ const id = ref("");
 
 onMounted(() => {
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/proposals")
+    .get("http://localhost/api/proposals")
     .then((response) => {
       proposals.value = response.data;
       id.value = response.data[0].id;

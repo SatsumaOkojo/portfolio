@@ -74,7 +74,7 @@ const updateMail = (): void => {
 
 const deleteUser = (): void => {
   axios
-    .delete("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/", {})
+    .delete("http://localhost/api/users/", {})
     .then((response) => {
       console.log(response.data);
     })

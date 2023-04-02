@@ -103,13 +103,12 @@ import { RouterLink, RouterView } from "vue-router";
     <RouterLink to="/signup"
       ><el-button class="red-btn">新規登録</el-button></RouterLink
     >
-    <el-button class="red-btn"
-      ><a
-        id="white"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link"
-        >お問い合わせ</a
-      ></el-button
+    <el-button
+      class="red-btn"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link"
     >
+      お問い合わせ
+    </el-button>
   </div>
 </template>
 
@@ -232,7 +231,7 @@ main {
 
   .top_image {
     height: 400px;
-    width: 100vw;
+    width: 98vw;
   }
 
   #navButton {
@@ -349,9 +348,9 @@ main {
   }
 
   .red-btn {
-    background-color: #ff3700;
+    background-color: #00c3ff;
     color: #fff;
-    border: 2px solid #ad3100;
+    border: 2px solid #4f92f8;
     border-radius: 50px;
     padding: 0.3em 1.3em;
     margin: 2em;
