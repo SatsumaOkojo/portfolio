@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+  import { ElButton } from 'element-plus'
+
+  setTimeout(function () {
+	document.location = 'http://127.0.0.1:5173/';
+}, 3000);
+
+</script>
+
+
 <template>
 
   <div class="color">
@@ -11,13 +21,6 @@
 </template>
 
 <style>
- .color {
-    background-color: rgba(255, 235, 205, 0.783);
-    background-image: url(@/assets/trees.png);
-    background-position: bottom; 
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
 
  #logout {
   margin: 0 4em;
@@ -25,9 +28,8 @@
 
  #logout h1 {
     font-size: 1em;
-    margin-left: 2em;
+    margin-left: 34%;
     padding-top: 2em;
-    border-bottom: dashed 3px #2ba43b;
   }
 
   .bye {
@@ -37,16 +39,14 @@
 
   .msg {
     position: absolute;
-    margin: 1em 0 2em 7em;
+    margin: 1em 15% 1em 30%;
     top: 3em;
     width:40%;
     height:17%;
   }
 
 @media (min-width: 1024px) {
-  .color {
-    background-color: rgba(255, 235, 205, 0.783);
-  }
+
   
  #logout {
   margin: 0 4em;
@@ -57,8 +57,7 @@
  #logout h1 {
     font-size: 2.6em;
     padding-top: 2em;
-    margin: 0 2em;
-    border-bottom: dashed 3px #2ba43b;
+    margin: 0 10%;
   }
 
   .bye {
@@ -68,7 +67,7 @@
 
   .msg {
     position: absolute;
-    margin: 2em 0 4em 19em;
+    margin: 10em 30% 1em 30%;
     top: 3em;
     width:40%;
     height:40%;

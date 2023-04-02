@@ -1,49 +1,45 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from "vue-router";
 
+var author_id = 1;
+var login_id = 0;
 
+const homepage = (): void => {
+  document.location.href = "http://127.0.0.1:5173/";
+};
 </script>
 
 <template>
- 
-    <header>
-      <img alt="logo" class="logo" src="@/assets/icon.logo.png" width="170" height="50" />
-      
-   
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/login">ログイン</RouterLink>
-          <RouterLink to="/signup">新規登録</RouterLink>
-          <RouterLink to="/logout">ログアウト</RouterLink>
-          <RouterLink to="/mypage">マイページ</RouterLink>
-          <RouterLink to="/proposal-table">企画書</RouterLink>
-          <RouterLink to="/create-user">ユーザー作成</RouterLink>
-          <!-- v-if = "author == 1" -->
-          
-        </nav>
-    </header>
- 
-  
-    <RouterView />
-  </template>
+  <img
+    alt="logo"
+    class="logo"
+    v-on:click="homepage"
+    src="@/assets/icon.logo.png"
+    width="170"
+    height="50"
+  />
+
+  <nav>
+    <RouterLink to="/login">ログイン</RouterLink>
+    <RouterLink to="/signup">新規登録</RouterLink>
+    <template v-if="login_id == 1">
+      <!-- ログインフラグ -->
+      <RouterLink to="/main">メインページ</RouterLink>
+      <RouterLink to="/logout">ログアウト</RouterLink>
+      <RouterLink to="/mypage">マイページ</RouterLink>
+      <RouterLink to="/proposal-table">企画書</RouterLink>
+      <RouterLink to="/create-user" v-if="author_id == 1"
+        >ユーザー作成</RouterLink
+      >
+    </template>
+  </nav>
+</template>
 
 <style scoped>
-header {
-  height: 50px;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  margin: 0px;
-  background: #ffffff;
-  position: fixed;
-  box-shadow: 0px 3px 5px rgba(106, 103, 103, 0.537);
-}
-
-
 nav {
   margin: 0.3em 0;
   float: right;
+  font-size: 0.4em;
 }
 
 nav a {
@@ -55,7 +51,6 @@ nav a:first-of-type {
   border: 0;
 }
 
-
 @media (min-width: 1024px) {
   header {
     height: 50px;
@@ -64,10 +59,10 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin-left: 15px;
+    margin-left: 1em;
   }
 
-   nav {
+  nav {
     margin: 1em;
     float: right;
     font-size: 1rem;

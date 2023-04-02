@@ -1,47 +1,60 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { reactive, ref } from 'vue'
+import axios from "axios";
+
+const results = ref([]);
+const id = ref("");
+const event_name = ref("");
+const proposal_image_path = ref("");
+const schedule = ref("");
+
+
+const createProposal = (): void => {
+  axios
+    .post("http://localhost/api/proposals", {
+      id: id.value,
+      user_id: "1",
+      event_name: event_name.value,
+      proposal_image_path: proposal_image_path.value,
+      schedule: schedule.value,
+      deleted_at: "2023-02-10",
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => console.log(error));
+};
+const labelPosition = ref('right')
+
 </script>
 
 <template>
-   <div class="yellow">
+<!-- 権限4と3の人はここに来れない -->
         <div class="post">
+          <el-form
+              :label-position="labelPosition"
+               label-width="100px"
+               style="max-width: 460px"
+                >
+                  <el-form-item label="行事名">
+                    <el-input v-model="event_name" />
+                  </el-form-item>
+                  <el-form-item label="企画書">
+                     <el-input v-model="proposal_image_path" />
+                  </el-form-item>
+                  <el-form-item label="企画日">
+                    <input type="date"  v-model="schedule" />
+                  </el-form-item>
 
-            <div class="post3">
-               <label for="post1">行事名  </label>
-               <!-- {{event_name}} -->
-               <input type="textbox" placeholder="11月誕生会">
-            </div>
-
-            <div class="post3">
-                <!-- ドラック＆ドロップしたい -->
-                <label for="post2">企画書  </label>
-               <!-- {{proposal_image_path}} -->
-               <input type="textbox" >
-             </div>
-
-            <div class="post3">
-                <lavel for="post3">実施日  </lavel>
-                 <!-- {{schedule}} -->
-                <input type="date" value="2022-11-11" name="date" id="date">
-             </div>
-
-               <RouterLink to="/proposal-table"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
+          </el-form>
+               <RouterLink to="/proposal-table"><el-button class="red-btn" v-on:click="createProposal">投稿する</el-button></RouterLink>
 
         </div>
-   </div>
 </template>
 
 
 <style>
-.yellow {
-  background-color: rgb(255, 250, 196);
-  min-height: 100vh;
-  display: flex;
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .post {
  margin: 3em auto;
@@ -58,25 +71,14 @@ import { RouterLink, RouterView } from 'vue-router'
   padding:2em;
 }
 
-a.btn--red {
+.red-btn {
+  background-color: #ff3700;
   color: #fff;
-  background-color: #e70000;
-  border-bottom: 5px solid #b80000;
+  border: 2px solid #ad3100;
   border-radius: 50px;
   padding: 0.3em 1.3em;
-  margin: 3em;
+  margin: 2em;
   font-size: 1.2em;
-}
-
-a.btn--red:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #e70000;
-  border-bottom: 2px solid #b80000;
-}
-
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 

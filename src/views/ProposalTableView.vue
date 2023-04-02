@@ -1,139 +1,98 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { onMounted } from "@vue/runtime-core";
+import { computed, ref } from "@vue/reactivity";
+import { RouterLink, RouterView } from "vue-router";
+import axios from "axios";
 
-const tableData = [
-  {
-    schedule: '2022年7月7日',
-    event_name: '七夕',
-    proposal_image_path: 'img',
-    name: "鈴木　すず"
-  },
-  {
-    schedule: '2022年7月25日',
-    event_name: '7月誕生会',
-    proposal_image_path: 'img',
-    name: "町田　真智子"
-  },
-]
+const proposals = ref([]);
+const id = ref("");
+
+onMounted(() => {
+  axios
+    .get("http://localhost/api/proposals")
+    .then((response) => {
+      proposals.value = response.data;
+      id.value = response.data[0].id;
+      console.log(id.value);
+    })
+    .catch((error) => console.log(error));
+});
+
+// const proposalss = [
+//   {
+//     id: 1,
+//     schedule: 4 / 1,
+//     event_name: "入園式",
+//     proposal_image_path: "image1",
+//   },
+// ];
+
+// const proposalsData = ([
+//   {
+//     id: id.value,
+//     schedule: schedule.value,
+//     event_name: event_name.value,
+//     proposal: proposal_image_path.value,
+//   },
+// ])
+
+// const proposalsData = [
+//   {
+//     schedule: schedule.value,
+//     event_name: event_name.value,
+//     proposal: proposal_image_path.value
+//   },
+// ]
+
+// 繰り返し
+// proposalsData.forEach( function( value ) {
+
+//  console.log( value.schedule );
+//  console.log( value.event_name );
+// });
+
+var author_id = 1;
 </script>
 
-
 <template>
-    <div id =skyblue>
-      
-        <div id="keyword">
+  <el-button type="success" id="navButton"
+    ><RouterLink to="/main" id="white">戻る</RouterLink></el-button
+  >
+  <div id="post-btn">
+    <RouterLink to="/proposal-post"
+      ><el-button class="red-btn" v-if="author_id === 1 || author_id === 2"
+        >投稿する</el-button
+      ></RouterLink
+    >
+  </div>
 
-         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <el-table style="width: 80%" v-for="proposal in proposals" :key="id">
+    <el-table-column label="日程">{{ proposal.schedule }}</el-table-column>
+    <el-table-column label="行事名">{{ proposal.event_name }}</el-table-column>
+    <el-table-column label="企画書">{{
+      proposal.proposal_image_path
+    }}</el-table-column>
+    <!-- <RouterLink to="/proposal"><el-button class="small-btn">企画書ページへ</el-button></RouterLink></el-table-column> -->
 
-           <form method="get" action="#" class="search_container">
-               <input type="text" size="25" placeholder="キーワード検索">
-               <input type="submit" value="&#xf002">
-           </form>
-   
-                 <!-- これは役職あるひとだけ -->
-               <RouterLink to="/proposal-post"><a href="" class="btn btn--red btn--cubic btn--shadow">投稿する</a></RouterLink>
-
-        </div>
-
-
-            <div id="column">
-                <el-table :data="tableData">
-                  <el-table-column prop="schedule" label="日程" width="190" />
-                  <el-table-column prop="event_name" label="行事名" width="190" />
-                  <!-- 企画書はクリックしたらProposalView.vueへ -->
-                  <el-table-column prop="proposal_image_path" label="企画書" width="190" />
-                  <el-table-column prop="name" label="担当者" width="190"/>
-                </el-table>
-             </div>
-
-    </div>
+    <!-- <template #header>
+                  <el-input v-model="search" size="small" placeholder="キーワードを入力して探す" />
+              </template> -->
+  </el-table>
 </template>
 
-
-
 <style>
-#skyblue {
-  background-color: rgb(228, 244, 255);
-  min-height: 100vh;
-  background-image: url(@/assets/trees.png);
-  background-position: bottom; 
-  background-size: contain;
-  background-repeat: no-repeat;
+#post-btn {
+  margin: 1em;
 }
-
-#keyword {
-  padding: 2.5em;
-  margin: 0 10%;
-  display: flex;
-}
-
-.search_container{
-  position: relative;
-  box-sizing: border-box;
-  border: 2px solid #576fe8;
-  display: block;
-  padding: 3px 10px;
-  border-radius: 3px;
-  height: 2.3em;
-  width: 265px;
-  overflow: hidden;
-}
-
-.search_container input[type="text"]{
-  border: none;
-  height: 2.0em;
-}
-
-.search_container input[type="text"]:focus {
-  outline: 0;
-}
-
-.search_container input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #578fef;
-  color: #fff;
-  position: absolute;
-  width: 3.5em;
-  height: 3.0em;
-  right:0px;
-  top: -5px;
-  outline : none;
-}
-
-a.btn--red {
-  color: #fff;
-  background-color: #e70000;
-  border-bottom: 5px solid #b80000;
-  border-radius: 50px;
-  padding: 0.3em 1.3em;
-  margin: 0 1em;
-  font-size: 1.2em;
-}
-
-a.btn--red:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #e70000;
-  border-bottom: 2px solid #b80000;
-}
-
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-
-
-#column {
-    margin: 0 2em;
-}
-
 .el-table {
-    background-color: #ffffff;
-    padding: 1em 3em;
-    border: 2px solid #52bfc9d8;
-    text-align: left;
+  background-color: #ffffff;
+  padding: 1em 3em;
+  border: 2px solid #52bfc9d8;
+  text-align: left;
+  margin: 3em 6em;
 }
 
+.small-btn {
+  font-size: 0.2em;
+}
 </style>
