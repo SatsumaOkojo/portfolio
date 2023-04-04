@@ -14,12 +14,12 @@ import { RouterLink, RouterView } from "vue-router";
   <img alt="top_image" class="top_image" src="@/assets/top.jpg" />
 
   <div id="startButton">
-    <RouterLink to="/signup"
+    <RouterLink to="/signup" class="hover"
       ><el-button type="danger" class="redButton"
         >新規登録</el-button
       ></RouterLink
     >
-    <RouterLink to="/login"
+    <RouterLink to="/login" class="hover"
       ><el-button type="danger" class="redButton"
         >ログイン</el-button
       ></RouterLink
@@ -96,7 +96,7 @@ import { RouterLink, RouterView } from "vue-router";
         作成した企画書は随時まとめられるのでいつでも見られますよ
       </h2>
     </div>
-    <img alt="proposal" class="sample_page" src="@/assets/tanabata.png" />
+    <img alt="proposal" class="sample_page" src="@/assets/proposalTable.png" />
 
     <div class="box3">
       <h4>
@@ -131,6 +131,10 @@ main {
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.hover:hover {
+  background-color: transparent;
 }
 
 .top_image {

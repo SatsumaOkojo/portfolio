@@ -18,9 +18,8 @@ const openFullScreen1 = () => {
   fullscreenLoading.value = true;
   setTimeout(() => {
     fullscreenLoading.value = false;
-  }, 4000);
+  }, 5000);
 };
-// const data = { mail : mail.value, password : password.value}
 
 onMounted(() => {
   axios

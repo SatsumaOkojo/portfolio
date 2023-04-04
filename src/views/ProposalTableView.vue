@@ -6,51 +6,40 @@ import axios from "axios";
 
 const proposals = ref([]);
 const id = ref("");
+const schedule = ref("");
+const event_name = ref("");
+const proposal_image_path = ref("");
 
 onMounted(() => {
   axios
     .get("http://localhost/api/proposals")
     .then((response) => {
       proposals.value = response.data;
-      id.value = response.data[0].id;
-      console.log(id.value);
+      event_name.value = response.data;
+      schedule.value = response.data;
+      proposal_image_path.value = response.data;
+      console.log(response.data);
     })
     .catch((error) => console.log(error));
 });
 
-// const proposalss = [
-//   {
-//     id: 1,
-//     schedule: 4 / 1,
-//     event_name: "入園式",
-//     proposal_image_path: "image1",
-//   },
-// ];
-
-// const proposalsData = ([
-//   {
-//     id: id.value,
-//     schedule: schedule.value,
-//     event_name: event_name.value,
-//     proposal: proposal_image_path.value,
-//   },
-// ])
-
-// const proposalsData = [
-//   {
-//     schedule: schedule.value,
-//     event_name: event_name.value,
-//     proposal: proposal_image_path.value
-//   },
-// ]
-
-// 繰り返し
-// proposalsData.forEach( function( value ) {
-
-//  console.log( value.schedule );
-//  console.log( value.event_name );
-// });
-
+const proposalsData = [
+  {
+    schedule: "2023/4/1",
+    event_name: "入園式",
+    proposal_image_path: "image1",
+  },
+  {
+    schedule: "2023/4/25",
+    event_name: "4月誕生会",
+    proposal_image_path: "image2",
+  },
+  {
+    schedule: "2023/4/30",
+    event_name: "園外遠足",
+    proposal_image_path: "image3",
+  },
+];
 var author_id = 1;
 </script>
 
@@ -69,17 +58,14 @@ var author_id = 1;
     >
   </div>
 
-  <el-table style="width: 80%" v-for="proposal in proposals" :key="id">
-    <el-table-column label="日程">{{ proposal.schedule }}</el-table-column>
-    <el-table-column label="行事名">{{ proposal.event_name }}</el-table-column>
-    <el-table-column label="企画書">{{
-      proposal.proposal_image_path
-    }}</el-table-column>
+  <el-table style="width: 80%" :data="proposalsData">
+    <el-table-column prop="schedule" label="日程"></el-table-column>
+    <el-table-column prop="event_name" label="行事名"></el-table-column>
+    <el-table-column
+      prop="proposal_image_path"
+      label="企画書"
+    ></el-table-column>
     <!-- <RouterLink to="/proposal"><el-button class="small-btn">企画書ページへ</el-button></RouterLink></el-table-column> -->
-
-    <!-- <template #header>
-                  <el-input v-model="search" size="small" placeholder="キーワードを入力して探す" />
-              </template> -->
   </el-table>
 </template>
 
