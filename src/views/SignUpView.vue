@@ -97,7 +97,9 @@ const signUp2 = (): void => {
         </template>
       </el-dialog>
     </el-form>
-    <el-button class="red-btn" v-on:click="signUp2">新規登録</el-button>
+    <el-button type="danger" class="redButton1" v-on:click="signUp2"
+      >新規登録</el-button
+    >
   </div>
 </template>
 

@@ -7,6 +7,7 @@ import { RouterLink } from "vue-router";
 import axios from "axios";
 import { ElButton } from "element-plus";
 import { reactive } from "vue";
+import { ElLoading } from "element-plus";
 
 const results = ref([]);
 const users = ref([]);
@@ -21,27 +22,12 @@ const facility_name = ref("");
 const position_name = ref("");
 const event_name = ref("");
 const updated_at = ref<Date>();
-// ref<Date>(new Date());
 const created_at = ref<Date>();
 const message = ref("");
 
 const toString = Object.prototype.toString;
 
 onMounted(() => {
-  // axios;
-  // try {
-  //   const res = await axios.get<ApiResponse>("/api/users");
-  //   if (!res.data.success) {
-  //     console.log(res.data.errorMessage);
-  //     // console.log(res.data.payload.user.id); // <= res.data.payload.user は 型チェックでエラーになる
-  //     return;
-  //   }
-  //   // res.data.successがチェックされたことで、payload がnilではないのが確定
-  //   console.log(res.data.payload.user.id);
-  // } catch {
-  //   console.error("/API ERROR/");
-  // }
-
   axios
     .get("http://localhost/api/users")
     .then((response) => {
@@ -120,44 +106,14 @@ const updateMessage = (): void => {
     .catch((error) => console.log(error));
 };
 
+const inputMessage = ref("");
+const editMessage = (message: string): void => {
+  dialogFormVisible.value = true;
+  inputMessage.value = message;
+};
+
 const formLabelWidth = "140px";
 const dialogFormVisible = ref(false);
-
-// const items = ref([
-//   {
-//     id: 1,
-//     name: name.value,
-//     position_name: position_name.value,
-//     message: message.value,
-//   },
-// ]);
-
-type User = {
-  id: number;
-  name: string;
-  position_name: string;
-  message: string;
-  updated_at: Date;
-};
-
-type BaseApiResponse = {
-  success: boolean;
-  errorMessage: string;
-};
-
-type SuccessResponse = BaseApiResponse & {
-  success: true;
-  payload: {
-    user: User;
-  };
-};
-
-type FailerResponse = BaseApiResponse & {
-  success: false;
-  payload: null;
-};
-
-type ApiResponse = SuccessResponse | FailerResponse;
 
 var author_id = 1;
 </script>
@@ -168,21 +124,25 @@ var author_id = 1;
   </div>
 
   <div class="center">
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/logout" id="white">ログアウト</RouterLink></el-button
+    <RouterLink to="/logout" class="hover"
+      ><el-button type="danger" class="redButton1"
+        >ログアウト</el-button
+      ></RouterLink
     >
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/proposal-table" id="white"
-        >企画書</RouterLink
-      ></el-button
+    <RouterLink to="/proposal-table" class="hover"
+      ><el-button type="danger" class="redButton1"
+        >企画書</el-button
+      ></RouterLink
     >
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/mypage" id="white">マイページ</RouterLink></el-button
+    <RouterLink to="/mypage" class="hover"
+      ><el-button type="danger" class="redButton1"
+        >マイページ</el-button
+      ></RouterLink
     >
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/create-user" id="white"
-        >ユーザー作成</RouterLink
-      ></el-button
+    <RouterLink to="/create-user" class="hover"
+      ><el-button type="danger" class="redButton1"
+        >ユーザー作成</el-button
+      ></RouterLink
     >
   </div>
 
@@ -226,69 +186,57 @@ var author_id = 1;
 
         <el-button
           id="edit"
-          class="red-btn"
-          @click="dialogFormVisible = true"
+          type="danger"
+          class="redButton1"
+          @click="editMessage(item.message)"
           v-if="author_id !== 4"
         >
           編集する
         </el-button>
-
-        <el-dialog v-model="dialogFormVisible" title="メッセージ">
-          <el-form>
-            <el-form-item label="Message" :label-width="formLabelWidth">
-              <el-input v-model="item.message" autocomplete="off" />
-            </el-form-item>
-          </el-form>
-
-          <template #footer>
-            <span class="dialog-footer">
-              <el-button
-                type="primary"
-                @click="dialogFormVisible = false"
-                v-on:click="updateMessage"
-              >
-                更新する
-              </el-button>
-            </span>
-          </template>
-        </el-dialog>
       </div>
     </div>
   </div>
-  <!-- <div class="balloon5" v-for="user in users" :key="user_id">
+  <el-dialog v-model="dialogFormVisible" title="メッセージ">
+    <el-form>
+      <el-form-item label="Message" :label-width="formLabelWidth">
+        <el-input v-model="inputMessage" autocomplete="off" />
+      </el-form-item>
+    </el-form>
 
-                <div class="faceicon" >
-                   <img alt="Character2" src="@/assets/Character2.png" />
-
-                     <h3>{{ position_name }}<br>
-                            {{ user.name  }}</h3>
-              </div>
-                 <div class="chatting">
-                       <div class="says">
-                         <p>{{ message }}</p>
-                 </div>
-                      <div class="sub"> 
-                         <h6>更新日 {{ updated_at }}</h6> 
-                      </div>
-                </div>
-            </div> -->
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button
+          type="primary"
+          @click="dialogFormVisible = false"
+          v-on:click="updateMessage"
+        >
+          更新する
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 
 <style>
-#navButton {
+.redButton1 {
+  margin: 1em;
+  padding: 1.3em;
+  box-shadow: 0 6px 6px 0px rgba(97, 9, 42, 0.258);
+  font-size: 1.2em;
   font-weight: bold;
-  margin: 1em 3em;
-  background-color: #ff6eaf;
-  border: 2px solid #fc9fbb;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 3px 3px 0px rgba(114, 118, 117, 0.258);
+  border-radius: 30px;
+  border: 2px solid #ff9d9d;
+}
+
+.hover:hover {
+  background-color: transparent;
 }
 
 #facility {
   background-color: rgb(255, 55, 55);
   text-align: center;
   padding: 0.5px;
+  margin-top: 0.3em;
 }
 
 #facility h1 {
@@ -383,16 +331,5 @@ var author_id = 1;
   float: right;
   padding: 0 20%;
   display: inline;
-}
-
-.red-btn {
-  background-color: #ff3700;
-  color: #fff;
-  border: 2px solid #ad3100;
-  border-radius: 50px;
-  padding: 0.3em 1.3em;
-  margin: 2em;
-  font-size: 1.2em;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 </style>

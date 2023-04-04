@@ -43,8 +43,8 @@ const value = ref("");
 </script>
 
 <template>
-  <el-button type="success" id="navButton"
-    ><RouterLink to="/main" id="white">戻る</RouterLink></el-button
+  <RouterLink to="/main"
+    ><el-button type="danger" class="redButton1">戻る</el-button></RouterLink
   >
 
   <div class="create_user">
@@ -84,7 +84,9 @@ const value = ref("");
       </el-form-item>
     </el-form>
 
-    <el-button class="red-btn" v-on:click="createNewUser">登録する</el-button>
+    <el-button type="danger" class="redButton1" v-on:click="createNewUser"
+      >登録する</el-button
+    >
   </div>
 </template>
 

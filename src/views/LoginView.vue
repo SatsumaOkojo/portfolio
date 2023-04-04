@@ -2,7 +2,7 @@
 import { onMounted } from "@vue/runtime-core";
 import { RouterLink, RouterView } from "vue-router";
 import { reactive, ref } from "vue";
-
+import { ElLoading } from "element-plus";
 import axios from "axios";
 
 const labelPosition = ref("right");
@@ -13,7 +13,13 @@ const mail = ref("");
 const password = ref("");
 
 var page_id = 1;
-
+const fullscreenLoading = ref(false);
+const openFullScreen1 = () => {
+  fullscreenLoading.value = true;
+  setTimeout(() => {
+    fullscreenLoading.value = false;
+  }, 4000);
+};
 // const data = { mail : mail.value, password : password.value}
 
 onMounted(() => {
@@ -59,7 +65,14 @@ const loginCheck = (): void => {
       </el-form-item>
     </el-form>
 
-    <el-button class="red-btn" v-on:click="loginCheck">ログイン</el-button>
+    <el-button
+      type="danger"
+      class="redButton"
+      v-on:click="loginCheck"
+      v-loading.fullscreen.lock="fullscreenLoading"
+      @click="openFullScreen1"
+      >ログイン</el-button
+    >
 
     <p>パスワードをお忘れの方</p>
   </div>

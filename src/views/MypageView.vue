@@ -17,7 +17,9 @@ const position_name = ref("");
 
 onMounted(() => {
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[2].id;
@@ -29,7 +31,9 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -40,7 +44,9 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[2].id;
@@ -52,9 +58,12 @@ onMounted(() => {
 
 const updateUserName = (): void => {
   axios
-    .put("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/1", {
-      name: name.value,
-    })
+    .put(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/1",
+      {
+        name: name.value,
+      }
+    )
     .then((response) => {
       console.log(response.data);
     })
@@ -63,9 +72,12 @@ const updateUserName = (): void => {
 
 const updateMail = (): void => {
   axios
-    .put("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/", {
-      mail: mail.value,
-    })
+    .put(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
+      {
+        mail: mail.value,
+      }
+    )
     .then((response) => {
       console.log(response.data);
     })
@@ -87,8 +99,8 @@ var author_id = 1;
 </script>
 
 <template>
-  <el-button type="success" id="navButton"
-    ><RouterLink to="/main" id="white">戻る</RouterLink></el-button
+  <RouterLink to="/main" class="hover"
+    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
   >
 
   <div id="mypage">
@@ -96,7 +108,7 @@ var author_id = 1;
       <div class="float_box">
         <img alt="Character2" src="@/assets/Character2.png" />
 
-        <RouterLink to="/"
+        <RouterLink to="/" class="hover"
           ><el-button class="green-btn" v-on:click="deleteUser"
             >退会する</el-button
           ></RouterLink
@@ -181,13 +193,15 @@ var author_id = 1;
 </template>
 
 <style>
-#navButton {
-  font-weight: bold;
-  margin: 1em 3em;
-  background-color: #ff6eaf;
-  border: 2px solid #fc9fbb;
-  border-radius: 20px;
-  padding: 20px;
+.backButton {
+  background-color: #0099ff;
+  color: #fff;
+  border: 2px solid #c6dfff;
+  border-radius: 50px;
+  padding: 1em 1.3em;
+  margin: 1em;
+  font-size: 1.2em;
+  box-shadow: 0 3px 5px rgba(43, 25, 159, 0.3);
 }
 
 #mypage {

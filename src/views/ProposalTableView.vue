@@ -55,12 +55,15 @@ var author_id = 1;
 </script>
 
 <template>
-  <el-button type="success" id="navButton"
-    ><RouterLink to="/main" id="white">戻る</RouterLink></el-button
+  <RouterLink to="/main" class="hover"
+    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
   >
   <div id="post-btn">
-    <RouterLink to="/proposal-post"
-      ><el-button class="red-btn" v-if="author_id === 1 || author_id === 2"
+    <RouterLink to="/proposal-post" class="hover"
+      ><el-button
+        type="danger"
+        class="redButton1"
+        v-if="author_id === 1 || author_id === 2"
         >投稿する</el-button
       ></RouterLink
     >

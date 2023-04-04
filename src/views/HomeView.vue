@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+
+// const apiUrl: string = import.meta.env.VITE_APP_LARAVEL_API_KEY;
+// console.log(apiUrl);
 </script>
 
 <template>
@@ -11,11 +14,15 @@ import { RouterLink, RouterView } from "vue-router";
   <img alt="top_image" class="top_image" src="@/assets/top.jpg" />
 
   <div id="startButton">
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/signup" id="white">新規登録</RouterLink></el-button
+    <RouterLink to="/signup"
+      ><el-button type="danger" class="redButton"
+        >新規登録</el-button
+      ></RouterLink
     >
-    <el-button type="success" id="navButton"
-      ><RouterLink to="/login" id="white">ログイン</RouterLink></el-button
+    <RouterLink to="/login"
+      ><el-button type="danger" class="redButton"
+        >ログイン</el-button
+      ></RouterLink
     >
   </div>
 
@@ -74,7 +81,7 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
     <div class="box3">
       <h2>
-        月の行事 更新のお知らせ 職員からのお知らせ　<br />
+        月の行事 更新のお知らせ 職員からのお知らせ <br />
         園長先生や各クラスからのお知らせ等まとめて見ることができます！
       </h2>
     </div>
@@ -100,11 +107,14 @@ import { RouterLink, RouterView } from "vue-router";
       </h4>
     </div>
 
-    <RouterLink to="/signup"
-      ><el-button class="red-btn">新規登録</el-button></RouterLink
+    <RouterLink to="/signup" class="hover"
+      ><el-button type="danger" class="redButton"
+        >新規登録</el-button
+      ></RouterLink
     >
     <el-button
-      class="red-btn"
+      type="danger"
+      class="redButton"
       href="https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link"
     >
       お問い合わせ
@@ -209,10 +219,6 @@ main {
   padding: 0 30px;
 }
 
-#white {
-  color: #fff;
-}
-
 @media (min-width: 1024px) {
   main {
     background-color: #fffde9;
@@ -234,10 +240,15 @@ main {
     width: 98vw;
   }
 
-  #navButton {
+  .redButton {
     margin-right: 2em;
-    padding: 1.6em;
-    box-shadow: 0 6px 6px 0px rgba(21, 108, 72, 0.258);
+    padding: 1.3em;
+    box-shadow: 0 6px 6px 0px rgba(97, 9, 42, 0.258);
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 2px solid #d13636d8;
+    margin-bottom: 1em;
   }
   #top2 {
     position: absolute;
@@ -347,7 +358,7 @@ main {
     max-height: 1000px;
   }
 
-  .red-btn {
+  .red {
     background-color: #00c3ff;
     color: #fff;
     border: 2px solid #4f92f8;

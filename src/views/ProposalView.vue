@@ -35,6 +35,9 @@ onMounted(() => {
 </script>
 
 <template>
+  <RouterLink to="/main" class="hover"
+    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
+  >
   <div class="center">
     <h1 id="yellow">七夕</h1>
     <img alt="tanabata" class="proposal_image" src="@/assets/tanabata.png" />
