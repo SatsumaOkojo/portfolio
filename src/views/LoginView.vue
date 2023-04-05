@@ -3,6 +3,7 @@ import { onMounted } from "@vue/runtime-core";
 import { RouterLink, RouterView } from "vue-router";
 import { reactive, ref } from "vue";
 import { ElLoading } from "element-plus";
+import { useRouter } from "vue-router";
 import axios from "axios";
 
 const labelPosition = ref("right");
@@ -11,6 +12,7 @@ const results = ref([]);
 const id = ref("");
 const mail = ref("");
 const password = ref("");
+const router = useRouter();
 
 var page_id = 1;
 const fullscreenLoading = ref(false);
@@ -23,7 +25,7 @@ const openFullScreen1 = () => {
 
 onMounted(() => {
   axios
-    .get(import.meta.env.BASE_URL + "/api/users")
+    .get(import.meta.env.VITE_LARAVEL_APP_URL + "/api/users")
     .then((response) => {
       results.value = response.data;
     })
@@ -34,13 +36,13 @@ const loginCheck = (): void => {
   console.log(mail.value);
   console.log(password.value);
   axios
-    .post(import.meta.env.BASE_URL + "/api/users/login/", {
+    .post(import.meta.env.VITE_LARAVEL_APP_URL + "/api/users/login/", {
       mail: mail.value,
       password: password.value,
     })
     .then((response) => {
       console.log(response);
-      document.location.href = import.meta.env.BASE_URL + "/main";
+      router.push("/main");
     })
     .catch((error) => {
       console.log(error);

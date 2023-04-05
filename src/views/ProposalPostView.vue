@@ -11,7 +11,7 @@ const schedule = ref("");
 
 const createProposal = (): void => {
   axios
-    .post(import.meta.env.BASE_URL + "/api/proposals", {
+    .post(import.meta.env.VITE_LARAVEL_APP_URLL + "/api/proposals", {
       id: id.value,
       user_id: "1",
       event_name: event_name.value,

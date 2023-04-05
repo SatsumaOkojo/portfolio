@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { ElButton } from "element-plus";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 setTimeout(function () {
-  document.location = import.meta.env.BASE_URL + "/";
+  router.push("/");
 }, 3000);
 </script>
 

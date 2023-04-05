@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { useRouter } from "vue-router";
 
 var author_id = 1;
 var login_id = 0;
 
+const router = useRouter();
 const homepage = (): void => {
-  document.location.href = "http://127.0.0.1:5173/";
+  router.push("/");
+  // document.location.href = import.meta.env.BASE_URL + "/";
 };
 </script>
 

@@ -6,7 +6,7 @@ declare module "*.vue" {
   export default component;
 }
 interface ImportMetaEnv {
-  readonly VITE_LARAVEL_API_KEY: string;
+  readonly VITE_LARAVEL_APP_URL: string;
 }
 
 interface ImportMeta {

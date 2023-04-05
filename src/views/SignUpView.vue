@@ -2,10 +2,12 @@
 import { RouterLink, RouterView } from "vue-router";
 import axios from "axios";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const centerDialogVisible = ref(false);
 
 const labelPosition = ref("right");
+const router = useRouter();
 
 const results = ref([]);
 const id = ref("");
@@ -17,7 +19,7 @@ const password = ref("");
 
 const signUp = (): void => {
   axios
-    .post(import.meta.env.BASE_URL + "/api/facilities", {
+    .post(import.meta.env.VITE_LARAVEL_APP_URL + "/api/facilities", {
       corporation: corporation.value,
       facility_name: facility_name.value,
       delete_at: "2023-02-05",
@@ -30,22 +32,18 @@ const signUp = (): void => {
 
 const signUp2 = (): void => {
   axios
-    .post(
-      import.meta.env.BASE_URL + "/api/users",
-      {
-        name: name.value,
-        mail: mail.value,
-        password: password.value,
-        position_id: "1",
-        facility_id: "2",
-        icon_image_path: "image1",
-        delete_at: "2023-02-05",
-      }
-    )
+    .post(import.meta.env.VITE_LARAVEL_APP_URL + "/api/users", {
+      name: name.value,
+      mail: mail.value,
+      password: password.value,
+      position_id: "1",
+      facility_id: "2",
+      icon_image_path: "image1",
+      delete_at: "2023-02-05",
+    })
     .then((response) => {
       console.log(response.data);
-      document.location.href =
-      import.meta.env.BASE_URL + "/login";
+      router.push("/login");
       alert("新規登録できました！");
     })
     .catch((error) => console.log(error));

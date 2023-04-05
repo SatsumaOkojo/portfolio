@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 
-// const apiUrl: string = import.meta.env.VITE_APP_LARAVEL_API_KEY;
-// console.log(apiUrl);
 </script>
 
 <template>
