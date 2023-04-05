@@ -20,10 +20,10 @@ onMounted(() => {
     .get(import.meta.env.BASE_URL + "/api/users")
     .then((response) => {
       results.value = response.data;
-      id.value = response.data[2].id;
-      name.value = response.data[2].name;
-      mail.value = response.data[2].mail;
-      password.value = response.data[2].password;
+      id.value = response.data[0].id;
+      name.value = response.data[0].name;
+      mail.value = response.data[0].mail;
+      password.value = response.data[0].password;
       console.log(id.value);
     })
     .catch((error) => console.log(error));
@@ -43,8 +43,8 @@ onMounted(() => {
     .get(import.meta.env.BASE_URL + "/api/positions")
     .then((response) => {
       results.value = response.data;
-      id.value = response.data[2].id;
-      position_name.value = response.data[2].position_name;
+      id.value = response.data[0].id;
+      position_name.value = response.data[0].position_name;
       console.log(id.value);
     })
     .catch((error) => console.log(error));
