@@ -18,7 +18,7 @@ const position_name = ref("");
 onMounted(() => {
   axios
     .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+      import.meta.env.BASE_URL + "/api/users"
     )
     .then((response) => {
       results.value = response.data;
@@ -32,7 +32,7 @@ onMounted(() => {
 
   axios
     .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities"
+      import.meta.env.BASE_URL + "/api/facilities"
     )
     .then((response) => {
       results.value = response.data;
@@ -45,7 +45,7 @@ onMounted(() => {
 
   axios
     .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions"
+      import.meta.env.BASE_URL + "/api/positions"
     )
     .then((response) => {
       results.value = response.data;
@@ -59,7 +59,7 @@ onMounted(() => {
 const updateUserName = (): void => {
   axios
     .put(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/1",
+      import.meta.env.BASE_URL + "/api/users/1",
       {
         name: name.value,
       }
@@ -73,7 +73,7 @@ const updateUserName = (): void => {
 const updateMail = (): void => {
   axios
     .put(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
+      import.meta.env.BASE_URL + "/api/users/",
       {
         mail: mail.value,
       }
@@ -87,7 +87,7 @@ const updateMail = (): void => {
 const deleteUser = (): void => {
   axios
     .delete(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
+      import.meta.env.BASE_URL + "/api/users/",
       {}
     )
     .then((response) => {

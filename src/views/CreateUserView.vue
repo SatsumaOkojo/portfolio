@@ -11,7 +11,7 @@ const mail = ref("");
 
 onMounted(() => {
   axios
-    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions")
+    .get(import.meta.env.BASE_URL + "/api/positions")
     .then((response) => {
       positions.value = response.data;
       console.log(id.value);
@@ -21,7 +21,7 @@ onMounted(() => {
 
 const createNewUser = (): void => {
   axios
-    .post("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users", {
+    .post(import.meta.env.BASE_URL + "/api/users", {
       name: name.value,
       mail: mail.value,
       position_id: "2",

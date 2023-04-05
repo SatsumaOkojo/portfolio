@@ -31,7 +31,7 @@ const signUp = (): void => {
 const signUp2 = (): void => {
   axios
     .post(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users",
+      import.meta.env.BASE_URL + "/api/users",
       {
         name: name.value,
         mail: mail.value,
@@ -45,7 +45,7 @@ const signUp2 = (): void => {
     .then((response) => {
       console.log(response.data);
       document.location.href =
-        "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/login";
+      import.meta.env.BASE_URL + "/login";
       alert("新規登録できました！");
     })
     .catch((error) => console.log(error));

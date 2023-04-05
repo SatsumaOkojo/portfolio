@@ -11,7 +11,7 @@ const schedule = ref("");
 
 const createProposal = (): void => {
   axios
-    .post("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/proposals", {
+    .post(import.meta.env.BASE_URL + "/api/proposals", {
       id: id.value,
       user_id: "1",
       event_name: event_name.value,
