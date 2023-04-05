@@ -17,9 +17,7 @@ const position_name = ref("");
 
 onMounted(() => {
   axios
-    .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
-    )
+    .get(import.meta.env.BASE_URL + "/api/users")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[2].id;
@@ -31,9 +29,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities"
-    )
+    .get(import.meta.env.BASE_URL + "/api/facilities")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -44,9 +40,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions"
-    )
+    .get(import.meta.env.BASE_URL + "/api/positions")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[2].id;
@@ -58,12 +52,9 @@ onMounted(() => {
 
 const updateUserName = (): void => {
   axios
-    .put(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/1",
-      {
-        name: name.value,
-      }
-    )
+    .put(import.meta.env.BASE_URL + "/api/users/1", {
+      name: name.value,
+    })
     .then((response) => {
       console.log(response.data);
     })
@@ -72,12 +63,9 @@ const updateUserName = (): void => {
 
 const updateMail = (): void => {
   axios
-    .put(
-      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
-      {
-        mail: mail.value,
-      }
-    )
+    .put(import.meta.env.BASE_URL + "/api/users/", {
+      mail: mail.value,
+    })
     .then((response) => {
       console.log(response.data);
     })
@@ -86,7 +74,7 @@ const updateMail = (): void => {
 
 const deleteUser = (): void => {
   axios
-    .delete("http://localhost/api/users/", {})
+    .delete(import.meta.env.BASE_URL + "/api/users/", {})
     .then((response) => {
       console.log(response.data);
     })

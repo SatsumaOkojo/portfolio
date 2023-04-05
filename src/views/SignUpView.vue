@@ -17,7 +17,7 @@ const password = ref("");
 
 const signUp = (): void => {
   axios
-    .post("http://localhost/api/facilities", {
+    .post(import.meta.env.BASE_URL + "/api/facilities", {
       corporation: corporation.value,
       facility_name: facility_name.value,
       delete_at: "2023-02-05",
@@ -30,7 +30,7 @@ const signUp = (): void => {
 
 const signUp2 = (): void => {
   axios
-    .post("http://localhost/api/users", {
+    .post(import.meta.env.BASE_URL + "/api/users", {
       name: name.value,
       mail: mail.value,
       password: password.value,
@@ -41,7 +41,7 @@ const signUp2 = (): void => {
     })
     .then((response) => {
       console.log(response.data);
-      document.location.href = "http://127.0.0.1:5173/login";
+      document.location.href = import.meta.env.BASE_URL + "/login";
       alert("新規登録できました！");
     })
     .catch((error) => console.log(error));

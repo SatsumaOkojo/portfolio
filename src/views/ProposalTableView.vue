@@ -12,7 +12,7 @@ const proposal_image_path = ref("");
 
 onMounted(() => {
   axios
-    .get("http://localhost/api/proposals")
+    .get(import.meta.env.BASE_URL + "/api/proposals")
     .then((response) => {
       proposals.value = response.data;
       event_name.value = response.data;

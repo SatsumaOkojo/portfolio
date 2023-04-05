@@ -23,7 +23,7 @@ const openFullScreen1 = () => {
 
 onMounted(() => {
   axios
-    .get("http://localhost/api/users")
+    .get(import.meta.env.BASE_URL +"/api/users")
     .then((response) => {
       results.value = response.data;
     })
@@ -34,13 +34,13 @@ const loginCheck = (): void => {
   console.log(mail.value);
   console.log(password.value);
   axios
-    .post("http://localhost/api/users/login/", {
+    .post(import.meta.env.BASE_URL + "/api/users/login/", {
       mail: mail.value,
       password: password.value,
     })
     .then((response) => {
       console.log(response);
-      document.location.href = "http://127.0.0.1:5173/main";
+      document.location.href = import.meta.env.BASE_URL + "/main";
     })
     .catch((error) => {
       console.log(error);

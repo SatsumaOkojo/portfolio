@@ -12,7 +12,7 @@ const name = ref("");
 
 onMounted(() => {
   axios
-    .get("http://localhost/api/proposals")
+    .get(import.meta.env.BASE_URL +"/api/proposals")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -23,7 +23,7 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get("http://localhost/api/users")
+    .get(import.meta.env.BASE_URL +"/api/users")
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
