@@ -17,7 +17,9 @@ const position_name = ref("");
 
 onMounted(() => {
   axios
-    .get(import.meta.env.BASE_URL + "/api/users")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -29,7 +31,9 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get(import.meta.env.BASE_URL + "/api/facilities")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/facilities"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -40,7 +44,9 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get(import.meta.env.BASE_URL + "/api/positions")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/positions"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -52,9 +58,12 @@ onMounted(() => {
 
 const updateUserName = (): void => {
   axios
-    .put(import.meta.env.BASE_URL + "/api/users/1", {
-      name: name.value,
-    })
+    .put(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/1",
+      {
+        name: name.value,
+      }
+    )
     .then((response) => {
       console.log(response.data);
     })
@@ -63,9 +72,12 @@ const updateUserName = (): void => {
 
 const updateMail = (): void => {
   axios
-    .put(import.meta.env.BASE_URL + "/api/users/", {
-      mail: mail.value,
-    })
+    .put(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
+      {
+        mail: mail.value,
+      }
+    )
     .then((response) => {
       console.log(response.data);
     })
@@ -74,7 +86,10 @@ const updateMail = (): void => {
 
 const deleteUser = (): void => {
   axios
-    .delete(import.meta.env.BASE_URL + "/api/users/", {})
+    .delete(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/",
+      {}
+    )
     .then((response) => {
       console.log(response.data);
     })

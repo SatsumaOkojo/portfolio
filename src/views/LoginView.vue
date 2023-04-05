@@ -23,7 +23,7 @@ const openFullScreen1 = () => {
 
 onMounted(() => {
   axios
-    .get(import.meta.env.BASE_URL +"/api/users")
+    .get("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users")
     .then((response) => {
       results.value = response.data;
     })
@@ -34,13 +34,13 @@ const loginCheck = (): void => {
   console.log(mail.value);
   console.log(password.value);
   axios
-    .post(import.meta.env.BASE_URL + "/api/users/login/", {
+    .post("http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users/login/", {
       mail: mail.value,
       password: password.value,
     })
     .then((response) => {
       console.log(response);
-      document.location.href = import.meta.env.BASE_URL + "/main";
+      document.location.href = "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/main";
     })
     .catch((error) => {
       console.log(error);

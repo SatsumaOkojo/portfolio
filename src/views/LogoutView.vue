@@ -2,7 +2,8 @@
 import { ElButton } from "element-plus";
 
 setTimeout(function () {
-  document.location = import.meta.env.BASE_URL + "/";
+  document.location =
+    "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/";
 }, 3000);
 </script>
 

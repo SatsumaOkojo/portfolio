@@ -12,7 +12,9 @@ const name = ref("");
 
 onMounted(() => {
   axios
-    .get(import.meta.env.BASE_URL + "/api/proposals")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/proposals"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;
@@ -23,7 +25,9 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   axios
-    .get(import.meta.env.BASE_URL + "/api/users")
+    .get(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users"
+    )
     .then((response) => {
       results.value = response.data;
       id.value = response.data[0].id;

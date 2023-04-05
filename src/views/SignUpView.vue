@@ -30,18 +30,22 @@ const signUp = (): void => {
 
 const signUp2 = (): void => {
   axios
-    .post(import.meta.env.BASE_URL + "/api/users", {
-      name: name.value,
-      mail: mail.value,
-      password: password.value,
-      position_id: "1",
-      facility_id: "2",
-      icon_image_path: "image1",
-      delete_at: "2023-02-05",
-    })
+    .post(
+      "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/api/users",
+      {
+        name: name.value,
+        mail: mail.value,
+        password: password.value,
+        position_id: "1",
+        facility_id: "2",
+        icon_image_path: "image1",
+        delete_at: "2023-02-05",
+      }
+    )
     .then((response) => {
       console.log(response.data);
-      document.location.href = import.meta.env.BASE_URL + "/login";
+      document.location.href =
+        "http://hoikudiary-env.eba-5qvm4cyt.us-east-2.elasticbeanstalk.com/login";
       alert("新規登録できました！");
     })
     .catch((error) => console.log(error));
