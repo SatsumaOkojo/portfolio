@@ -1,11 +1,34 @@
 import { defineStore } from "pinia";
-// storeを定義する為↑
 
-export const storeLoginUser = defineStore("loginUserUser", {
-  // defineStore関数の戻り値をstoreLoginUserに入れてる
-  //   storeを識別するためのIDをloginUserとしている
+// 渡すもののタイプはUserのid(number)ですよ
+export type User = {
+  id: number;
+};
+
+export const userCurrentUserStore = defineStore("currentUser", {
+  //  defindStoreの戻り値をcurrentUserに入れている。
+  // state(状態)
   state: () => ({
-    user: 1,
-    // state(状態)の共有をしたいuser変数を定義して初期値を入れる。
+    // Storeをuserがあるかどうかで識別（？）
+    user: null as User | null,
+    //初期値…？  ↑どういうこと　｜　は”または”って意味？ ||じゃなく？
   }),
+  getters: {
+    isLoggedIn(): boolean {
+      return !!this.user;
+      // userが記録されている
+      // trueかfalseか（なにが？）
+      // 記録されてないuserが返ってくる（なんで？）
+    },
+  },
+  actions: {
+    login(user: User) {
+      this.user = user;
+      // ログインしたuser(idで判定)がこの場でのuserです
+    },
+    logout() {
+      this.user = null;
+      // ログアウトしたらこのuserはnullになるよ
+    },
+  },
 });
