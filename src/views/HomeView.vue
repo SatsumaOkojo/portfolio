@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 
+const googleForm = () => {
+  location.href =
+    "https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link";
+};
 </script>
 
 <template>
@@ -110,11 +114,7 @@ import { RouterLink, RouterView } from "vue-router";
         >新規登録</el-button
       ></RouterLink
     >
-    <el-button
-      type="danger"
-      class="redButton"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link"
-    >
+    <el-button type="danger" class="redButton" @click="googleForm">
       お問い合わせ
     </el-button>
   </div>

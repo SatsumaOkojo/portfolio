@@ -97,7 +97,7 @@ const updateMessage = (): void => {
   axios
     .put(import.meta.env.VITE_LARAVEL_APP_URL + "/api/messages/1", {
       id: id.value,
-      message: message.value,
+      message: inputMessage.value,
     })
     .then((response) => {
       console.log(response.data);
