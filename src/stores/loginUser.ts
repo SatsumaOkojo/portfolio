@@ -1,11 +1,29 @@
 import { defineStore } from "pinia";
-// storeを定義する為↑
 
-export const storeLoginUser = defineStore("loginUserUser", {
-  // defineStore関数の戻り値をstoreLoginUserに入れてる
-  //   storeを識別するためのIDをloginUserとしている
+export type User = {
+  id: number;
+  name: string;
+  mail: string;
+  password: string;
+  position_id: number;
+  facility_id: number;
+};
+
+export const userCurrentUserStore = defineStore("currentUser", {
   state: () => ({
-    user: 1,
-    // state(状態)の共有をしたいuser変数を定義して初期値を入れる。
+    user: null as User | null,
   }),
+  getters: {
+    isLoggedIn(): boolean {
+      return !!this.user;
+    },
+  },
+  actions: {
+    login(user: User) {
+      this.user = user;
+    },
+    logout() {
+      this.user = null;
+    },
+  },
 });

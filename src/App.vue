@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import NavMenu from "./components/NavMenu.vue";
-import { storeLoginUser } from "./stores/loginUser";
-// import Footer from './components/Footer.vue';
-
-const loginUser = storeLoginUser();
 </script>
 
 <template>

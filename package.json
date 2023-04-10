@@ -2,7 +2,7 @@
   "name": "hoikudiary",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --mode production",
+    "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 8080",
     "build-only": "vite build --mode production",

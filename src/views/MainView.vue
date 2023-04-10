@@ -2,6 +2,7 @@
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { RouterLink } from "vue-router";
+import { userCurrentUserStore, type User } from "../stores/loginUser";
 
 import axios from "axios";
 import { ElButton } from "element-plus";
@@ -25,6 +26,7 @@ const created_at = ref<Date>();
 const message = ref("");
 
 const toString = Object.prototype.toString;
+const userCurrentUser = userCurrentUserStore().user;
 
 onMounted(() => {
   axios
@@ -97,10 +99,11 @@ const updateMessage = (): void => {
   axios
     .put(import.meta.env.VITE_LARAVEL_APP_URL + "/api/messages/1", {
       id: id.value,
-      message: message.value,
+      message: inputMessage.value,
     })
     .then((response) => {
       console.log(response.data);
+      window.location.reload();
     })
     .catch((error) => console.log(error));
 };

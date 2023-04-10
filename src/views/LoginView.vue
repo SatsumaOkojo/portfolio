@@ -5,7 +5,6 @@ import { reactive, ref } from "vue";
 import { ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 import axios from "axios";
-
 const labelPosition = ref("right");
 
 const results = ref([]);
