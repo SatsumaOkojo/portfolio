@@ -5,6 +5,8 @@ import { reactive, ref } from "vue";
 import { ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 import axios from "axios";
+import { userCurrentUserStore, type User } from "../stores/pinia";
+
 const labelPosition = ref("right");
 
 const results = ref([]);
@@ -12,6 +14,7 @@ const id = ref("");
 const mail = ref("");
 const password = ref("");
 const router = useRouter();
+const currentUserStore = userCurrentUserStore();
 
 var page_id = 1;
 const fullscreenLoading = ref(false);
@@ -21,6 +24,25 @@ const openFullScreen1 = () => {
     fullscreenLoading.value = false;
   }, 5000);
 };
+
+type BaseApiResponse = {
+  success: boolean;
+  errorMessage: string;
+};
+
+type SuccessResponse = BaseApiResponse & {
+  success: true;
+  payload: {
+    user: User;
+  };
+};
+
+type FailerResponse = BaseApiResponse & {
+  success: false;
+  payload: null;
+};
+
+type Axiosresponse = SuccessResponse | FailerResponse;
 
 onMounted(() => {
   axios
@@ -42,6 +64,7 @@ const loginCheck = (): void => {
     .then((response) => {
       console.log(response);
       router.push("/main");
+      currentUserStore.login(response);
     })
     .catch((error) => {
       console.log(error);

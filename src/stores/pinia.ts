@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { createPinia, defineStore } from "pinia";
 
 export type User = {
   id: number;
@@ -27,3 +27,7 @@ export const userCurrentUserStore = defineStore("currentUser", {
     },
   },
 });
+
+export const pinia = createPinia();
+
+export default pinia;
