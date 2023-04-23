@@ -28,9 +28,6 @@ const labelPosition = ref("right");
 </script>
 
 <template>
-  <RouterLink to="/proposal-table" class="hover"
-    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
-  >
   <!-- 権限4と3の人はここに来れない -->
   <div class="post">
     <el-form

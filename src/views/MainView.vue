@@ -2,8 +2,8 @@
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { RouterLink } from "vue-router";
-import { userCurrentUserStore, type User } from "../stores/loginUser";
-
+import { userCurrentUserStore, type User } from "../stores/userState";
+import { useRouter } from "vue-router";
 import axios from "axios";
 import { ElButton } from "element-plus";
 import { reactive } from "vue";
@@ -24,9 +24,10 @@ const event_name = ref("");
 const updated_at = ref<Date>();
 const created_at = ref<Date>();
 const message = ref("");
-
+const router = useRouter();
+const currentUserStore = userCurrentUserStore();
 const toString = Object.prototype.toString;
-const userCurrentUser = userCurrentUserStore().user;
+// const currentUserStore = userCurrentUserStore().user;
 
 onMounted(() => {
   axios
@@ -103,7 +104,7 @@ const updateMessage = (): void => {
     })
     .then((response) => {
       console.log(response.data);
-      window.location.reload();
+      router.push("/main");
     })
     .catch((error) => console.log(error));
 };
@@ -123,29 +124,6 @@ var author_id = 1;
 <template>
   <div id="facility">
     <h1>{{ facility_name }}</h1>
-  </div>
-
-  <div class="center">
-    <RouterLink to="/logout" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >ログアウト</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/proposal-table" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >企画書</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/mypage" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >マイページ</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/create-user" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >ユーザー作成</el-button
-      ></RouterLink
-    >
   </div>
 
   <div class="wrap2">

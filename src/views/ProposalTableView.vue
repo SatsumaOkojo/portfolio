@@ -44,9 +44,7 @@ var author_id = 1;
 </script>
 
 <template>
-  <RouterLink to="/main" class="hover"
-    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
-  >
+
   <div id="post-btn">
     <RouterLink to="/proposal-post" class="hover"
       ><el-button

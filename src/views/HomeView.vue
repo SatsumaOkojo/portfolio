@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-
+import { userCurrentUserStore, type User } from "../stores/userState";
+const currentUserStore = userCurrentUserStore();
 const googleForm = () => {
   location.href =
     "https://docs.google.com/forms/d/e/1FAIpQLSeD9n_GFqDToCTP613CaCsD9c6ii18YzIEbsJGC3Dw3RGHsFg/viewform?usp=sf_link";
 };
+
+const check = currentUserStore.isLoggedIn;
+console.log(check);
 </script>
 
 <template>

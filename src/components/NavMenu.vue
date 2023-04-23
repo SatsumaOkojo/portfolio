@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { useRouter } from "vue-router";
+import { userCurrentUserStore, type User } from "@/stores/userState.js";
+import type pinia from "@/stores/userState.js";
 
 var author_id = 1;
-var login_id = 0;
 
 const router = useRouter();
 const homepage = (): void => {
   router.push("/");
-  // document.location.href = import.meta.env.BASE_URL + "/";
 };
+
+const currentUserStore = userCurrentUserStore();
+
+function logout() {
+  currentUserStore.$reset();
+}
 </script>
 
 <template>
@@ -23,12 +29,13 @@ const homepage = (): void => {
   />
 
   <nav>
-    <RouterLink to="/login">ログイン</RouterLink>
-    <RouterLink to="/signup">新規登録</RouterLink>
-    <template v-if="login_id == 1">
-      <!-- ログインフラグ -->
+    <template v-if="!currentUserStore.isLoggedIn">
+      <RouterLink to="/login">ログイン</RouterLink>
+      <RouterLink to="/signup">新規登録</RouterLink>
+    </template>
+    <template v-if="currentUserStore.isLoggedIn">
       <RouterLink to="/main">メインページ</RouterLink>
-      <RouterLink to="/logout">ログアウト</RouterLink>
+      <RouterLink to="/logout" @click="logout">ログアウト</RouterLink>
       <RouterLink to="/mypage">マイページ</RouterLink>
       <RouterLink to="/proposal-table">企画書</RouterLink>
       <RouterLink to="/create-user" v-if="author_id == 1"

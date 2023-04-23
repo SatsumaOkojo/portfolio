@@ -43,10 +43,6 @@ const value = ref("");
 </script>
 
 <template>
-  <RouterLink to="/main"
-    ><el-button type="danger" class="redButton1">戻る</el-button></RouterLink
-  >
-
   <div class="create_user">
     <h1>ユーザー作成</h1>
 
