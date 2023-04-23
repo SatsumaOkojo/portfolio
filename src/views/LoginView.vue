@@ -5,7 +5,7 @@ import { reactive, ref } from "vue";
 import { ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 import axios from "axios";
-import { userCurrentUserStore, type User } from "../stores/pinia";
+import { userCurrentUserStore, type User } from "../stores/userState";
 
 const labelPosition = ref("right");
 
@@ -42,7 +42,7 @@ type FailerResponse = BaseApiResponse & {
   payload: null;
 };
 
-type Axiosresponse = SuccessResponse | FailerResponse;
+type AxiosResponse = SuccessResponse | FailerResponse;
 
 onMounted(() => {
   axios
@@ -57,18 +57,20 @@ const loginCheck = (): void => {
   console.log(mail.value);
   console.log(password.value);
   axios
-    .post(import.meta.env.VITE_LARAVEL_APP_URL + "/api/users/login/", {
-      mail: mail.value,
-      password: password.value,
-    })
+    .post<AxiosResponse>(
+      import.meta.env.VITE_LARAVEL_APP_URL + "/api/users/login/",
+      {
+        mail: mail.value,
+        password: password.value,
+      }
+    )
     .then((response) => {
       console.log(response);
       router.push("/main");
-      currentUserStore.login(response);
+      currentUserStore.login(response.data.payload.user);
     })
     .catch((error) => {
       console.log(error);
-      alert("メールアドレス、又はパスワードが間違っています");
     });
 };
 </script>

@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { useRouter } from "vue-router";
-import { userCurrentUserStore, type User } from "@/stores/pinia";
-import type pinia from "@/stores/pinia";
+import { userCurrentUserStore, type User } from "@/stores/userState.js";
+import type pinia from "@/stores/userState.js";
 
 var author_id = 1;
-var login_id = 0;
 
 const router = useRouter();
 const homepage = (): void => {
@@ -13,15 +12,10 @@ const homepage = (): void => {
 };
 
 const currentUserStore = userCurrentUserStore();
-// ログインしている状態としてない状態でナビメニューを切り替える。
-// ログインはログインページにてAPIからのuser情報を入れようとしている。
-// ログアウトは※今はMainpageにあるログアウトボタンを押したら$resetされるようにしている。
 
-// pinia.tsはどこのページに居ても状態は共有されている？から特にこのページにコードは書かなくてよい？
-
-//  2つの状態にそれぞれ名前を付ける？変数を作って判断させる？
-const nav1 = currentUserStore.login(user);
-const nav2 = currentUserStore.logout(null);
+function logout() {
+  currentUserStore.$reset();
+}
 </script>
 
 <template>
@@ -35,12 +29,13 @@ const nav2 = currentUserStore.logout(null);
   />
 
   <nav>
-    <RouterLink to="/login">ログイン</RouterLink>
-    <RouterLink to="/signup">新規登録</RouterLink>
-    <template v-if="login_id == 1">
-      <!-- ログインフラグ -->
+    <template v-if="!currentUserStore.isLoggedIn">
+      <RouterLink to="/login">ログイン</RouterLink>
+      <RouterLink to="/signup">新規登録</RouterLink>
+    </template>
+    <template v-if="currentUserStore.isLoggedIn">
       <RouterLink to="/main">メインページ</RouterLink>
-      <RouterLink to="/logout">ログアウト</RouterLink>
+      <RouterLink to="/logout" @click="logout">ログアウト</RouterLink>
       <RouterLink to="/mypage">マイページ</RouterLink>
       <RouterLink to="/proposal-table">企画書</RouterLink>
       <RouterLink to="/create-user" v-if="author_id == 1"

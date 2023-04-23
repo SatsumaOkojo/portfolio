@@ -26,6 +26,8 @@ export const userCurrentUserStore = defineStore("currentUser", {
       this.user = null;
     },
   },
+
+  persist: true,
 });
 
 export const pinia = createPinia();

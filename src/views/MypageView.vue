@@ -87,9 +87,6 @@ var author_id = 1;
 </script>
 
 <template>
-  <RouterLink to="/main" class="hover"
-    ><el-button type="primary" class="backButton">戻る</el-button></RouterLink
-  >
 
   <div id="mypage">
     <div class="float_box-wrap">

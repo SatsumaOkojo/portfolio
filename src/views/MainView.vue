@@ -2,7 +2,7 @@
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { RouterLink } from "vue-router";
-import { userCurrentUserStore, type User } from "../stores/pinia";
+import { userCurrentUserStore, type User } from "../stores/userState";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { ElButton } from "element-plus";
@@ -28,10 +28,6 @@ const router = useRouter();
 const currentUserStore = userCurrentUserStore();
 const toString = Object.prototype.toString;
 // const currentUserStore = userCurrentUserStore().user;
-
-function logout() {
-  currentUserStore.$reset();
-}
 
 onMounted(() => {
   axios
@@ -128,29 +124,6 @@ var author_id = 1;
 <template>
   <div id="facility">
     <h1>{{ facility_name }}</h1>
-  </div>
-
-  <div class="center">
-    <RouterLink to="/logout" class="hover"
-      ><el-button type="danger" class="redButton1" @click="logout"
-        >ログアウト</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/proposal-table" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >企画書</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/mypage" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >マイページ</el-button
-      ></RouterLink
-    >
-    <RouterLink to="/create-user" class="hover"
-      ><el-button type="danger" class="redButton1"
-        >ユーザー作成</el-button
-      ></RouterLink
-    >
   </div>
 
   <div class="wrap2">
